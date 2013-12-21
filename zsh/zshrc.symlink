@@ -1,0 +1,62 @@
+ZSH=$HOME/.oh-my-zsh
+
+TERM=xterm-256color
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+ZSH_THEME="moonbase"
+
+export EDITOR="subl -w"
+
+### Plugins ###
+# Plugins can ban be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+
+plugins=(git osx ruby brew gem github node npm zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+### Paths ###
+
+# Dir paths
+export DOTFILES=$HOME/.dotfiles
+export ZSH=$DOTFILES/zsh
+
+# This puts homebrew packages first in path
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# Git
+export PATH=/usr/local/git/bin:$PATH
+
+# npm-installed binaries
+export PATH=/usr/local/share/npm/bin:$PATH
+export NODE_PATH=/usr/local/share/npm/lib/node_modules
+
+# Python scripts
+export PATH=/usr/local/share/python:$PATH
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
+# Php
+export PATH=/usr/local/php5/bin:$PATH
+
+# Node-canvas / cairo stuff
+export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig:$PKG_CONFIG_PATH
+
+# Virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+if [[ -r /usr/local/share/python/virtualenvwrapper.sh ]]; then
+    source /usr/local/share/python/virtualenvwrapper.sh
+else
+    echo "Warning: Can't find virtualenvwrapper.sh"
+fi
+
+# Load rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+if [[ -s ~/.rbenv ]]; then
+    export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
+    eval "$(rbenv init -)"
+fi
+
+# Source every .zsh file from .dotfiles subdirs
+for zsh_file ($ZSH/**/*.zsh) . $zsh_file
