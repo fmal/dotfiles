@@ -19,7 +19,7 @@ for symlink ($DOTFILES/**/*.symlink) {
       echo "✖ File .$filename exists, and is not a symlink; creating backup: $HOME/.$filename.old"
       cp $HOME/.$filename $HOME/.$filename.old
     fi
-    rm $HOME/.$filename
+    rm -r $HOME/.$filename
   fi
 
   ln -s "$symlink" "$HOME/.$filename"
