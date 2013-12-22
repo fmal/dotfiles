@@ -2,9 +2,9 @@
 
 # Helper to exit and display an error message
 die () {
-  echo
-  echo $(basename $0): ${1:-"Unknown Error"} 1>&2
-  exit 1
+    echo
+    echo $(basename $0): ${1:-"Unknown Error"} 1>&2
+    exit 1
 }
 
 # Checking file dir
@@ -12,18 +12,18 @@ DOTFILES=$HOME/.dotfiles
 [ ! -d $DOTFILES ] && die "Directory ~/.dotfiles is missing"
 
 for symlink ($DOTFILES/**/*.symlink) {
-  filename=${${symlink%.symlink}##*\/}
+    filename=${${symlink%.symlink}##*\/}
 
-  if [ -f "$HOME/.$filename" ]; then # if exists
-    if [ ! -h "$HOME/.$filename" ]; then # if is not a symlink
-      echo "✖ File .$filename exists, and is not a symlink; creating backup: $HOME/.$filename.old"
-      cp $HOME/.$filename $HOME/.$filename.old
+    if [ -f "$HOME/.$filename" -o -d "$HOME/.$filename" ]; then # if exists
+        if [ ! -h "$HOME/.$filename" ]; then # if is not a symlink
+            echo "✖ .$filename exists, and is not a symlink; creating backup: $HOME/.$filename.old"
+            cp $HOME/.$filename $HOME/.$filename.old
+        fi
+        rm -r $HOME/.$filename
     fi
-    rm -r $HOME/.$filename
-  fi
 
-  ln -s "$symlink" "$HOME/.$filename"
-  echo "symlink $symlink  ➠  ~/.$filename"
+    ln -s "$symlink" "$HOME/.$filename"
+    echo "symlink $symlink  ➠  ~/.$filename"
 }
 
 # Add defaults
