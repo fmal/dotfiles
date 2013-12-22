@@ -17,7 +17,7 @@ for symlink ($DOTFILES/**/*.symlink) {
     if [ -f "$HOME/.$filename" -o -d "$HOME/.$filename" ]; then # if exists
         if [ ! -h "$HOME/.$filename" ]; then # if is not a symlink
             echo "✖ .$filename exists, and is not a symlink; creating backup: $HOME/.$filename.old"
-            cp $HOME/.$filename $HOME/.$filename.old
+            cp -r $HOME/.$filename $HOME/.$filename.old
         fi
         rm -r $HOME/.$filename
     fi
