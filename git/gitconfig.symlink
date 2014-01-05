@@ -3,7 +3,7 @@
 	email = crimhead@gmail.com
 [core]
 	excludesfile = ~/.gitignore
-	editor = sublime -n -w
+	editor = subl -n -w
 	quotepath = false
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
