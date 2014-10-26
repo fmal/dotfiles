@@ -6,7 +6,7 @@ TERM=xterm-256color
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="moonbase"
 
-export EDITOR="subl -w"
+export EDITOR="choc -w"
 
 ### Plugins ###
 # Plugins can ban be found in ~/.oh-my-zsh/plugins/*)
@@ -25,12 +25,15 @@ export ZSH=$DOTFILES/zsh
 # This puts homebrew packages first in path
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
+# Use gnu tools
+export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+
 # Git
 export PATH=/usr/local/git/bin:$PATH
 
 # npm-installed binaries
 export PATH=/usr/local/share/npm/bin:$PATH
-export NODE_PATH=/usr/local/share/npm/lib/node_modules
+export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 # Python scripts
 export PATH=/usr/local/share/python:$PATH
@@ -44,8 +47,8 @@ export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig:$PKG_CONFIG_PATH
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-if [[ -r /usr/local/share/python/virtualenvwrapper.sh ]]; then
-    source /usr/local/share/python/virtualenvwrapper.sh
+if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
 else
     echo "Warning: Can't find virtualenvwrapper.sh"
 fi

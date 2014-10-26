@@ -1,5 +1,5 @@
-alias zshconfig="subl ~/.zshrc"
-alias edit="subl"
+alias zshconfig="choc ~/.zshrc"
+alias edit="choc"
 alias ss='source ~/.zshrc' # quick source
 alias mkdir="mkdir -p"
 alias l="ls -al"

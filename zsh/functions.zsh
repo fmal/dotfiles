@@ -28,7 +28,7 @@ function show-permissions() {
             *2^(8-i));if(k)printf("%0o ",k);print}'
 }
 
-# create a new file in the current directory and then open it in Sublime
+# create a new file in the current directory and then open it in Chocolat
 new() {
-    touch $1 && subl $1
+    touch $1 && choc $1
 }
