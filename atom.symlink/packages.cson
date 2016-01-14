@@ -1,0 +1,9 @@
+packages: [
+  "atom-ternjs"
+  "auto-detect-indentation"
+  "autocomplete-modules"
+  "dracula-theme"
+  "dracula-ui"
+  "editorconfig"
+  "package-sync"
+]

@@ -1,3 +1,11 @@
 .DS_Store
 *.sublime-project
 secret/
+
+### Atom ###
+atom.symlink/packages
+atom.symlink/storage
+atom.symlink/compile-cache
+atom.symlink/blob-store
+atom.symlink/.apm
+atom.symlink/.node-gyp

@@ -1,0 +1,28 @@
+"*":
+  core:
+    disabledPackages: [
+      "metrics"
+      "welcome"
+      "language-c"
+      "language-java"
+      "language-clojure"
+      "language-objective-c"
+      "language-perl"
+      "language-ruby"
+      "language-ruby-on-rails"
+    ]
+    themes: [
+      "dracula-ui"
+      "dracula-theme"
+    ]
+  editor:
+    fontFamily: "Fira Mono"
+    fontSize: 16
+    invisibles: {}
+    showIndentGuide: true
+    softWrap: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "ae9cc485-ff2f-b642-a290-6c04ae71f845"
+  welcome:
+    showOnStartup: false
