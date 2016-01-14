@@ -1,4 +1,1 @@
-_auth = Zm1hbDpmaWZpX21hc3RlcjE=
-email = fmalinowski@gmail.com
-loglevel = error
-save-dev = true
+save-prefix = ~
