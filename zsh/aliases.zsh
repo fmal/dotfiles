@@ -14,7 +14,10 @@ alias desktop="cd ~/Desktop"
 alias copy="cp -r"
 alias delete="rm -r"
 # http://martineau.tv/blog/2013/12/more-efficient-grunt-workflows/
-alias npmui="npm-check-updates -u && npm install"
+alias nui="npm-check-updates -u && npm install"
+alias nis="npm install --save"
+alias nid="npm install --save-dev"
+alias nf="npm cache clean && rm -rf node_modules && npm install"
 
 # Inkscape
 if [[ -f /Applications/Inkscape.app/Contents/Resources/bin/inkscape ]]; then
