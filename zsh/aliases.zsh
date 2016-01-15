@@ -1,5 +1,5 @@
 alias zshconfig="choc ~/.zshrc"
-alias edit="choc"
+alias edit="atom"
 alias ss='source ~/.zshrc' # quick source
 alias mkdir="mkdir -p"
 alias l="ls -al"
@@ -14,7 +14,7 @@ alias desktop="cd ~/Desktop"
 alias copy="cp -r"
 alias delete="rm -r"
 # http://martineau.tv/blog/2013/12/more-efficient-grunt-workflows/
-alias npmui="npm-check-updates -u && sudo npm install"
+alias npmui="npm-check-updates -u && npm install"
 
 # Inkscape
 if [[ -f /Applications/Inkscape.app/Contents/Resources/bin/inkscape ]]; then

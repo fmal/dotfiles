@@ -12,23 +12,13 @@ gifify() {
     fi
 }
 
-# Install a grunt plugin and save to devDependencies
-function gi() {
-    sudo npm install --save-dev grunt-"$@"
-}
-
-# Install a grunt-contrib plugin and save to devDependencies
-function gci() {
-    sudo npm install --save-dev grunt-contrib-"$@"
-}
-
 # See the chmod numbers for the files in a directory
 function show-permissions() {
     ls -l | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) \
             *2^(8-i));if(k)printf("%0o ",k);print}'
 }
 
-# create a new file in the current directory and then open it in Chocolat
+# create a new file in the current directory and then open it in Atom
 new() {
     touch $1 && atom $1
 }
