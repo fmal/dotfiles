@@ -9,11 +9,11 @@
  * http://lesscss.org
  */
 
+@import "ui-variables";
 
-/*
- * Examples
- * (To see them, uncomment and save)
- */
+@editor-font-size: 16;
+@line-number-font-size: 14;
+@line-number-line-height: @editor-font-size * 1.5;
 
 // style the background color of the tree view
 .tree-view {
@@ -24,13 +24,21 @@
 atom-text-editor {
   // color: white;
   // background-color: hsl(180, 24%, 12%);
-}
 
-// To style other content in the text editor's shadow DOM, use the ::shadow expression
-atom-text-editor::shadow .cursor {
-  // border-color: red;
-}
+  // To style other content in the text editor's shadow DOM, use the ::shadow expression
+  &::shadow {
+    .wrap-guide {
+      background-color: fadeout(lighten(@ui-currentline, 10%), 50%);
+    }
 
-atom-text-editor::shadow .wrap-guide {
-  background-color: hsl(232, 14%, 31%);
+    .cursor {
+      transition: opacity .5s;
+    }
+
+    .gutter .line-number {
+      min-width: 5ch;
+      font-size: (@line-number-font-size / @editor-font-size) * 1em;
+      line-height: (@line-number-line-height / @line-number-font-size);
+    }
+  }
 }
