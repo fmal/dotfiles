@@ -1,4 +1,4 @@
-alias zshconfig="choc ~/.zshrc"
+alias zshconfig="atom ~/.zshrc"
 alias edit="atom"
 alias ss='source ~/.zshrc' # quick source
 alias mkdir="mkdir -p"
