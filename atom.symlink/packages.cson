@@ -5,5 +5,8 @@ packages: [
   "dracula-theme"
   "dracula-ui"
   "editorconfig"
+  "linter"
+  "linter-js-standard"
+  "merge-conflicts"
   "package-sync"
 ]
