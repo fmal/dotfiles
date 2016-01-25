@@ -5,8 +5,10 @@ packages: [
   "dracula-theme"
   "dracula-ui"
   "editorconfig"
+  "isearch"
+  "language-javascript-jsx"
   "linter"
-  "linter-js-standard"
+  "linter-eslint"
   "merge-conflicts"
   "package-sync"
 ]
