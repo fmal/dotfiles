@@ -1,5 +1,5 @@
 alias zshconfig="atom ~/.zshrc"
-alias edit="atom"
+alias a="atom"
 alias ss='source ~/.zshrc' # quick source
 alias mkdir="mkdir -p"
 alias l="ls -al"
@@ -8,8 +8,15 @@ alias ll="ls -GFhl"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias o="open ./"
+alias f="finder"
 alias projects="cd ~/Projects"
 alias desktop="cd ~/Desktop"
+# hidden files management
+alias see="defaults write com.apple.finder AppleShowAllFiles YES;
+killall Finder /System/Library/CoreServices/Finder.app"
+alias unsee="defaults write com.apple.finder AppleShowAllFiles NO;
+killall Finder /System/Library/CoreServices/Finder.app"
 # will copy folder contents, if folder ends in / will copy contents, not folder itself
 alias copy="cp -r"
 alias delete="rm -r"
