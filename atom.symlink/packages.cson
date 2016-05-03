@@ -5,6 +5,7 @@ packages: [
   "dracula-theme"
   "dracula-ui"
   "editorconfig"
+  "file-icons"
   "isearch"
   "language-javascript-jsx"
   "linter"
