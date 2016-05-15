@@ -7,7 +7,7 @@ packages: [
   "editorconfig"
   "file-icons"
   "isearch"
-  "language-javascript-jsx"
+  "language-babel"
   "linter"
   "linter-eslint"
   "merge-conflicts"
