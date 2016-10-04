@@ -6,7 +6,6 @@ packages: [
   "dracula-ui"
   "editorconfig"
   "file-icons"
-  "isearch"
   "language-babel"
   "linter"
   "linter-eslint"
