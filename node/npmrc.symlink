@@ -1,3 +1,4 @@
-loglevel = "warn"
-progress = false
-save-prefix = "~"
+loglevel=warn
+progress=false
+save-prefix=~
+//registry.npmjs.org/:_authToken=${NPM_TOKEN}

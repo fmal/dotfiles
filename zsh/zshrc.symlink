@@ -56,3 +56,8 @@ source $DOTFILES/zsh/aliases.zsh
 
 ### Functions ###
 source $DOTFILES/zsh/functions.zsh
+
+### Secret stuff ###
+if [[ -f $DOTFILES/secret/zshrc ]]; then
+    source $DOTFILES/secret/zshrc
+fi
