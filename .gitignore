@@ -2,9 +2,6 @@
 *.sublime-project
 secret/
 
-### zsh ###
-.zsh/cache
-
 ### Atom ###
 atom.symlink/packages
 atom.symlink/storage

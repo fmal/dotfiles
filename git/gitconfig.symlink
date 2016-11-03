@@ -1,7 +1,7 @@
 [core]
   excludesfile = ~/.gitignore
   # Treat spaces before tabs, lines that are indented with 8 or more spaces,
-  # and all kinds # of trailing whitespace as an error
+  # and all kinds of trailing whitespace as an error
   whitespace = space-before-tab,indent-with-non-tab,trailing-space
   editor = atom -w
   quotepath = false
@@ -26,7 +26,7 @@
 
 [color]
   # Use colors in Git commands that are capable of colored output when outputting to the terminal
-	ui = true
+  ui = true
 
 [color "branch"]
   current = yellow reverse
@@ -45,7 +45,7 @@
   untracked = cyan
 
 [hub]
-	protocol = https
+  protocol = https
 
 # use separate file for username / github token etc
 #   git config -f ~/.gitconfig.local user.name John Appleseed

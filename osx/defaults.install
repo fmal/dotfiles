@@ -9,8 +9,12 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool false
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Hide Spotlight icon from menu bar
-sudo mv /System/Library/CoreServices/Search.bundle /System/Library/CoreServices/Search.bundle.bak
-killall SystemUIServer
+# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+# killall SystemUIServer
+
+# Disable Spotlight indexing for any volume that gets mounted and has not yet
+# been indexed before
+sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
 # Don’t show Dashboard as a Space
 defaults write com.apple.dock dashboard-in-overlay -bool true

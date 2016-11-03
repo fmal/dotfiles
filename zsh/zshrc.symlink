@@ -8,7 +8,6 @@ export EDITOR="atom -w"
 
 # Dir paths
 export DOTFILES=$HOME/.dotfiles
-export ZSH=$DOTFILES/zsh
 
 # This puts homebrew packages first in path
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
@@ -50,25 +49,10 @@ if [[ -s ~/.rbenv ]]; then
 fi
 
 ### Plugins ###
+source $DOTFILES/zsh/plugins.zsh
 
-# Use Antigen as zsh package manager
-source $(brew --prefix)/share/antigen/antigen.zsh
+### Aliases ###
+source $DOTFILES/zsh/aliases.zsh
 
-# Load the oh-my-zsh's library
-antigen use oh-my-zsh
-
-antigen bundle git
-antigen bundle github
-antigen bundle osx
-antigen bundle ruby
-antigen bundle brew
-antigen bundle node
-antigen bundle npm
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
-
-antigen apply
-
-# Source every .zsh file from .dotfiles subdirs
-for zsh_file ($ZSH/**/*.zsh) . $zsh_file
+### Functions ###
+source $DOTFILES/zsh/functions.zsh
