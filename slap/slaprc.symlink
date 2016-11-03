@@ -1,0 +1,28 @@
+[logger]
+level = "error"
+
+[editor.buffer]
+tabSize = 4
+visibleWhiteSpace = true
+visibleLineEndings = false
+
+[editor.style]
+selection = "{magenta-bg}"
+
+[editor.gutter.style]
+bg = ""
+
+[header.style]
+bg = "black"
+
+[fileBrowser]
+selectedBg = "magenta"
+
+[fileBrowser]
+width = 14
+
+[paneList.style]
+bg = ""
+
+[paneList.list]
+selectedBg = "magenta"
