@@ -22,7 +22,7 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontFamily: "Fira Mono"
+    fontFamily: "FiraCode-Retina"
     invisibles: {}
     showIndentGuide: true
     softWrap: true
