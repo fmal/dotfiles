@@ -2,7 +2,13 @@
 export TERM=xterm-256color
 
 # Default editor
-export EDITOR="atom -w"
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR="nano"
+else
+    export EDITOR="atom -w"
+fi
+
+export HOMEBREW_INSTALL_BADGE=✨
 
 ### Paths ###
 
