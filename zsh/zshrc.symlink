@@ -9,6 +9,7 @@ else
 fi
 
 export HOMEBREW_INSTALL_BADGE=✨
+export EMOJI_CLI_KEYBIND=^e
 
 ### Paths ###
 
@@ -33,9 +34,6 @@ export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 # Python scripts
 export PATH=/usr/local/share/python:$PATH
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
-
-# Php
-# export PATH=/usr/local/php5/bin:$PATH
 
 # Node-canvas / cairo stuff
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig:$PKG_CONFIG_PATH

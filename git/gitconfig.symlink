@@ -5,7 +5,9 @@
   whitespace = space-before-tab,indent-with-non-tab,trailing-space
   editor = atom -w
   quotepath = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  # Make `git rebase` safer on Mac OS
+  trustctime = false
+  pager = diff-so-fancy | less --tabs=4 -RFX
 
 [pull]
   rebase = true
@@ -37,10 +39,10 @@
   whitespace = red reverse
 
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = "red bold 52"
-	newNormal = "green bold"
-	newHighlight = "green bold 22"
+  oldNormal = red bold
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"
 
 [color "branch"]
   current = yellow reverse
