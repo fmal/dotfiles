@@ -11,4 +11,5 @@ packages: [
   "linter-eslint"
   "merge-conflicts"
   "package-sync"
+  "project-folder"
 ]

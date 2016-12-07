@@ -22,7 +22,7 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontFamily: "FiraCode-Retina"
+    fontFamily: "SF Mono"
     invisibles: {}
     showIndentGuide: true
     softWrap: true
@@ -37,5 +37,12 @@
     showErrorTabProject: false
     statusIconPosition: "Right"
     statusIconScope: "File"
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
+  "project-folder":
+    projectRootDirectories: [
+      "~/Projects"
+    ]
   welcome:
     showOnStartup: false
