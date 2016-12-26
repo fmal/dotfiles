@@ -17,14 +17,15 @@
   default = simple
 
 [alias]
-  a = add
-  c = commit
-  ca = commit --amend
-  pr = pull --rebase
-  pu = push
-  r = reset --soft "HEAD^1"
-  s = status -s
-  hash = rev-parse --short HEAD
+  s = status -sb
+  uncommit = reset --soft HEAD^
+  unstage = reset HEAD
+  discard = checkout --
+  difflast = diff HEAD^
+  diffstaged = diff --cached
+  last = log -1 HEAD --stat --abbrev-commit
+  lg = log --graph --pretty=format:'%C(bold green)%h%Creset -%C(magenta)%d%Creset %s %C(dim white)(%cr)%Creset %C(cyan)<%an>%Creset'
+  log1 = log --oneline --max-count=15
 
 [color]
   # Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -40,9 +41,9 @@
 
 [color "diff-highlight"]
   oldNormal = red bold
-  oldHighlight = "red bold 52"
-  newNormal = "green bold"
-  newHighlight = "green bold 22"
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 
 [color "branch"]
   current = yellow reverse
