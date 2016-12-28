@@ -10,6 +10,7 @@ packages: [
   "linter"
   "linter-eslint"
   "merge-conflicts"
+  "no-title-bar"
   "package-sync"
   "project-folder"
 ]

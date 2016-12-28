@@ -44,5 +44,7 @@
     projectRootDirectories: [
       "~/Projects"
     ]
+  "tree-view":
+    showOnRightSide: true
   welcome:
     showOnStartup: false
