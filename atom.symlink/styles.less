@@ -21,25 +21,22 @@
 }
 
 // style the background and foreground colors on the atom-text-editor-element itself
-atom-text-editor {
+atom-text-editor.editor {
   // color: white;
   // background-color: hsl(180, 24%, 12%);
 
-  // To style other content in the text editor's shadow DOM, use the ::shadow expression
-  &::shadow {
-    .wrap-guide {
-      background-color: fadeout(lighten(@ui-currentline, 10%), 50%);
-    }
+  .wrap-guide {
+    background-color: fadeout(lighten(@ui-currentline, 10%), 50%);
+  }
 
-    .cursor {
-      transition: opacity .5s;
-    }
+  .cursor {
+    transition: opacity .5s;
+  }
 
-    .gutter .line-number {
-      min-width: 5ch;
-      font-size: (@line-number-font-size / @editor-font-size) * 1em;
-      line-height: (@line-number-line-height / @line-number-font-size);
-    }
+  .gutter .line-number {
+    min-width: 6ch;
+    font-size: (@line-number-font-size / @editor-font-size) * 1em;
+    line-height: (@line-number-line-height / @line-number-font-size);
   }
 }
 
