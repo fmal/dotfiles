@@ -48,3 +48,5 @@
     showOnRightSide: true
   welcome:
     showOnStartup: false
+  zentabs:
+    neverCloseUnsaved: true
