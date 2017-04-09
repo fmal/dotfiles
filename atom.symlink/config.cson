@@ -30,13 +30,10 @@
     userId: "ae9cc485-ff2f-b642-a290-6c04ae71f845"
   "file-icons":
     coloured: false
-  linter:
-    gutterEnabled: false
-    gutterPosition: "Left"
-    showErrorTabFile: false
-    showErrorTabProject: false
-    statusIconPosition: "Right"
-    statusIconScope: "File"
+  "linter-ui-default":
+    decorateOnTreeView: "None"
+    statusBarPosition: "Right"
+    useBusySignal: false
   "package-sync":
     createOnChange: true
     forceOverwrite: true
