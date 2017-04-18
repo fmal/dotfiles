@@ -20,7 +20,7 @@
       "dracula-ui"
       "dracula-theme"
     ]
-    useCustomTitleBar: true
+    titleBar: "custom"
   editor:
     fontFamily: "SF Mono"
     invisibles: {}

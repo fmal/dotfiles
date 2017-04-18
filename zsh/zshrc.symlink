@@ -10,6 +10,7 @@ fi
 
 export HOMEBREW_INSTALL_BADGE=✨
 export EMOJI_CLI_KEYBIND=^e
+export GITHUB_TOKEN=$(cat $HOME/.github_token)
 
 ### Paths ###
 
