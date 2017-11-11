@@ -11,7 +11,10 @@ antigen bundle ruby
 antigen bundle brew
 antigen bundle node
 antigen bundle npm
+
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
 antigen bundle b4b4r07/emoji-cli
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure

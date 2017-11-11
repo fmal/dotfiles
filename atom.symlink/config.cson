@@ -18,11 +18,12 @@
     telemetryConsent: "no"
     themes: [
       "dracula-ui"
-      "dracula-theme"
+      "dracula-syntax"
     ]
     titleBar: "custom"
   editor:
-    fontFamily: "SF Mono"
+    fontFamily: "Fira Mono"
+    fontSize: 16
     invisibles: {}
     showIndentGuide: true
     softWrap: true
