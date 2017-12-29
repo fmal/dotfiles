@@ -2,7 +2,7 @@ packages: [
   "atom-ternjs"
   "auto-detect-indentation"
   "autocomplete-modules"
-  "dracula-theme"
+  "dracula-syntax"
   "dracula-ui"
   "editorconfig"
   "file-icons"
