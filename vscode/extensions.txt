@@ -1,6 +1,7 @@
 Compulim.indent4to2
 EditorConfig.EditorConfig
 alefragnani.project-manager
+andrewleedham.vscode-css-modules
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 codezombiech.gitignore

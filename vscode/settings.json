@@ -65,6 +65,8 @@
 
   "javascript.validate.enable": false,
 
+  "css.validate": false,
+
   "extensions.ignoreRecommendations": true,
 
   "telemetry.enableTelemetry": false,
