@@ -1,7 +1,7 @@
 // Place your key bindings in this file to overwrite the defaults
 [
   {
-    "key": "cmd+shift+\\",
+    "key": "ctrl+shift+\\",
     "command": "workbench.files.action.showActiveFileInExplorer",
     "when": "editorTextFocus"
   },

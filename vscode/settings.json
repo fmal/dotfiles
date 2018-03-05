@@ -8,7 +8,9 @@
       "editorGroupHeader.tabsBackground": "#221f22",
       "tab.inactiveBackground": "#221f22",
       "tab.activeBackground": "#2d2a2e",
+      "tab.border": "#221f22",
       "tab.activeBorder": "#2d2a2e",
+      "tab.unfocusedActiveBorder": "#2d2a2e"
     }
   },
   "workbench.activityBar.visible": false,
