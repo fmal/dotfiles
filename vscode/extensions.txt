@@ -1,0 +1,14 @@
+Compulim.indent4to2
+EditorConfig.EditorConfig
+alefragnani.project-manager
+christian-kohler.npm-intellisense
+christian-kohler.path-intellisense
+codezombiech.gitignore
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+formulahendry.auto-close-tag
+formulahendry.auto-complete-tag
+formulahendry.auto-rename-tag
+mgmcdermott.vscode-language-babel
+monokai.theme-monokai-pro-vscode
+ms-vscode.atom-keybindings

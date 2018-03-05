@@ -22,7 +22,7 @@
     ]
     titleBar: "custom"
   editor:
-    fontFamily: "Fira Mono"
+    fontFamily: "IBM Plex Mono"
     fontSize: 16
     invisibles: {}
     showIndentGuide: true

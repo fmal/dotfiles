@@ -1,30 +1,23 @@
 #!/usr/bin/env zsh
 
-# Helper to exit and display an error message
-die () {
-    echo
-    echo $(basename $0): ${1:-"Unknown Error"} 1>&2
-    exit 1
-}
+source helpers.sh
 
 # Checking file dir
 DOTFILES=$HOME/.dotfiles
-[ ! -d $DOTFILES ] && die "Directory ~/.dotfiles is missing"
+[[ ! -d $DOTFILES ]] && die "Directory ~/.dotfiles is missing"
 
 for symlink ($DOTFILES/**/*.symlink) {
     filename=${${symlink%.symlink}##*\/}
 
-    if [ -f "$HOME/.$filename" -o -d "$HOME/.$filename" ]; then # if exists
-        if [ ! -h "$HOME/.$filename" ]; then # if is not a symlink
-            echo "✖ .$filename exists, and is not a symlink; creating backup: $HOME/.$filename.old"
-            cp -r $HOME/.$filename $HOME/.$filename.old
-        fi
-        rm -r $HOME/.$filename
-    fi
-
-    ln -s "$symlink" "$HOME/.$filename"
-    echo "symlink $symlink  ➠  ~/.$filename"
+    set_symlink "$symlink" "$HOME/.$filename"
 }
+
+# Special case symlink for vscode files
+if [[ -d $HOME/Library/Application\ Support/Code/User ]]; then
+    set_symlink "$DOTFILES/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+    set_symlink "$DOTFILES/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+    set_symlink "$DOTFILES/vscode/projects.json" "$HOME/Library/Application Support/Code/User/projects.json"
+fi
 
 # Add defaults
 set -e

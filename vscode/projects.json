@@ -1,0 +1,14 @@
+[
+	{
+		"name": "rk-basic",
+		"rootPath": "$home/Code/rk-basic/frontend",
+		"paths": [],
+		"group": ""
+	},
+	{
+		"name": "intraday",
+		"rootPath": "$home/Code/Intraday/web",
+		"paths": [],
+		"group": ""
+	}
+]

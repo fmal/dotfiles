@@ -5,7 +5,7 @@ export TERM=xterm-256color
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR="nano"
 else
-    export EDITOR="atom -w"
+    export EDITOR="code -w"
 fi
 
 export HOMEBREW_INSTALL_BADGE=✨
