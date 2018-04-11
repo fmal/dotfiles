@@ -1,5 +1,4 @@
-alias zshconfig="atom ~/.zshrc"
-alias a="atom"
+alias zshconfig="code ~/.zshrc"
 alias ss='source ~/.zshrc' # quick source
 alias mkdir="mkdir -p"
 alias l="ls -al"

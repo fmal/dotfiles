@@ -11,7 +11,7 @@
       "tab.border": "#221f22",
       "tab.activeBorder": "#2d2a2e",
       "tab.unfocusedActiveBorder": "#2d2a2e",
-      "editorActiveLineNumber.foreground": "#939293"
+      "editorLineNumber.activeForeground": "#939293"
     }
   },
   "workbench.activityBar.visible": false,
@@ -22,7 +22,7 @@
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.showIcons": false,
   "editor.fontSize": 16,
-  "editor.fontFamily": "IBM PLex Mono, monospace",
+  "editor.fontFamily": "LigaIBMPlexMono, monospace",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,

@@ -4,19 +4,21 @@ source $(brew --prefix)/share/antigen/antigen.zsh
 # Load the oh-my-zsh's library
 antigen use oh-my-zsh
 
-antigen bundle git
-antigen bundle github
-antigen bundle osx
-antigen bundle ruby
-antigen bundle brew
-antigen bundle node
-antigen bundle npm
+antigen bundles <<EOB
+  git
+  github
+  osx
+  ruby
+  brew
+  node
+  npm
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
+  zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-autosuggestions
 
-antigen bundle b4b4r07/emoji-cli
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+  b4b4r07/emoji-cli
+EOB
+
+antigen theme denysdovhan/spaceship-prompt spaceship
 
 antigen apply

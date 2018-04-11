@@ -35,26 +35,26 @@ export PATH=/usr/local/git/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
-# Python scripts
-export PATH=/usr/local/share/python:$PATH
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
-
 # Node-canvas / cairo stuff
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig:$PKG_CONFIG_PATH
 
+# Python
+export PATH=usr/local/opt/python/libexec/bin:$PATH
+
 # Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
 if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+    export WORKON_HOME=$HOME/.virtualenvs
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 # Load rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-if [[ -s ~/.rbenv ]]; then
+if [[ -d $HOME/.rbenv ]]; then
     export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
     eval "$(rbenv init -)"
 fi
+
+### Prompt configuration ###
+source $DOTFILES/zsh/prompt.zsh
 
 ### Plugins ###
 source $DOTFILES/zsh/plugins.zsh
