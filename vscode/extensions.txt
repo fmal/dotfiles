@@ -1,11 +1,12 @@
 Compulim.indent4to2
 EditorConfig.EditorConfig
-alefragnani.project-manager
 andrewleedham.vscode-css-modules
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
+clinyong.vscode-css-modules
 codezombiech.gitignore
 dbaeumer.vscode-eslint
+drKnoxy.eslint-disable-snippets
 esbenp.prettier-vscode
 formulahendry.auto-close-tag
 formulahendry.auto-complete-tag
@@ -13,3 +14,7 @@ formulahendry.auto-rename-tag
 mgmcdermott.vscode-language-babel
 monokai.theme-monokai-pro-vscode
 ms-vscode.atom-keybindings
+Orta.vscode-jest
+Prisma.vscode-graphql
+sdras.night-owl
+tombonnike.vscode-status-bar-format-toggle

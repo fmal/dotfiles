@@ -1,7 +1,7 @@
 {
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Monokai Pro",
-  "workbench.iconTheme": "Monokai Pro Monochrome Icons",
+  "workbench.colorTheme": "Night Owl",
+  "workbench.iconTheme": "Monokai Pro Icons",
   "workbench.colorCustomizations": {
     "[Monokai Pro]": {
       "titleBar.activeBackground": "#221f22",
@@ -13,6 +13,13 @@
       "tab.activeBorder": "#2d2a2e",
       "tab.unfocusedActiveBorder": "#2d2a2e",
       "editorLineNumber.activeForeground": "#939293"
+    },
+    "[Night Owl]": {
+      "activityBar.background": "#000C1D",
+      "activityBar.border": "#102a44",
+      "sideBar.background": "#001122",
+      "sideBar.border": "#102a44",
+      "sideBar.foreground": "#8BADC1"
     }
   },
   "workbench.activityBar.visible": false,
@@ -22,8 +29,10 @@
   "workbench.tips.enabled": false,
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.showIcons": false,
-  "editor.fontSize": 16,
-  "editor.fontFamily": "LigaIBMPlexMono, monospace",
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": 0,
+  "editor.fontSize": 18,
+  "editor.fontFamily": "'Dank Mono', LigaIBMPlexMono, monospace",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
@@ -36,9 +45,7 @@
   "editor.renderWhitespace": "boundary",
   "editor.lightbulb.enabled": false,
   "editor.occurrencesHighlight": false,
-  "editor.rulers": [
-    80
-  ],
+  "editor.rulers": [80],
   "editor.smoothScrolling": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.acceptSuggestionOnEnter": "smart",
@@ -66,9 +73,7 @@
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
   "atomKeymap.promptV3Features": true,
-  "prettier.disableLanguages": [
-    "js"
-  ],
+  "prettier.disableLanguages": ["js"],
   "eslint.autoFixOnSave": true,
   "projectManager.treeview.visible": false,
   "projectManager.showProjectNameInStatusBar": false,
