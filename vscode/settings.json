@@ -19,7 +19,8 @@
       "activityBar.border": "#102a44",
       "sideBar.background": "#001122",
       "sideBar.border": "#102a44",
-      "sideBar.foreground": "#8BADC1"
+      "sideBar.foreground": "#8BADC1",
+      "tab.border": "#010e1a"
     }
   },
   "workbench.activityBar.visible": false,
@@ -36,6 +37,8 @@
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
   "editor.minimap.enabled": false,
   "editor.renderIndentGuides": false,
   "editor.cursorStyle": "line-thin",
@@ -75,9 +78,13 @@
   "atomKeymap.promptV3Features": true,
   "prettier.disableLanguages": ["js"],
   "eslint.autoFixOnSave": true,
-  "projectManager.treeview.visible": false,
-  "projectManager.showProjectNameInStatusBar": false,
   "monokaiPro.fileIconsMonochrome": true,
+  "vscode_custom_css.imports": [
+    "file:///Users/fima/.dotfiles/vscode/customizations.css"
+  ],
+  "vscode_custom_css.policy": true,
+  "vscode_custom_css.statusbar": false,
+  "formattingToggle.activateFor": ["formatOnSave"],
   "[javascript]": {
     "editor.formatOnSave": false
   }
