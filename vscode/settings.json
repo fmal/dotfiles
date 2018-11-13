@@ -78,6 +78,9 @@
   "atomKeymap.promptV3Features": true,
   "prettier.disableLanguages": ["js"],
   "eslint.autoFixOnSave": true,
+  "eslint.options": {
+    "ignorePath": ".gitignore"
+  },
   "monokaiPro.fileIconsMonochrome": true,
   "vscode_custom_css.imports": [
     "file:///Users/fima/.dotfiles/vscode/customizations.css"
