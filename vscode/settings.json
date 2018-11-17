@@ -81,6 +81,12 @@
   "eslint.options": {
     "ignorePath": ".gitignore"
   },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    { "language": "typescript", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true }
+  ],
   "monokaiPro.fileIconsMonochrome": true,
   "vscode_custom_css.imports": [
     "file:///Users/fima/.dotfiles/vscode/customizations.css"
