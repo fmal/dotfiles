@@ -78,9 +78,9 @@
   "atomKeymap.promptV3Features": true,
   "prettier.disableLanguages": ["js"],
   "eslint.autoFixOnSave": true,
-  "eslint.options": {
-    "ignorePath": ".gitignore"
-  },
+  // "eslint.options": {
+  //   "ignorePath": ".gitignore"
+  // },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -95,6 +95,9 @@
   "vscode_custom_css.statusbar": false,
   "formattingToggle.activateFor": ["formatOnSave"],
   "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[handlebars]": {
     "editor.formatOnSave": false
   }
 }
