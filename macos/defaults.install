@@ -116,9 +116,6 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -boo
 defaults write com.apple.screensaver askForPassword -bool true
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
 # Enable SVG compression for Sketch
 defaults write com.bohemiancoding.sketch3 exportCompactSVG -bool yes
 
