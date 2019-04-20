@@ -1,6 +1,7 @@
 .DS_Store
 *.sublime-project
 secret/
+/zsh/plugins.zsh.zwc
 
 ### Atom ###
 atom.symlink/packages
