@@ -26,7 +26,6 @@
   "workbench.activityBar.visible": false,
   "workbench.editor.tabCloseButton": "off",
   "workbench.sideBar.location": "right",
-  "workbench.statusBar.feedback.visible": false,
   "workbench.tips.enabled": false,
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.showIcons": false,
@@ -58,6 +57,7 @@
     "comments": false,
     "strings": false
   },
+  "breadcrumbs.enabled": false,
   "explorer.autoReveal": false,
   "explorer.openEditors.visible": 0,
   "terminal.external.osxExec": "iTerm.app",
@@ -99,5 +99,8 @@
   },
   "[handlebars]": {
     "editor.formatOnSave": false
+  },
+  "search.exclude": {
+    "**/*.js.map": true
   }
 }
