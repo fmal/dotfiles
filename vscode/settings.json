@@ -20,7 +20,8 @@
       "sideBar.background": "#001122",
       "sideBar.border": "#102a44",
       "sideBar.foreground": "#8BADC1",
-      "tab.border": "#010e1a"
+      "tab.border": "#010e1a",
+      "contrastBorder": "#011627"
     }
   },
   "workbench.activityBar.visible": false,
@@ -29,6 +30,9 @@
   "workbench.tips.enabled": false,
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.showIcons": false,
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.settings.editor": "json",
+  "workbench.settings.useSplitJSON": true,
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
   "editor.fontSize": 18,
@@ -47,7 +51,9 @@
   "editor.renderWhitespace": "boundary",
   "editor.lightbulb.enabled": false,
   "editor.occurrencesHighlight": false,
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   "editor.smoothScrolling": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.acceptSuggestionOnEnter": "smart",
@@ -76,7 +82,9 @@
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
   "atomKeymap.promptV3Features": true,
-  "prettier.disableLanguages": ["js"],
+  "prettier.disableLanguages": [
+    "js"
+  ],
   "eslint.autoFixOnSave": true,
   // "eslint.options": {
   //   "ignorePath": ".gitignore"
@@ -84,8 +92,14 @@
   "eslint.validate": [
     "javascript",
     "javascriptreact",
-    { "language": "typescript", "autoFix": true },
-    { "language": "typescriptreact", "autoFix": true }
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
   ],
   "monokaiPro.fileIconsMonochrome": true,
   "vscode_custom_css.imports": [
@@ -93,7 +107,9 @@
   ],
   "vscode_custom_css.policy": true,
   "vscode_custom_css.statusbar": false,
-  "formattingToggle.activateFor": ["formatOnSave"],
+  "formattingToggle.activateFor": [
+    "formatOnSave"
+  ],
   "[javascript]": {
     "editor.formatOnSave": false
   },

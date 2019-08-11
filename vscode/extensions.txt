@@ -10,8 +10,6 @@ dbaeumer.vscode-eslint
 drKnoxy.eslint-disable-snippets
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
-formulahendry.auto-close-tag
-formulahendry.auto-complete-tag
 formulahendry.auto-rename-tag
 lehni.vscode-fix-checksums
 mgmcdermott.vscode-language-babel
@@ -23,4 +21,5 @@ Prisma.vscode-graphql
 sdras.night-owl
 silvenon.mdx
 tombonnike.vscode-status-bar-format-toggle
+WallabyJs.quokka-vscode
 wix.glean
