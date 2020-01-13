@@ -36,7 +36,7 @@
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
   "editor.fontSize": 18,
-  "editor.fontFamily": "'Dank Mono', LigaIBMPlexMono, monospace",
+  "editor.fontFamily": "'Dank Mono', Mononoki, LigaIBMPlexMono, monospace",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
@@ -63,6 +63,9 @@
     "comments": false,
     "strings": false
   },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "breadcrumbs.enabled": false,
   "explorer.autoReveal": false,
   "explorer.openEditors.visible": 0,
@@ -85,29 +88,26 @@
   "prettier.disableLanguages": [
     "js"
   ],
-  "eslint.autoFixOnSave": true,
   // "eslint.options": {
   //   "ignorePath": ".gitignore"
   // },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    {
-      "language": "typescript",
-      "autoFix": true
-    },
-    {
-      "language": "typescriptreact",
-      "autoFix": true
-    }
-  ],
+  "files.associations": {
+    "*.tpl": "php"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "php": "html"
+  },
+  "emmet.syntaxProfiles": {
+    "php": "html"
+  },
   "monokaiPro.fileIconsMonochrome": true,
   "vscode_custom_css.imports": [
     "file:///Users/fima/.dotfiles/vscode/customizations.css"
   ],
   "vscode_custom_css.policy": true,
   "vscode_custom_css.statusbar": false,
-  "formattingToggle.activateFor": [
+  "formattingToggle.affects": [
     "formatOnSave"
   ],
   "[javascript]": {

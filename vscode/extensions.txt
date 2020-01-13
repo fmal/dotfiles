@@ -1,7 +1,9 @@
-Compulim.indent4to2
 andrewleedham.vscode-css-modules
 be5invis.vscode-custom-css
 bierner.markdown-preview-github-styles
+bmewburn.vscode-intelephense-client
+bradlc.vscode-tailwindcss
+burkeholland.simple-react-snippets
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 clinyong.vscode-css-modules
@@ -11,9 +13,12 @@ drKnoxy.eslint-disable-snippets
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
 formulahendry.auto-rename-tag
+heybourn.headwind
 lehni.vscode-fix-checksums
 mgmcdermott.vscode-language-babel
 monokai.theme-monokai-pro-vscode
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
 ms-vscode.atom-keybindings
 Orta.vscode-jest
 pnp.polacode
@@ -21,5 +26,6 @@ Prisma.vscode-graphql
 sdras.night-owl
 silvenon.mdx
 tombonnike.vscode-status-bar-format-toggle
+vscode-ext.sync-rsync
 WallabyJs.quokka-vscode
-wix.glean
+yzane.markdown-pdf
