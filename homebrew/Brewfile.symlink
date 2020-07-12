@@ -1,9 +1,24 @@
+# Taps
+tap 'homebrew/bundle'
+tap 'homebrew/cask'
+tap 'homebrew/cask-versions'
+tap 'homebrew/core'
+
+# Binaries
 brew 'antigen'
 brew 'diff-so-fancy'
 brew 'fzf'
 brew 'git'
 brew 'hub'
 brew 'jq'
-brew 'n'
 brew 'peco'
 brew 'zsh'
+brew 'curl'
+brew 'gpg'
+brew 'coreutils'
+brew 'asdf'
+
+# Apps
+cask 'aerial'
+cask 'android-platform-tools'
+cask 'monitorcontrol'

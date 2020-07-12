@@ -9,6 +9,8 @@ else
 fi
 
 export HOMEBREW_INSTALL_BADGE=✨
+# Disable Homebrew analytics https://docs.brew.sh/Analytics
+unset HOMEBREW_NO_ANALYTICS
 export EMOJI_CLI_KEYBIND=^e
 
 if [[ -f $HOME/.github_token ]]; then
@@ -17,40 +19,40 @@ fi
 
 ### Paths ###
 
+ASDF_BREW_PREFIX=$(brew --prefix asdf)
+
 # Dir paths
 export DOTFILES=$HOME/.dotfiles
 
-# This puts homebrew packages first in path
+# Prepend Homebrew binaries first in path
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-# Use gnu tools
+# Prepend gnu tools to override their BSD counterparts
 if [[ -d $(brew --prefix coreutils) ]]; then
     export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 fi
 
-# Git
-export PATH=/usr/local/git/bin:$PATH
-
-# npm-installed binaries
-export PATH=/usr/local/share/npm/bin:$PATH
-export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
-
 # Node-canvas / cairo stuff
-export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig:$PKG_CONFIG_PATH
-
-# Python
-export PATH=usr/local/opt/python/libexec/bin:$PATH
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 
 # Virtualenvwrapper
-if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    source /usr/local/bin/virtualenvwrapper.sh
+if [[ -d $ASDF_BREW_PREFIX ]] && asdf list python >/dev/null 2>&1; then
+  python_bin="$(asdf where python)"
+  if [[ -f $python_bin/bin/virtualenvwrapper.sh ]]; then
+    source $python_bin/bin/virtualenvwrapper.sh
+  fi
+fi
+if [[ -d $HOME/.virtualenvs ]]; then
+  export WORKON_HOME=$HOME/.virtualenvs
 fi
 
-# Load rbenv
-if [[ -d $HOME/.rbenv ]]; then
-    export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
-    eval "$(rbenv init -)"
+# Homebrew completions (must be called before oh-my-zsh)
+FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+autoload -Uz compinit && compinit
+
+# Source asdf. Prepends programming language binaries via ASDF shims
+if [[ -d $ASDF_BREW_PREFIX ]]; then
+    source $ASDF_BREW_PREFIX/asdf.sh
 fi
 
 ### Prompt configuration ###
