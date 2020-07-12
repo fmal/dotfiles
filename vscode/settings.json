@@ -51,9 +51,7 @@
   "editor.renderWhitespace": "boundary",
   "editor.lightbulb.enabled": false,
   "editor.occurrencesHighlight": false,
-  "editor.rulers": [
-    80
-  ],
+  "editor.rulers": [80],
   "editor.smoothScrolling": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.acceptSuggestionOnEnter": "smart",
@@ -85,9 +83,7 @@
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
   "atomKeymap.promptV3Features": true,
-  "prettier.disableLanguages": [
-    "js"
-  ],
+  "prettier.disableLanguages": ["js"],
   // "eslint.options": {
   //   "ignorePath": ".gitignore"
   // },
@@ -107,14 +103,15 @@
   ],
   "vscode_custom_css.policy": true,
   "vscode_custom_css.statusbar": false,
-  "formattingToggle.affects": [
-    "formatOnSave"
-  ],
+  "formattingToggle.affects": ["formatOnSave"],
   "[javascript]": {
     "editor.formatOnSave": false
   },
   "[handlebars]": {
     "editor.formatOnSave": false
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "search.exclude": {
     "**/*.js.map": true

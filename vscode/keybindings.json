@@ -28,5 +28,15 @@
     "key": "cmd+w",
     "command": "workbench.action.terminal.kill",
     "when": "terminalFocus"
-  }
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "extension.htmlTagWrap",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+w",
+    "command": "-extension.htmlTagWrap",
+    "when": "editorTextFocus"
+  },
 ]
