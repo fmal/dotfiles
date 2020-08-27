@@ -2,8 +2,10 @@ andrewleedham.vscode-css-modules
 be5invis.vscode-custom-css
 bierner.markdown-preview-github-styles
 bmewburn.vscode-intelephense-client
+bradgashler.htmltagwrap
 bradlc.vscode-tailwindcss
 burkeholland.simple-react-snippets
+cev.overnight
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 clinyong.vscode-css-modules
@@ -12,8 +14,9 @@ dbaeumer.vscode-eslint
 drKnoxy.eslint-disable-snippets
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
-formulahendry.auto-rename-tag
 heybourn.headwind
+HookyQR.beautify
+jock.svg
 lehni.vscode-fix-checksums
 mgmcdermott.vscode-language-babel
 monokai.theme-monokai-pro-vscode

@@ -1,6 +1,6 @@
 {
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Night Owl",
+  "workbench.colorTheme": "Overnight Italics",
   "workbench.iconTheme": "Monokai Pro Icons",
   "workbench.colorCustomizations": {
     "[Monokai Pro]": {
@@ -20,6 +20,11 @@
       "sideBar.background": "#001122",
       "sideBar.border": "#102a44",
       "sideBar.foreground": "#8BADC1",
+      "tab.border": "#010e1a",
+      "contrastBorder": "#011627"
+    },
+    "[Overnight Italics]": {
+      "sideBar.background": "#001122",
       "tab.border": "#010e1a",
       "contrastBorder": "#011627"
     }
@@ -48,7 +53,7 @@
   "editor.cursorBlinking": "phase",
   "editor.renderLineHighlight": "all",
   "editor.scrollBeyondLastLine": false,
-  "editor.renderWhitespace": "boundary",
+  "editor.renderWhitespace": "selection",
   "editor.lightbulb.enabled": false,
   "editor.occurrencesHighlight": false,
   "editor.rulers": [80],
@@ -90,6 +95,9 @@
   "files.associations": {
     "*.tpl": "php"
   },
+  "tailwindCSS.includeLanguages": {
+    "php": "html"
+  },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "php": "html"
@@ -111,6 +119,9 @@
     "editor.formatOnSave": false
   },
   "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "search.exclude": {
