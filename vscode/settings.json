@@ -1,6 +1,6 @@
 {
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Overnight Italics",
+  "workbench.colorTheme": "Night Owl",
   "workbench.iconTheme": "Monokai Pro Icons",
   "workbench.colorCustomizations": {
     "[Monokai Pro]": {
@@ -24,7 +24,7 @@
       "contrastBorder": "#011627"
     },
     "[Overnight Italics]": {
-      "sideBar.background": "#001122",
+      "sideBar.background": "#0A1222",
       "tab.border": "#010e1a",
       "contrastBorder": "#011627"
     }
@@ -66,6 +66,7 @@
     "comments": false,
     "strings": false
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
@@ -88,13 +89,18 @@
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
   "atomKeymap.promptV3Features": true,
-  "prettier.disableLanguages": ["js"],
   // "eslint.options": {
   //   "ignorePath": ".gitignore"
   // },
   "files.associations": {
     "*.tpl": "php"
   },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "tailwindCSS.includeLanguages": {
     "php": "html"
   },
@@ -109,22 +115,24 @@
   "vscode_custom_css.imports": [
     "file:///Users/fima/.dotfiles/vscode/customizations.css"
   ],
-  "vscode_custom_css.policy": true,
   "vscode_custom_css.statusbar": false,
   "formattingToggle.affects": ["formatOnSave"],
+  "search.exclude": {
+    "**/*.js.map": true
+  },
+  "[php]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
   "[javascript]": {
     "editor.formatOnSave": false
   },
-  "[handlebars]": {
+  "[javascriptreact]": {
     "editor.formatOnSave": false
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[typescript]": {
+    "editor.formatOnSave": false
   },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "search.exclude": {
-    "**/*.js.map": true
+  "[typescriptreact]": {
+    "editor.formatOnSave": false
   }
 }
