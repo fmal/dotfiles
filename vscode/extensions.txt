@@ -1,4 +1,5 @@
 andrewleedham.vscode-css-modules
+arcanis.vscode-zipfs
 be5invis.vscode-custom-css
 bierner.markdown-preview-github-styles
 bmewburn.vscode-intelephense-client
@@ -14,18 +15,19 @@ dbaeumer.vscode-eslint
 drKnoxy.eslint-disable-snippets
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
+GraphQL.vscode-graphql
 heybourn.headwind
 HookyQR.beautify
 jock.svg
 lehni.vscode-fix-checksums
 mgmcdermott.vscode-language-babel
+mkaufman.HTMLHint
 monokai.theme-monokai-pro-vscode
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 ms-vscode.atom-keybindings
 Orta.vscode-jest
 pnp.polacode
-Prisma.vscode-graphql
 sdras.night-owl
 silvenon.mdx
 tombonnike.vscode-status-bar-format-toggle
