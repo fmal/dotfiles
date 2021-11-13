@@ -39,7 +39,6 @@
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
   "window.titleBarStyle": "custom",
-  "window.zoomLevel": 0,
   "editor.fontSize": 18,
   "editor.fontFamily": "'Dank Mono', Mononoki, LigaIBMPlexMono, monospace",
   "editor.fontLigatures": true,
@@ -48,7 +47,6 @@
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
   "editor.minimap.enabled": false,
-  "editor.renderIndentGuides": false,
   "editor.cursorStyle": "line-thin",
   "editor.cursorBlinking": "phase",
   "editor.renderLineHighlight": "all",
@@ -66,6 +64,7 @@
     "comments": false,
     "strings": false
   },
+  "editor.guides.indentation": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
@@ -88,11 +87,11 @@
   "window.title": "${rootPath}${separator}${activeEditorShort}",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
-  "javascript.validate.enable": false,
+  "javascript.validate.enable": true,
   "css.validate": false,
   "extensions.ignoreRecommendations": true,
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
+  "telemetry.telemetryLevel": "off",
+  "intelephense.telemetry.enabled": false,
   "atomKeymap.promptV3Features": true,
   // "eslint.options": {
   //   "ignorePath": ".gitignore"
@@ -121,7 +120,7 @@
     "file:///Users/fima/.dotfiles/vscode/customizations.css"
   ],
   "vscode_custom_css.statusbar": false,
-  "formattingToggle.affects": ["formatOnSave"],
+  "formattingToggle.affects": ["editor.formatOnSave"],
   "search.exclude": {
     "**/*.js.map": true
   },
