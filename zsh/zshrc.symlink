@@ -25,6 +25,9 @@ ASDF_BREW_PREFIX=$(brew --prefix asdf)
 export DOTFILES=$HOME/.dotfiles
 
 # Prepend Homebrew binaries first in path
+# M1/Arm brew
+export PATH=/opt/homebrew/bin:$PATH
+# Intel brew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Prepend gnu tools to override their BSD counterparts
