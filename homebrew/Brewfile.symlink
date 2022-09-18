@@ -5,7 +5,7 @@ tap 'homebrew/cask-versions'
 tap 'homebrew/core'
 
 # Binaries
-brew 'antigen'
+brew 'antidote'
 brew 'diff-so-fancy'
 brew 'fzf'
 brew 'git'

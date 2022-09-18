@@ -10,7 +10,7 @@ fi
 
 export HOMEBREW_INSTALL_BADGE=✨
 # Disable Homebrew analytics https://docs.brew.sh/Analytics
-unset HOMEBREW_NO_ANALYTICS
+export HOMEBREW_NO_ANALYTICS=1
 export EMOJI_CLI_KEYBIND=^e
 
 if [[ -f $HOME/.github_token ]]; then

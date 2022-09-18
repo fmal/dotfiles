@@ -29,12 +29,14 @@
       "contrastBorder": "#011627"
     }
   },
+  "workbench.layoutControl.enabled": false,
   "workbench.activityBar.visible": false,
   "workbench.editor.tabCloseButton": "off",
   "workbench.sideBar.location": "right",
   "workbench.tips.enabled": false,
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.showIcons": false,
+  "breadcrumbs.enabled": false,
   "workbench.tree.renderIndentGuides": "none",
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
@@ -49,6 +51,7 @@
   "editor.minimap.enabled": false,
   "editor.cursorStyle": "line-thin",
   "editor.cursorBlinking": "phase",
+  "editor.bracketPairColorization.enabled": true,
   "editor.renderLineHighlight": "all",
   "editor.scrollBeyondLastLine": false,
   "editor.renderWhitespace": "selection",
@@ -69,7 +72,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "breadcrumbs.enabled": false,
   "explorer.autoReveal": false,
   "explorer.openEditors.visible": 0,
   "terminal.external.osxExec": "iTerm.app",
@@ -138,5 +140,6 @@
   },
   "[typescriptreact]": {
     "editor.formatOnSave": false
-  }
+  },
+  "quokka.showStartViewOnFeatureRelease": false
 }
