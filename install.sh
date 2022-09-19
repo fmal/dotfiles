@@ -2,6 +2,9 @@
 
 source helpers.sh
 
+# Ask for the administrator password upfront
+sudo -v
+
 # Checking file dir
 DOTFILES=$HOME/.dotfiles
 [[ ! -d $DOTFILES ]] && die "Directory ~/.dotfiles is missing"

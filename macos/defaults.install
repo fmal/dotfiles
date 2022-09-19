@@ -2,9 +2,6 @@
 #
 # Set custom Mac OS defaults
 
-# Ask for the administrator password upfront
-sudo -v
-
 # Enable automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool false
 

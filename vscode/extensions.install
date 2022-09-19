@@ -2,7 +2,7 @@
 
 if [[ ! $(which code) ]]; then
     echo "Visual Studio Code not installed: skipping extensions install."
-    return
+    exit 0
 fi
 
 echo "Installing VSCode extensions"
