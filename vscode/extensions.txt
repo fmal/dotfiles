@@ -9,6 +9,7 @@ burkeholland.simple-react-snippets
 cev.overnight
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
+christianalfoni.overmind-devtools-vscode
 clinyong.vscode-css-modules
 codezombiech.gitignore
 dbaeumer.vscode-eslint
@@ -16,6 +17,7 @@ drKnoxy.eslint-disable-snippets
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
 GraphQL.vscode-graphql
+GraphQL.vscode-graphql-syntax
 heybourn.headwind
 HookyQR.beautify
 jock.svg
@@ -33,4 +35,5 @@ silvenon.mdx
 tombonnike.vscode-status-bar-format-toggle
 vscode-ext.sync-rsync
 WallabyJs.quokka-vscode
+withfig.fig
 yzane.markdown-pdf

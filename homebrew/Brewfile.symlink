@@ -19,6 +19,7 @@ brew 'coreutils'
 brew 'asdf'
 
 # Apps
+cask 'fig'
 cask 'aerial'
 cask 'android-platform-tools'
 cask 'monitorcontrol'
