@@ -2950,6 +2950,8 @@
 	<false/>
 	<key>DwcLineCache</key>
 	<true/>
+	<key>EnableAPIServer</key>
+	<true/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>EnableProxyIcon</key>
@@ -4508,7 +4510,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1.1082043015813252</real>
+			<real>1.1100000000000001</real>
 			<key>Visual Bell</key>
 			<false/>
 			<key>Window Type</key>
