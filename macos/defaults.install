@@ -8,12 +8,6 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool false
 # Enable subpixel font rendering on non-Apple LCDs
 defaults write NSGlobalDomain AppleFontSmoothing -int 1
 
-# Try to re-enable subpixel anti-aliasing post-Mojave
-defaults write NSGLOBALDOMAIN CGFontRenderingFontSmoothingDisabled -bool false
-
-# Disable Shake to Find Cursor
-defaults write NSGlobalDomain CGDisableCursorLocationMagnification -bool true
-
 # Show scrollbars when scrollig
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 
@@ -22,12 +16,6 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-
-# Play user interface sound effects
-defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -bool false
-
-# Play feedback when volume is changed
-defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool true
 
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -48,7 +36,7 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # Show the ~/Library folder
-chflags nohidden ~/Library
+chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 
 # Hide Spotlight icon from menu bar
 # sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
@@ -61,8 +49,14 @@ sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Vol
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
-# Disable the sudden motion sensor as it’s not useful for SSDs
-sudo pmset -a sms 0
+# Restart automatically if the computer freezes
+sudo systemsetup -setrestartfreeze on
+
+# Sleep the display after 10 minutes
+sudo pmset -a displaysleep 10
+
+# Set machine sleep to 15 minutes on battery
+sudo pmset -b sleep 15
 
 # Disable transparency in the menu bar and elsewhere on Yosemite
 defaults write com.apple.universalaccess reduceTransparency -bool true
@@ -85,11 +79,17 @@ defaults write com.apple.dock autohide-delay -float 0
 # Icon size of Dock items
 defaults write com.apple.dock tilesize -int 52
 
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
+
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
 
-# Disable dock magnification
-defaults write com.apple.dock magnification -bool false
+# Speed up Mission Control animations
+defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
@@ -97,21 +97,18 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-# Disable Siri
-defaults write com.apple.assistant.support "Assistant Enabled" -bool false
-
-# Show Siri in menu bar
-defaults write com.apple.Siri StatusMenuVisible -bool false
-
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocals
-
-# Allow guests to login to this computer
-sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
+hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 # Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -bool true
+defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+# Increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Enable SVG compression for Sketch
 defaults write com.bohemiancoding.sketch3 exportCompactSVG -bool yes
