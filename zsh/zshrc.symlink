@@ -58,7 +58,7 @@ autoload -Uz compinit && compinit
 
 # Source asdf. Prepends programming language binaries via ASDF shims
 if [[ -d $ASDF_BREW_PREFIX ]]; then
-    source $ASDF_BREW_PREFIX/asdf.sh
+    source $ASDF_BREW_PREFIX/libexec/asdf.sh
 fi
 
 ### Prompt configuration ###
