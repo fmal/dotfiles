@@ -1,6 +1,5 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
 # Set colors to match iTerm2 Terminal Colors
 export TERM=xterm-256color
 
@@ -77,6 +76,8 @@ source $DOTFILES/zsh/functions.zsh
 if [[ -f $DOTFILES/secret/zshrc ]]; then
     source $DOTFILES/secret/zshrc
 fi
+
+export PATH="/Users/fima/.deta/bin:$PATH"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

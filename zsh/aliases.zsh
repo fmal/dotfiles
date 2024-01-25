@@ -9,7 +9,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias o="open ./"
 alias f="finder"
-alias projects="cd ~/Projects"
+alias projects="cd ~/Code"
 alias desktop="cd ~/Desktop"
 # hidden files management
 alias see="defaults write com.apple.finder AppleShowAllFiles YES;

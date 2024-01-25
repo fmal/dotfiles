@@ -30,7 +30,6 @@
     }
   },
   "workbench.layoutControl.enabled": false,
-  "workbench.activityBar.visible": false,
   "workbench.editor.tabCloseButton": "off",
   "workbench.sideBar.location": "right",
   "workbench.tips.enabled": false,
@@ -56,7 +55,8 @@
   "editor.scrollBeyondLastLine": false,
   "editor.renderWhitespace": "selection",
   "editor.lightbulb.enabled": false,
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
+  "editor.linkedEditing": true,
   "editor.rulers": [80],
   "editor.smoothScrolling": true,
   "editor.multiCursorModifier": "ctrlCmd",
@@ -70,7 +70,7 @@
   "editor.guides.indentation": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "explorer.autoReveal": false,
   "explorer.openEditors.visible": 0,
@@ -89,12 +89,10 @@
   "window.title": "${rootPath}${separator}${activeEditorShort}",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
-  "javascript.validate.enable": true,
   "css.validate": false,
   "extensions.ignoreRecommendations": true,
   "telemetry.telemetryLevel": "off",
   "intelephense.telemetry.enabled": false,
-  "atomKeymap.promptV3Features": true,
   // "eslint.options": {
   //   "ignorePath": ".gitignore"
   // },
@@ -129,21 +127,20 @@
   "[php]": {
     "editor.defaultFormatter": "HookyQR.beautify"
   },
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": false
-  },
-  "[typescript]": {
-    "editor.formatOnSave": false
-  },
-  "[typescriptreact]": {
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.formatOnSave": false
   },
   "quokka.showStartViewOnFeatureRelease": false,
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "editor.accessibilitySupport": "off"
+  "editor.accessibilitySupport": "off",
+  "git.openRepositoryInParentFolders": "prompt",
+  "update.showReleaseNotes": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.tabActionCloseVisibility": false
 }
