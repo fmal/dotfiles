@@ -1,21 +1,22 @@
-# Oh-my-zsh
+# OMZ framework
 ohmyzsh/ohmyzsh path:lib
 
-# Oh-my-zsh Plugins
+# OMZ plugins
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/github
 ohmyzsh/ohmyzsh path:plugins/macos
-ohmyzsh/ohmyzsh path:plugins/ruby
 ohmyzsh/ohmyzsh path:plugins/brew
-ohmyzsh/ohmyzsh path:plugins/node
 ohmyzsh/ohmyzsh path:plugins/npm
+ohmyzsh/ohmyzsh path:plugins/yarn
 
-# zsh-users Plugins
-zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-autosuggestions
-
-# Other Plugins
+# 3rd party plugins
 b4b4r07/emoji-cli
 
-# Themes
-denysdovhan/spaceship-prompt
+# Prompts
+spaceship-prompt/spaceship-prompt
+
+# Deferred plugins
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-history-substring-search  kind:defer
+

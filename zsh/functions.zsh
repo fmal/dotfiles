@@ -18,7 +18,7 @@ function show-permissions() {
             *2^(8-i));if(k)printf("%0o ",k);print}'
 }
 
-# create a new file in the current directory and then open it in Atom
+# create a new file in the current directory and then open it in VSCode
 new() {
-    touch $1 && atom $1
+    touch $1 && code $1
 }
