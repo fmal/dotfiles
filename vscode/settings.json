@@ -30,7 +30,6 @@
     }
   },
   "workbench.layoutControl.enabled": false,
-  "workbench.editor.tabCloseButton": "off",
   "workbench.sideBar.location": "right",
   "workbench.tips.enabled": false,
   "workbench.editor.tabSizing": "shrink",
@@ -50,11 +49,12 @@
   "editor.minimap.enabled": false,
   "editor.cursorStyle": "line-thin",
   "editor.cursorBlinking": "phase",
+  "editor.stickyScroll.enabled": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.renderLineHighlight": "all",
   "editor.scrollBeyondLastLine": false,
   "editor.renderWhitespace": "selection",
-  "editor.lightbulb.enabled": false,
+  "editor.lightbulb.enabled": "off",
   "editor.occurrencesHighlight": "off",
   "editor.linkedEditing": true,
   "editor.rulers": [80],
@@ -125,22 +125,28 @@
     "**/*.js.map": true
   },
   "[php]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
+    "editor.defaultFormatter": "vsce-toolroom.vscode-beautify"
   },
   "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.formatOnSave": false
   },
   "quokka.showStartViewOnFeatureRelease": false,
   "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
+    "Q_NEW_SESSION": "1"
   },
   "editor.accessibilitySupport": "off",
-  "git.openRepositoryInParentFolders": "prompt",
+  "git.openRepositoryInParentFolders": "never",
   "update.showReleaseNotes": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "[svg]": {
     "editor.defaultFormatter": "jock.svg"
   },
   "workbench.activityBar.location": "hidden",
-  "workbench.editor.tabActionCloseVisibility": false
+  "workbench.editor.tabActionCloseVisibility": false,
+  "jest.runMode": {
+    "type": "on-demand"
+  },
+  "workbench.editor.empty.hint": "hidden",
+  "update.mode": "default",
+  "totalTypeScript.hideAllTips": true
 }

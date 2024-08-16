@@ -19,7 +19,6 @@ for symlink ($DOTFILES/**/*.symlink) {
 if [[ -d $HOME/Library/Application\ Support/Code/User ]]; then
     set_symlink "$DOTFILES/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
     set_symlink "$DOTFILES/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
-    set_symlink "$DOTFILES/vscode/projects.json" "$HOME/Library/Application Support/Code/User/projects.json"
 fi
 
 # Add defaults
