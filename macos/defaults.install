@@ -63,13 +63,13 @@ chflags nohidden ~/Library
 
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+# sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
 # Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
+sudo systemsetup -setrestartfreeze on 2> /dev/null
 
 # Sleep the display after 10 minutes
 sudo pmset -a displaysleep 10
@@ -136,7 +136,7 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+# hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
@@ -151,3 +151,5 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # Show battery percentage next to the battery menu bar icon
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
+# Set menubar digital clock format
+defaults write com.apple.menuextra.clock DateFormat -string "\"EEE h:mm:ss\""
