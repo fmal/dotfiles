@@ -1,8 +1,7 @@
+cask_args appdir: '/Applications'
+
 # Taps
 tap 'homebrew/bundle'
-tap 'homebrew/cask'
-tap 'homebrew/cask-versions'
-tap 'homebrew/core'
 
 # Binaries
 brew 'antidote'
@@ -20,4 +19,11 @@ brew 'asdf'
 
 # Apps
 cask 'android-platform-tools'
-# cask 'monitorcontrol'
+cask 'visual-studio-code'
+cask 'iterm2'
+cask 'syncalicious'
+cask 'fork'
+cask 'monitorcontrol'
+cask 'imageoptim'
+cask 'rectangle-pro'
+cask 'alfred'
