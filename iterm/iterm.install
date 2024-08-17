@@ -1,8 +1,8 @@
 #!/bin/sh
 
 if [[ ! -d /Applications/iTerm.app ]]; then
-    echo "iTerm not installed: skipping preferences setup."
-    exit 0
+  echo "iTerm not installed: skipping preferences setup."
+  exit 0
 fi
 
 # Specify the preferences directory

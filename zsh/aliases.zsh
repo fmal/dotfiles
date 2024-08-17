@@ -17,5 +17,5 @@ alias delete="rm -r"
 
 # Inkscape
 if [[ -f /Applications/Inkscape.app/Contents/Resources/bin/inkscape ]]; then
-    alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
+  alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
 fi

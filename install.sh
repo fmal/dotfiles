@@ -10,15 +10,15 @@ DOTFILES=$HOME/.dotfiles
 [[ ! -d $DOTFILES ]] && die "Directory ~/.dotfiles is missing"
 
 for symlink ($DOTFILES/**/*.symlink) {
-    filename=${${symlink%.symlink}##*\/}
+  filename=${${symlink%.symlink}##*\/}
 
-    set_symlink "$symlink" "$HOME/.$filename"
+  set_symlink "$symlink" "$HOME/.$filename"
 }
 
 # Special case symlink for vscode files
 if [[ -d $HOME/Library/Application\ Support/Code/User ]]; then
-    set_symlink "$DOTFILES/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-    set_symlink "$DOTFILES/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+  set_symlink "$DOTFILES/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+  set_symlink "$DOTFILES/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
 fi
 
 # Add defaults

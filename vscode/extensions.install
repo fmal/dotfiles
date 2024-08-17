@@ -1,12 +1,12 @@
 #!/bin/sh
 
 if [[ ! $(which code) ]]; then
-    echo "Visual Studio Code not installed: skipping extensions install."
-    exit 0
+  echo "Visual Studio Code not installed: skipping extensions install."
+  exit 0
 fi
 
 echo "Installing VSCode extensions"
 
 for extension in $(cat ${DOTFILES}/vscode/extensions.txt); do
-    code --install-extension $extension 2> /dev/null
+  code --install-extension $extension 2> /dev/null
 done
