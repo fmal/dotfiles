@@ -6,40 +6,44 @@ export TERM=xterm-256color
 
 # Default editor
 if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR="nano"
+  export EDITOR="nano"
 else
-    export EDITOR="code -w"
+  export EDITOR="code -w"
 fi
 
 export HOMEBREW_INSTALL_BADGE=✨
 # Disable Homebrew analytics https://docs.brew.sh/Analytics
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_BUNDLE_FILE=$HOME/.Brewfile
 export EMOJI_CLI_KEYBIND=^e
 
 if [[ -f $HOME/.github_token ]]; then
-    export GITHUB_TOKEN=$(cat $HOME/.github_token)
+  export GITHUB_TOKEN=$(cat $HOME/.github_token)
 fi
 
 ### Paths ###
-
-ASDF_BREW_PREFIX=$(brew --prefix asdf)
 
 # Dir paths
 export DOTFILES=$HOME/.dotfiles
 
 # Prepend Homebrew binaries first in path
-# M1/Arm brew
-export PATH=/opt/homebrew/bin:$PATH
-# Intel brew
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+if [[ -f /usr/local/bin/brew ]]; then
+  export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+fi
+
+if [[ -f /opt/homebrew/bin/brew ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv)
+fi
 
 # Prepend gnu tools to override their BSD counterparts
 if [[ -d $(brew --prefix coreutils) ]]; then
-    export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+  export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 fi
 
 # Node-canvas / cairo stuff
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+
+ASDF_BREW_PREFIX=$(brew --prefix asdf)
 
 # Virtualenvwrapper
 if [[ -d $ASDF_BREW_PREFIX ]] && asdf list python >/dev/null 2>&1; then
@@ -58,7 +62,7 @@ autoload -Uz compinit && compinit
 
 # Source asdf. Prepends programming language binaries via ASDF shims
 if [[ -d $ASDF_BREW_PREFIX ]]; then
-    source $ASDF_BREW_PREFIX/libexec/asdf.sh
+  source $ASDF_BREW_PREFIX/libexec/asdf.sh
 fi
 
 ### Prompt configuration ###
@@ -75,10 +79,8 @@ source $DOTFILES/zsh/functions.zsh
 
 ### Secret stuff ###
 if [[ -f $DOTFILES/secret/zshrc ]]; then
-    source $DOTFILES/secret/zshrc
+  source $DOTFILES/secret/zshrc
 fi
-
-export PATH="/Users/fima/.deta/bin:$PATH"
 
 # Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
