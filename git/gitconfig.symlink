@@ -55,8 +55,8 @@
   changed = green
   untracked = cyan
 
-[hub]
-  protocol = https
+[init]
+  defaultBranch = main
 
 # use separate file for username / github token etc
 #   git config -f ~/.gitconfig.local user.name John Appleseed
