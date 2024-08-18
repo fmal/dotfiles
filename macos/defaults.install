@@ -14,6 +14,10 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
@@ -25,6 +29,10 @@ defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Set $HOME as the default location for new Finder windows
+defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 
 # Finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
@@ -128,6 +136,9 @@ defaults write com.apple.dock expose-group-by-app -bool false
 # Hot corners
 defaults write com.apple.dock wvous-br-corner -int 0
 defaults write com.apple.dock wvous-br-modifier -int 0
+# Top right screen corner → Desktop
+defaults write com.apple.dock wvous-tr-corner -int 4
+defaults write com.apple.dock wvous-tr-modifier -int 0
 
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
@@ -151,5 +162,5 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # Show battery percentage next to the battery menu bar icon
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
-# Set menubar digital clock format
-defaults write com.apple.menuextra.clock DateFormat -string "\"EEE h:mm:ss\""
+# Don't show the day of week in the menu bar
+defaults write com.apple.menuextra.clock.plist ShowDayOfWeek -bool false
