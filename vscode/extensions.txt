@@ -42,6 +42,7 @@ sdras.night-owl
 stackbreak.comment-divider
 tombonnike.vscode-status-bar-format-toggle
 unifiedjs.vscode-mdx
+usernamehw.errorlens
 vitest.explorer
 vsce-toolroom.vscode-beautify
 vscode-ext.sync-rsync
