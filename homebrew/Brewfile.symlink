@@ -28,6 +28,7 @@ cask 'monitorcontrol'
 cask 'imageoptim'
 cask 'rectangle-pro'
 cask 'alfred'
+cask 'amazon-q'
 
 # Fonts
 cask 'font-sf-mono-nerd-font-ligaturized'

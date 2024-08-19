@@ -17,6 +17,8 @@ spaceship-prompt/spaceship-prompt
 
 # Deferred plugins
 zdharma-continuum/fast-syntax-highlighting kind:defer
-zsh-users/zsh-autosuggestions kind:defer
-zsh-users/zsh-history-substring-search  kind:defer
+
+# Late loading plugins
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
 
