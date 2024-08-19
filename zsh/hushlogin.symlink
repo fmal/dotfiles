@@ -1,0 +1,2 @@
+#!/bin/sh
+# The existence of this file removes the Last Login message when opening a new shell
