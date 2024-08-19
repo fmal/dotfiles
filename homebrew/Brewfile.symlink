@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 
 # Taps
 tap 'homebrew/bundle'
+tap 'shaunsingh/SFMono-Nerd-Font-Ligaturized'
 
 # Binaries
 brew 'antidote'
@@ -27,3 +28,7 @@ cask 'monitorcontrol'
 cask 'imageoptim'
 cask 'rectangle-pro'
 cask 'alfred'
+
+# Fonts
+cask 'font-sf-mono-nerd-font-ligaturized'
+cask 'font-jetbrains-mono'
