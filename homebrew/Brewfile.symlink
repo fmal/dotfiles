@@ -33,3 +33,4 @@ cask 'amazon-q'
 # Fonts
 cask 'font-sf-mono-nerd-font-ligaturized'
 cask 'font-jetbrains-mono'
+cask 'font-mononoki'
