@@ -15,6 +15,10 @@ for symlink ($DOTFILES/**/*.symlink) {
   set_symlink "$symlink" "$HOME/.$filename"
 }
 
+# Symlink configs
+mkdir -p "$HOME/.config/husky"
+set_symlink "$DOTFILES/.config/husky/init.sh" "$HOME/.config/husky/init.sh"
+
 # Special case symlink for vscode files
 if [[ -d $HOME/Library/Application\ Support/Code/User ]]; then
   set_symlink "$DOTFILES/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
