@@ -1,0 +1,24 @@
+{
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+	"enable_tab_scrolling": false,
+	"font_size": 18,
+	"font_face": "iA Writer Mono S",
+	"theme": "Spacegray.sublime-theme",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"rulers":
+	[
+		80
+	],
+	"caret_style": "smooth",
+	"index_files": true,
+	"highlight_line": true,
+	"find_selected_text": true,
+	"fold_buttons": false,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"ensure_newline_at_eof_on_save": true,
+}

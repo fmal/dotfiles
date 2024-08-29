@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+source helpers.sh
+
+ST_DIR="$HOME/Library/Application Support/Sublime Text"
+
+# Install Package Control
+
+mkdir -p "$ST_DIR/Installed Packages"
+curl -sSL "https://packagecontrol.io/Package%20Control.sublime-package" -o "$ST_DIR/Installed Packages/Package Control.sublime-package"
+
+# Symlink settings
+
+ST_USER_DIR="$ST_DIR/Packages/User"
+
+mkdir -p $ST_USER_DIR
+
+set_symlink "$DOTFILES/sublime/Package Control.sublime-settings" "$ST_USER_DIR/Package Control.sublime-settings"
+set_symlink "$DOTFILES/sublime/Preferences.sublime-settings" "$ST_USER_DIR/Preferences.sublime-settings"

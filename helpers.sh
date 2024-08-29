@@ -7,6 +7,12 @@ die () {
   exit 1
 }
 
+run_installer () {
+	installer=$1
+	echo "Running ${installer}"
+	sh -c "${installer}"
+}
+
 set_symlink () {
   overwrite_all=${overwrite_all:-false}
   backup_all=${backup_all:-false}
@@ -67,3 +73,4 @@ set_symlink () {
     echo "Linked $1 ➠ $2"
   fi
 }
+

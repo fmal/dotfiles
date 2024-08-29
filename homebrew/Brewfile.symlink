@@ -21,6 +21,7 @@ brew 'asdf'
 # Apps
 cask 'android-platform-tools'
 cask 'visual-studio-code'
+cask 'sublime-text'
 cask 'iterm2'
 cask 'syncalicious'
 cask 'fork'
@@ -29,8 +30,10 @@ cask 'imageoptim'
 cask 'rectangle-pro'
 cask 'alfred'
 cask 'amazon-q'
+cask 'shottr'
 
 # Fonts
 cask 'font-sf-mono-nerd-font-ligaturized'
 cask 'font-jetbrains-mono'
+cask 'font-ia-writer-mono'
 cask 'font-mononoki'

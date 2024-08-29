@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+
+source helpers.sh
+
+# Symlink settings
+
+mkdir -p "$HOME/Library/Application Support/Code/User/"
+
+set_symlink "$DOTFILES/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+set_symlink "$DOTFILES/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+
+# Install extensions
+
+if [[ ! $(which code) ]]; then
+  echo "Visual Studio Code not installed: skipping extensions install."
+  exit 0
+fi
+
+echo "Installing VSCode extensions"
+
+for extension in $(cat ${DOTFILES}/vscode/extensions.txt); do
+  code --install-extension $extension 2> /dev/null
+done

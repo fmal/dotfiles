@@ -19,13 +19,12 @@ for symlink ($DOTFILES/**/*.symlink) {
 mkdir -p "$HOME/.config/husky"
 set_symlink "$DOTFILES/.config/husky/init.sh" "$HOME/.config/husky/init.sh"
 
-# Special case symlink for vscode files
-if [[ -d $HOME/Library/Application\ Support/Code/User ]]; then
-  set_symlink "$DOTFILES/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-  set_symlink "$DOTFILES/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
-fi
-
-# Add defaults
 set -e
 
-find . -name "*.install" | while read installer ; do sh -c "${installer}" ; done
+# Before running any install scripts, make sure homebrew is installed
+run_installer "./homebrew/homebrew.install"
+
+# Find generic installers and run them iteratively
+for installer in $(find . -name "*.install" | grep -v "homebrew"); do
+  run_installer $installer
+done
