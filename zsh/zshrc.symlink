@@ -39,9 +39,14 @@ if [[ -f /opt/homebrew/bin/brew ]]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
-# Prepend gnu tools to override their BSD counterparts
+# Add homebrew packages to path so they are found before
+# macos's versions of the same software
 if [[ -d $(brew --prefix coreutils) ]]; then
   export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+fi
+
+if [ -d $(brew --prefix m4)/bin ]; then
+  export PATH=$(brew --prefix m4)/bin:$PATH
 fi
 
 # Node-canvas / cairo stuff
@@ -62,7 +67,6 @@ fi
 
 # Homebrew completions (must be called before oh-my-zsh)
 FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-autoload -Uz compinit && compinit
 
 # Source asdf. Prepends programming language binaries via ASDF shims
 if [[ -d $ASDF_BREW_PREFIX ]]; then
