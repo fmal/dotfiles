@@ -17,3 +17,4 @@ mkdir -p $ST_USER_DIR
 
 set_symlink "$DOTFILES/sublime/Package Control.sublime-settings" "$ST_USER_DIR/Package Control.sublime-settings"
 set_symlink "$DOTFILES/sublime/Preferences.sublime-settings" "$ST_USER_DIR/Preferences.sublime-settings"
+set_symlink "$DOTFILES/sublime/Spacegray.sublime-theme" "$ST_USER_DIR/Spacegray.sublime-theme"

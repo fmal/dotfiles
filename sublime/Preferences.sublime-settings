@@ -1,6 +1,7 @@
 {
-	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+	"color_scheme": "Base16 Ocean Dark.sublime-color-scheme",
 	"enable_tab_scrolling": false,
+ 	"themed_title_bar": false,
 	"font_size": 18,
 	"font_face": "iA Writer Mono S",
 	"theme": "Spacegray.sublime-theme",
