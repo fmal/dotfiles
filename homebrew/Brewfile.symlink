@@ -17,6 +17,12 @@ brew 'curl'
 brew 'gpg'
 brew 'coreutils'
 brew 'asdf'
+# Docker for mac
+brew 'colima'
+brew 'docker'
+brew 'docker-buildx'
+brew 'docker-compose'
+brew 'docker-credential-helper'
 
 # Apps
 cask 'android-platform-tools'

@@ -19,6 +19,10 @@ for symlink ($DOTFILES/**/*.symlink) {
 mkdir -p "$HOME/.config/husky"
 set_symlink "$DOTFILES/.config/husky/init.sh" "$HOME/.config/husky/init.sh"
 
+# write Docker config file (don't link, because auth)
+mkdir -p "$HOME/.docker"
+cat "$DOTFILES/.docker/config.json" > "$HOME/.docker/config.json"
+
 set -e
 
 # Before running any install scripts, make sure homebrew is installed
