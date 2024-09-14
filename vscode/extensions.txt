@@ -37,6 +37,7 @@ ms-vscode.remote-explorer
 nmsmith89.incrementor
 orta.vscode-jest
 phoenisx.cssvar
+pmndrs.pmndrs
 pnp.polacode
 sdras.night-owl
 stackbreak.comment-divider
