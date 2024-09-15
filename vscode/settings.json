@@ -27,7 +27,8 @@
       "sideBar.background": "#0A1222",
       "tab.border": "#010e1a",
       "contrastBorder": "#011627"
-    }
+    },
+    "terminal.ansiBrightBlack": "#506477"
   },
   "workbench.layoutControl.enabled": false,
   "workbench.sideBar.location": "right",
@@ -84,7 +85,7 @@
     }
   },
   "terminal.integrated.fontSize": 14,
-  "terminal.integrated.fontFamily": "SFMono Nerd Font, monospace",
+  "terminal.integrated.fontFamily": "'Dank Mono', 'Symbols Nerd Font Mono', monospace",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
   "window.restoreFullscreen": true,
@@ -136,6 +137,7 @@
   "terminal.integrated.env.osx": {
     "Q_NEW_SESSION": "1"
   },
+  "terminal.integrated.minimumContrastRatio": 1,
   "editor.accessibilitySupport": "off",
   "git.openRepositoryInParentFolders": "never",
   "update.showReleaseNotes": false,
