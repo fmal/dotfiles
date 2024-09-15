@@ -19,6 +19,9 @@ for symlink ($DOTFILES/**/*.symlink) {
 mkdir -p "$HOME/.config/husky"
 set_symlink "$DOTFILES/.config/husky/init.sh" "$HOME/.config/husky/init.sh"
 
+mkdir -p "$HOME/.config/gh"
+set_symlink "$DOTFILES/.config/gh/config.yml" "$HOME/.config/gh/config.yml"
+
 # write Docker config file (don't link, because auth)
 mkdir -p "$HOME/.docker"
 cat "$DOTFILES/.docker/config.json" > "$HOME/.docker/config.json"
