@@ -28,6 +28,12 @@
       "tab.border": "#010e1a",
       "contrastBorder": "#011627"
     },
+    "[poimandres]": {
+      "statusBarItem.warningBackground": "#fffac2",
+      "statusBarItem.warningForeground": "#1b1e28",
+      "statusBarItem.warningHoverForeground": "#1b1e28",
+      "statusBarItem.errorHoverForeground": "#ffffff"
+    },
     "terminal.ansiBrightBlack": "#506477"
   },
   "workbench.layoutControl.enabled": false,
