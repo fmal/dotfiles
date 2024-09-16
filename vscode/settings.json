@@ -29,12 +29,19 @@
       "contrastBorder": "#011627"
     },
     "[poimandres]": {
+      "editorBracketHighlight.foreground1": "#d0679d",
+      "editorBracketHighlight.foreground2": "#fffac2",
+      "editorBracketHighlight.foreground3": "#5fb3a1",
+      "editorBracketHighlight.foreground4": "#89ddff",
+      "panel.border": "#1b1e28"
+    },
+    "[poimandres] [Noir Poimandres*]": {
       "statusBarItem.warningBackground": "#fffac2",
       "statusBarItem.warningForeground": "#1b1e28",
       "statusBarItem.warningHoverForeground": "#1b1e28",
-      "statusBarItem.errorHoverForeground": "#ffffff"
-    },
-    "terminal.ansiBrightBlack": "#506477"
+      "statusBarItem.errorHoverForeground": "#ffffff",
+      "terminal.ansiBrightBlack": "#506477"
+    }
   },
   "workbench.layoutControl.enabled": false,
   "workbench.sideBar.location": "right",

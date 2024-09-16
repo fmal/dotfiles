@@ -1,5 +1,6 @@
 aaron-bond.better-comments
 amazonwebservices.codewhisperer-for-command-line-companion
+andrewberty.noir-theme-bundle
 andrewleedham.vscode-css-modules
 arcanis.vscode-zipfs
 be5invis.vscode-custom-css
@@ -41,6 +42,7 @@ pmndrs.pmndrs
 pnp.polacode
 sdras.night-owl
 stackbreak.comment-divider
+supermaven.supermaven
 tombonnike.vscode-status-bar-format-toggle
 unifiedjs.vscode-mdx
 usernamehw.errorlens
