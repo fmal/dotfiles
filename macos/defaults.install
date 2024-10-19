@@ -166,4 +166,7 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # Don't show the day of week in the menu bar
-defaults write com.apple.menuextra.clock.plist ShowDayOfWeek -bool false
+defaults write com.apple.menuextra.clock ShowDayOfWeek -bool false
+
+# Don't show the time with seconds
+defaults write com.apple.menuextra.clock ShowSeconds -bool false
