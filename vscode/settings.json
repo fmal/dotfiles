@@ -80,7 +80,7 @@
   "editor.quickSuggestions": {
     "other": true,
     "comments": false,
-    "strings": false
+    "strings": true
   },
   "editor.guides.indentation": false,
   "editor.gotoLocation.multipleDefinitions": "goto",
