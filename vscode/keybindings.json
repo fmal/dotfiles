@@ -68,5 +68,9 @@
     "key": "ctrl+shift+right",
     "command": "cursorWordPartRightSelect",
     "when": "textInputFocus"
+  },
+  {
+    "key": "shift+alt+p",
+    "command": "github.copilot.toggleCopilot"
   }
 ]

@@ -20,6 +20,9 @@ drknoxy.eslint-disable-snippets
 dzhavat.css-initial-value
 editorconfig.editorconfig
 esbenp.prettier-vscode
+github.copilot
+github.copilot-chat
+github.vscode-github-actions
 graphql.vscode-graphql
 graphql.vscode-graphql-execution
 graphql.vscode-graphql-syntax
@@ -42,7 +45,6 @@ pmndrs.pmndrs
 pnp.polacode
 sdras.night-owl
 stackbreak.comment-divider
-supermaven.supermaven
 tombonnike.vscode-status-bar-format-toggle
 unifiedjs.vscode-mdx
 usernamehw.errorlens
