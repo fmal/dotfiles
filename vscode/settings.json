@@ -97,6 +97,7 @@
       "path": "/usr/local/bin/zsh"
     }
   },
+  "workbench.fontAliasing": "default",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontFamily": "'Dank Mono', 'Symbols Nerd Font Mono', monospace",
   "terminal.integrated.cursorBlinking": true,

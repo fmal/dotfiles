@@ -45,6 +45,7 @@ pmndrs.pmndrs
 pnp.polacode
 sdras.night-owl
 stackbreak.comment-divider
+streetsidesoftware.code-spell-checker
 tombonnike.vscode-status-bar-format-toggle
 unifiedjs.vscode-mdx
 usernamehw.errorlens
