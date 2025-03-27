@@ -182,14 +182,14 @@
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
-    "markdown": false,
     "scminput": false
   },
+  "github.copilot.selectedCompletionModel": "gpt-4o-copilot"
   "workbench.editor.editorActionsLocation": "titleBar",
   "workbench.layoutControl.enabled": false,
   "workbench.navigationControl.enabled": false,
   "chat.commandCenter.enabled": false,
   "vscode_custom_css.statusbar": false,
   "workbench.activityBar.location": "hidden",
-  "inlineChat.holdToSpeech": false
+  "inlineChat.holdToSpeech": false,
 }

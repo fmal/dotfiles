@@ -59,8 +59,16 @@
 [init]
   defaultBranch = main
 
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  equired = true
+	required = true
+
 # use separate file for username / github token etc
 #   git config -f ~/.gitconfig.local user.name John Appleseed
 #   git config -f ~/.gitconfig.local user.email me@example.com
 [include]
   path = ~/.gitconfig.local
+
