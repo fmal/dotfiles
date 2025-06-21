@@ -22,6 +22,9 @@ set_symlink "$DOTFILES/.config/husky/init.sh" "$HOME/.config/husky/init.sh"
 mkdir -p "$HOME/.config/gh"
 set_symlink "$DOTFILES/.config/gh/config.yml" "$HOME/.config/gh/config.yml"
 
+mkdir -p "$HOME/.config/mise"
+set_symlink "$DOTFILES/.config/mise/config.toml" "$HOME/.config/mise/config.toml"
+
 # write Docker config file (don't link, because auth)
 mkdir -p "$HOME/.docker"
 cat "$DOTFILES/.docker/config.json" > "$HOME/.docker/config.json"

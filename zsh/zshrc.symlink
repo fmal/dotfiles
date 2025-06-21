@@ -15,6 +15,9 @@ fi
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+# https://consoledonottrack.com/
+export DO_NOT_TRACK=1
+
 export HOMEBREW_INSTALL_BADGE=✨
 # Disable Homebrew analytics https://docs.brew.sh/Analytics
 export HOMEBREW_NO_ANALYTICS=1
@@ -52,26 +55,8 @@ fi
 # Node-canvas / cairo stuff
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 
-ASDF_BREW_PREFIX=$(brew --prefix asdf)
-
-# Virtualenvwrapper
-if [[ -d $ASDF_BREW_PREFIX ]] && asdf list python >/dev/null 2>&1; then
-  python_bin="$(asdf where python)"
-  if [[ -f $python_bin/bin/virtualenvwrapper.sh ]]; then
-    source $python_bin/bin/virtualenvwrapper.sh
-  fi
-fi
-if [[ -d $HOME/.virtualenvs ]]; then
-  export WORKON_HOME=$HOME/.virtualenvs
-fi
-
 # Homebrew completions (must be called before oh-my-zsh)
 FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-# Source asdf. Prepends programming language binaries via ASDF shims
-if [[ -d $ASDF_BREW_PREFIX ]]; then
-  source $ASDF_BREW_PREFIX/libexec/asdf.sh
-fi
 
 ### Prompt configuration ###
 source $DOTFILES/zsh/prompt.zsh

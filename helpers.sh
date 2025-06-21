@@ -33,7 +33,7 @@ set_symlink () {
       if [ "$current_link_target" = "$link_target" ]; then
         skip=true;
       else
-        echo "⚠ File already exists: $link_target ($(basename "$link_target")), what do you want to do?\n\
+        echo "⚠️ File already exists: $link_target ($(basename "$link_target")), what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -k action
 

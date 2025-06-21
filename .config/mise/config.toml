@@ -1,0 +1,11 @@
+[tools]
+node = { version = "lts", postinstall = "corepack enable" }
+python = "3.12"
+uv = "latest"
+
+[settings]
+legacy_version_file = false
+idiomatic_version_file_enable_tools = ["python"]
+node.compile = false
+python.compile = false
+python.uv_venv_auto = true

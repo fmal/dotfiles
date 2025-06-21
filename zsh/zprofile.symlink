@@ -1,0 +1,10 @@
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zprofile.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zprofile.pre.zsh"
+
+# Add mise shims to PATH for IDE Support
+if [ -d "$HOME/.local/share/mise/shims" ]; then
+  export PATH="$HOME/.local/share/mise/shims:$PATH"
+fi
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zprofile.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zprofile.post.zsh"

@@ -16,7 +16,7 @@ brew 'zsh'
 brew 'curl'
 brew 'gpg'
 brew 'coreutils'
-brew 'asdf'
+brew 'mise'
 # Docker for mac
 brew 'colima'
 brew 'docker'
