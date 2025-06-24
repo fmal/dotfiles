@@ -9,3 +9,4 @@ idiomatic_version_file_enable_tools = ["python"]
 node.compile = false
 python.compile = false
 python.uv_venv_auto = true
+experimental = true
