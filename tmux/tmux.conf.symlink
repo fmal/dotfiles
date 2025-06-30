@@ -1,0 +1,92 @@
+set -g default-terminal "screen-256color"
+set -ga terminal-overrides ",xterm-256color*:Tc"
+
+# Set prefix key
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# Reduce esc key delay
+set -sg escape-time 10
+
+# History limit
+set -g history-limit 5000
+
+# Start numbering at 1 instead of 0
+set -g base-index 1
+setw -g pane-base-index 1
+
+set -g set-titles on
+set -g set-titles-string "#W #{command} #T #{session_path}"
+set -g escape-time 10
+set -g focus-events on
+set -g set-clipboard on
+
+# Mouse on
+set -g mouse on
+
+set-option -g status-position bottom
+set-option -g status on
+set-option -g status-interval 1
+set-option -g automatic-rename on
+set-option -g automatic-rename-format '#{b:pane_current_path}'
+
+# keybindings
+unbind %
+bind | split-window -h
+
+unbind '"'
+bind - split-window -v
+
+# quickly cycle through window panes
+bind o select-pane -t :.+
+
+# ctrl+left/right cycles thru windows
+bind -n C-right next
+bind -n C-left prev
+
+# switch panes using Alt-arrow without prefix
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-p select-pane -U
+bind -n M-Down select-pane -D
+
+bind z resize-pane -Z
+
+# saving sessions
+set -g @continuum-restore 'on'
+
+# tmuxline
+set -g status "on"
+set -g status-justify "left"
+set -g status-style "none,bg=default"
+set -g status-left-style "none"
+set -g status-left-length "100"
+set -g status-right-style "none"
+set -g status-right-length "100"
+set -g pane-border-style "fg=#33394a,bg=default"
+set -g pane-active-border-style "fg=#404350,bg=default"
+set -g pane-border-status bottom
+set -g pane-border-format ""
+set -g message-style "fg=brightwhite,bg=default"
+set -g message-command-style "fg=brightwhite,bg=default"
+setw -g window-status-activity-style "none"
+setw -g window-status-separator ""
+setw -g window-status-style "none,fg=brightwhite,bg=default"
+set -g status-left "#[fg=blue,bg=default,bold]#S #[fg=brightwhite,bg=default,nobold,nounderscore,noitalics]"
+set -g status-right "#[fg=brightblack,bg=default]%I:%M%p #[fg=brightblack,bg=default] %m/%d/%Y "
+setw -g window-status-format "#[fg=#5fb3a1,bg=default] #I#[fg=brightblack,bg=default] #W "
+setw -g window-status-current-format "#[fg=green,bg=default] #I#[fg=brightwhite,bg=default] #W "
+
+unbind r
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'jaclu/tmux-menus'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
