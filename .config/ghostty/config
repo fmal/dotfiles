@@ -1,0 +1,64 @@
+# --- Theme ---
+theme = Poimandres Storm
+
+# --- Fonts ---
+font-family = Dank Mono
+font-family = Symbols Nerd Font Mono
+font-family = Apple Color Emoji
+font-size = 14
+font-style = Regular
+font-thicken = true
+font-thicken-strength = 125
+
+# --- Window & layout ---
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+initial-window = false
+window-width = 80
+window-height = 25
+window-padding-x = 12
+window-padding-balance = true
+window-colorspace = display-p3
+quit-after-last-window-closed = false
+
+# --- Visual effects & appearance ---
+adjust-cell-height = 25%
+adjust-underline-position = 2
+split-divider-color = 33394a
+background-opacity = 0.9
+background-blur-radius = 20
+unfocused-split-opacity = 0.6
+
+# --- Cursor ---
+cursor-style = underline
+cursor-click-to-move = true
+adjust-cursor-thickness = 200%
+bold-is-bright = true
+shell-integration-features = no-cursor
+
+# --- Input & interaction ---
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+
+# --- Keybindings ---
+# Switching between tmux splits
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+
+keybind = alt+z=toggle_split_zoom
+keybind = global:cmd+space=toggle_quick_terminal
+
+# --- Quick terminal ---
+quick-terminal-animation-duration = 0
+quick-terminal-position = top
+quick-terminal-screen = main
+
+# --- Directory & shell ---
+window-inherit-working-directory = false
+working-directory = home
+
+# --- Clipboard ---
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+clipboard-trim-trailing-spaces = true

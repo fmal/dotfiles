@@ -1,11 +1,18 @@
-# Q pre block. Keep at the top of this file.
+# Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 
+# Ghostty shell integration for ZSH. This should be at the top of your zshrc!
+# Only load once to avoid errors when re-sourcing ~/.zshrc
+if [[ -n "${GHOSTTY_RESOURCES_DIR}" && -z "$__GHOSTTY_LOADED" ]]; then
+  builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
+  export __GHOSTTY_LOADED=1
+fi
+
 # Set colors to match iTerm2 Terminal Colors
-export TERM=xterm-256color
+export TERM="xterm-256color"
 
 # Default editor
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n "$SSH_CONNECTION" ]]; then
   export EDITOR="nano"
 else
   export EDITOR="code -w"
@@ -18,62 +25,64 @@ export LC_ALL="en_US.UTF-8"
 # https://consoledonottrack.com/
 export DO_NOT_TRACK=1
 
-export HOMEBREW_INSTALL_BADGE=✨
+export HOMEBREW_INSTALL_BADGE="✨"
 # Disable Homebrew analytics https://docs.brew.sh/Analytics
 export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_BUNDLE_FILE=$HOME/.Brewfile
-export EMOJI_CLI_KEYBIND=^e
+export HOMEBREW_BUNDLE_FILE="$HOME/.Brewfile"
+export EMOJI_CLI_KEYBIND="^e"
 
-if [[ -f $HOME/.github_token ]]; then
-  export GITHUB_TOKEN=$(cat $HOME/.github_token)
+if [[ -f "$HOME/.github_token" ]]; then
+  export GITHUB_TOKEN=$(cat "$HOME/.github_token")
 fi
 
 ### Paths ###
 
 # Dir paths
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES="$HOME/.dotfiles"
 
 # Prepend Homebrew binaries first in path
-if [[ -f /usr/local/bin/brew ]]; then
-  export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# For Intel Macs
+if [[ -f "/usr/local/bin/brew" ]]; then
+  export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 fi
 
-if [[ -f /opt/homebrew/bin/brew ]]; then
-  eval $(/opt/homebrew/bin/brew shellenv)
+# For Apple Silicon Macs
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Add homebrew packages to path so they are found before
-# macos's versions of the same software
-if [[ -d $(brew --prefix coreutils) ]]; then
-  export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+# macOS's versions of the same software
+if [[ -d "$(brew --prefix coreutils)" ]]; then
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
 
-if [ -d $(brew --prefix m4)/bin ]; then
-  export PATH=$(brew --prefix m4)/bin:$PATH
+if [[ -d "$(brew --prefix m4)/bin" ]]; then
+  export PATH="$(brew --prefix m4)/bin:$PATH"
 fi
 
 # Node-canvas / cairo stuff
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # Homebrew completions (must be called before oh-my-zsh)
-FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
 
 ### Prompt configuration ###
-source $DOTFILES/zsh/prompt.zsh
+source "$DOTFILES/zsh/prompt.zsh"
 
 ### Plugins ###
-source $DOTFILES/zsh/plugins.zsh
+source "$DOTFILES/zsh/plugins.zsh"
 
 ### Aliases ###
-source $DOTFILES/zsh/aliases.zsh
+source "$DOTFILES/zsh/aliases.zsh"
 
 ### Functions ###
-source $DOTFILES/zsh/functions.zsh
+source "$DOTFILES/zsh/functions.zsh"
 
 ### Secret stuff ###
-if [[ -f $DOTFILES/secret/zshrc ]]; then
-  source $DOTFILES/secret/zshrc
+if [[ -f "$DOTFILES/secret/zshrc" ]]; then
+  source "$DOTFILES/secret/zshrc"
 fi
 
-# Q post block. Keep at the bottom of this file.
+# Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
