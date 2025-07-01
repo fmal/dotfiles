@@ -15,7 +15,12 @@ alias desktop="cd ~/Desktop"
 alias copy="cp -r"
 alias delete="rm -r"
 
+# Claude Code
+if [[ -x "$HOME/.claude/local/claude" ]]; then
+  alias claude="$HOME/.claude/local/claude"
+fi
+
 # Inkscape
-if [[ -f /Applications/Inkscape.app/Contents/Resources/bin/inkscape ]]; then
+if [[ -f "/Applications/Inkscape.app/Contents/Resources/bin/inkscape" ]]; then
   alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
 fi

@@ -45,6 +45,9 @@ mouse-hide-while-typing = true
 keybind = alt+left=unbind
 keybind = alt+right=unbind
 
+# Claude code
+keybind = shift+enter=text:\n
+
 keybind = alt+z=toggle_split_zoom
 keybind = global:cmd+space=toggle_quick_terminal
 

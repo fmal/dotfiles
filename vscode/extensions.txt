@@ -2,6 +2,7 @@ aaron-bond.better-comments
 amazonwebservices.codewhisperer-for-command-line-companion
 andrewberty.noir-theme-bundle
 andrewleedham.vscode-css-modules
+anthropic.claude-code
 arcanis.vscode-zipfs
 be5invis.vscode-custom-css
 bierner.markdown-preview-github-styles

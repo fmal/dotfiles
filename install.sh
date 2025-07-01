@@ -28,6 +28,12 @@ set_symlink "$DOTFILES/.config/mise/config.toml" "$HOME/.config/mise/config.toml
 mkdir -p "$HOME/.config/ghostty"
 set_symlink "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
 
+# Symlink claude code conf
+mkdir -p "$HOME/.claude"
+set_symlink "$DOTFILES/.claude/settings.json" "$HOME/.claude/settings.json"
+set_symlink "$DOTFILES/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+set_symlink "$DOTFILES/.claude/commands" "$HOME/.claude/commands"
+
 # write Docker config file (don't link, because auth)
 mkdir -p "$HOME/.docker"
 cat "$DOTFILES/.docker/config.json" > "$HOME/.docker/config.json"
