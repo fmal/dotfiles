@@ -34,6 +34,11 @@ set_symlink "$DOTFILES/.claude/settings.json" "$HOME/.claude/settings.json"
 set_symlink "$DOTFILES/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 set_symlink "$DOTFILES/.claude/commands" "$HOME/.claude/commands"
 
+# Symlink gemini CLI conf
+mkdir -p "$HOME/.gemini"
+set_symlink "$DOTFILES/.gemini/settings.json" "$HOME/.gemini/settings.json"
+set_symlink "$DOTFILES/.gemini/GEMINI.md" "$HOME/.gemini/GEMINI.md"
+
 # write Docker config file (don't link, because auth)
 mkdir -p "$HOME/.docker"
 cat "$DOTFILES/.docker/config.json" > "$HOME/.docker/config.json"

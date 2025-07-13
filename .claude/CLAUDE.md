@@ -1,4 +1,4 @@
-# Claude Settings
+# Instructions for AI Coding Assistants
 
 ## General Guidance
 

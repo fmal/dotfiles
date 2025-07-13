@@ -1,0 +1,10 @@
+{
+  "theme": "Default",
+  "selectedAuthType": "gemini-api-key",
+  "preferredEditor": "vscode",
+  "contextFileName": ["AGENTS.md", "GEMINI.md", "CLAUDE.md"],
+  "telemetry": {
+    "enabled": false
+  },
+  "usageStatisticsEnabled": false
+}
