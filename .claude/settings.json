@@ -11,5 +11,6 @@
   "autoConnectIde": true,
   "preferredNotifChannel": "terminal_bell",
   "includeCoAuthoredBy": false,
+  "cleanupPeriodDays": 14,
   "theme": "dark"
 }

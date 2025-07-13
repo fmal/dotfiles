@@ -90,7 +90,7 @@
   },
   "explorer.autoReveal": false,
   "explorer.openEditors.visible": 0,
-  "terminal.external.osxExec": "iTerm.app",
+  "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.profiles.osx": {
     "zsh": {
