@@ -8,6 +8,7 @@ mkdir -p "$HOME/Library/Application Support/Code/User/"
 
 set_symlink "$DOTFILES/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 set_symlink "$DOTFILES/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+set_symlink "$DOTFILES/vscode/mcp.json" "$HOME/Library/Application Support/Code/User/mcp.json"
 
 # Install extensions
 

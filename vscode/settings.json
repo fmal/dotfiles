@@ -191,31 +191,5 @@
   "chat.commandCenter.enabled": false,
   "workbench.activityBar.location": "hidden",
   "inlineChat.holdToSpeech": false,
-  "accessibility.voice.speechLanguage": "en-US",
-  "mcp": {
-    "servers": {
-      "github": {
-        "url": "https://api.githubcopilot.com/mcp/"
-      },
-      "brave": {
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-brave-search"],
-        "env": {
-          "BRAVE_API_KEY": "${input:brave_api_key}"
-        }
-      },
-      "context7": {
-        "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp@latest"]
-      }
-    },
-    "inputs": [
-      {
-        "type": "promptString",
-        "id": "brave_api_key",
-        "description": "Brave Search API Key",
-        "password": true
-      }
-    ]
-  }
+  "accessibility.voice.speechLanguage": "en-US"
 }
