@@ -6,5 +6,19 @@
   "telemetry": {
     "enabled": false
   },
-  "usageStatisticsEnabled": false
+  "usageStatisticsEnabled": false,
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "github": {
+      "httpUrl": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer $GITHUB_TOKEN"
+      },
+      "timeout": 10000,
+      "trust": true
+    }
+  }
 }
