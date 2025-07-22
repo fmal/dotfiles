@@ -185,6 +185,7 @@
     "scminput": false
   },
   "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  "chat.agent.maxRequests": 100,
   "workbench.editor.editorActionsLocation": "titleBar",
   "workbench.layoutControl.enabled": false,
   "workbench.navigationControl.enabled": false,
