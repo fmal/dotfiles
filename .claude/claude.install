@@ -1,0 +1,6 @@
+#!/bin/sh
+
+claude config set -g theme dark
+claude config set -g preferredNotifChannel terminal_bell
+claude config set -g autoConnectIde true
+claude config set -g diffTool auto
