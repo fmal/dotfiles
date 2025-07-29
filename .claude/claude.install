@@ -1,6 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env zsh
+
+if ! command -v claude &> /dev/null; then
+  echo "Claude Code not installed: skipping global config setup."
+  exit 0
+fi
 
 claude config set -g theme dark
 claude config set -g preferredNotifChannel terminal_bell
 claude config set -g autoConnectIde true
 claude config set -g diffTool auto
+
+claude migrate-installer

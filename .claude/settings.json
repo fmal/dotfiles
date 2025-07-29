@@ -1,11 +1,11 @@
 {
-  "permissions": {
-    "allow": [],
-    "deny": []
-  },
+  "cleanupPeriodDays": 14,
   "env": {
     "DISABLE_TELEMETRY": "1"
   },
   "includeCoAuthoredBy": false,
-  "cleanupPeriodDays": 14
+  "permissions": {
+    "allow": [],
+    "deny": []
+  }
 }
