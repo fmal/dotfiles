@@ -1,16 +1,26 @@
 {
-  "theme": "Default",
-  "selectedAuthType": "gemini-api-key",
   "preferredEditor": "vscode",
-  "contextFileName": ["AGENTS.md", "GEMINI.md", "CLAUDE.md"],
+  "checkpointing": {
+    "enabled": true
+  },
+  "theme": "Default",
+  "ideMode": true,
+  "usageStatisticsEnabled": false,
   "telemetry": {
     "enabled": false
   },
-  "usageStatisticsEnabled": false,
+  "contextFileName": [
+    "AGENTS.md",
+    "GEMINI.md",
+    "CLAUDE.md"
+  ],
+  "selectedAuthType": "gemini-api-key",
   "mcpServers": {
     "playwright": {
       "command": "npx",
-      "args": ["@playwright/mcp@latest"]
+      "args": [
+        "@playwright/mcp@latest"
+      ]
     },
     "github": {
       "httpUrl": "https://api.githubcopilot.com/mcp/",
@@ -20,5 +30,9 @@
       "timeout": 10000,
       "trust": true
     }
-  }
+  },
+  "tools": {
+    "useRipgrep": true
+  },
+  "hasSeenIdeIntegrationNudge": true
 }

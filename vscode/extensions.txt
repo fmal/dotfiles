@@ -21,9 +21,11 @@ drknoxy.eslint-disable-snippets
 dzhavat.css-initial-value
 editorconfig.editorconfig
 esbenp.prettier-vscode
+figma.figma-vscode-extension
 github.copilot
 github.copilot-chat
 github.vscode-github-actions
+google.gemini-cli-vscode-ide-companion
 graphql.vscode-graphql
 graphql.vscode-graphql-syntax
 heybourn.headwind
