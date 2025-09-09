@@ -33,6 +33,7 @@ mkdir -p "$HOME/.claude"
 set_symlink "$DOTFILES/.claude/settings.json" "$HOME/.claude/settings.json"
 set_symlink "$DOTFILES/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 set_symlink "$DOTFILES/.claude/commands" "$HOME/.claude/commands"
+set_symlink "$DOTFILES/.claude/statusline.sh" "$HOME/.claude/statusline.sh"
 
 # Symlink gemini CLI conf
 mkdir -p "$HOME/.gemini"
@@ -52,3 +53,8 @@ run_installer "./homebrew/homebrew.install"
 for installer in $(find . -name "*.install" | grep -v "homebrew"); do
   run_installer $installer
 done
+
+# don't show last login message
+if [[ ! -f $HOME/.hushlogin ]]; then
+  touch $HOME/.hushlogin
+fi

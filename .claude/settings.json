@@ -5,9 +5,14 @@
     "DISABLE_TELEMETRY": "1"
   },
   "includeCoAuthoredBy": false,
-  "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [],
     "deny": []
+  },
+  "enableAllProjectMcpServers": true,
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline.sh",
+    "padding": 0
   }
 }
