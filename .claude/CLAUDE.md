@@ -20,6 +20,12 @@ When in planning mode and coming up with a plan, the first thing you should do w
 - Think carefully and only action the specific task I have given you with the most concise and elegant solution that changes as little code as possible.
 - Never use `any` in TypeScript.
 
+## Development Workflow Preferences
+
+- I usually want to run the dev server myself. Do not offer to run it unless I explicilty ask you to run it.
+- If a yarn.lock files exists in this project, always use yarn over npm.
+- If a pnpm-lock.yaml files exists in this project, always use pnpnm over npm.
+
 ## Commit Guidelines
 
 - Each commit should represent a complete, working change
