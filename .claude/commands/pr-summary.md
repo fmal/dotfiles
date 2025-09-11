@@ -33,3 +33,4 @@ allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git symbolic-ref:*)
 - Do not include test changes or mention tests.
 - Avoid obvious implementation details already clear from the code.
 - Structure with markdown to annotate important parts.
+- Wrap the final output in a markdown code block (```markdown) to preserve literal markdown syntax for copy-pasting.
