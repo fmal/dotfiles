@@ -1,0 +1,25 @@
+model = "gpt-5-codex"
+model_reasoning_effort = "medium"
+
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+
+[profiles.yolo]
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
+
+[sandbox_danger_full_access]
+network_access = true
+
+[tools]
+web_search = true
+
+[history]
+persistence = "save-all"
+max_bytes = 52428800 # 50 MiB
+
+file-opener = "vscode"
+
+[mcp_servers.playwright]
+command = "npx"
+args = ["@playwright/mcp@latest"]

@@ -49,6 +49,7 @@ rimuruchan.vscode-fix-checksums-next
 sdras.night-owl
 stackbreak.comment-divider
 streetsidesoftware.code-spell-checker
+tamasfe.even-better-toml
 tombonnike.vscode-status-bar-format-toggle
 unifiedjs.vscode-mdx
 usernamehw.errorlens

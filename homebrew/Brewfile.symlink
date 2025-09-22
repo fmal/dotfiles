@@ -18,6 +18,7 @@ brew 'curl'
 brew 'gpg'
 brew 'coreutils'
 brew 'mise'
+brew 'codex'
 # Docker for mac
 brew 'colima'
 brew 'docker'

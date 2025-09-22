@@ -21,6 +21,11 @@ if [[ -x "$HOME/.claude/local/claude" ]]; then
   alias claude-yolo="claude --dangerously-skip-permissions"
 fi
 
+# Codex
+if command -v codex &> /dev/null; then
+  alias codex-yolo="codex --dangerously-bypass-approvals-and-sandbox"
+fi
+
 # Inkscape
 if [[ -f "/Applications/Inkscape.app/Contents/Resources/bin/inkscape" ]]; then
   alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
