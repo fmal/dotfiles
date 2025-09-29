@@ -23,7 +23,7 @@ fi
 
 # Codex
 if command -v codex &> /dev/null; then
-  alias codex-yolo="codex --dangerously-bypass-approvals-and-sandbox"
+  alias codex-yolo="codex --dangerously-bypass-approvals-and-sandbox -c shell_environment_policy.ignore_default_excludes=true"
 fi
 
 # Inkscape
