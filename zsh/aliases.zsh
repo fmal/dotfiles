@@ -17,7 +17,10 @@ alias delete="rm -r"
 
 # Claude Code
 if [[ -x "$HOME/.claude/local/claude" ]]; then
-  alias claude="$HOME/.claude/local/claude --mcp-config $DOTFILES/.claude/.mcp.json"
+  claude() {
+    command "$HOME/.claude/local/claude" "$@" --mcp-config "$DOTFILES/.claude/.mcp.json"
+  }
+
   alias claude-yolo="claude --dangerously-skip-permissions"
 fi
 
