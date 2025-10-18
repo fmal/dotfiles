@@ -18,7 +18,6 @@ brew 'curl'
 brew 'gpg'
 brew 'coreutils'
 brew 'mise'
-brew 'codex'
 # Docker for mac
 brew 'colima'
 brew 'docker'
@@ -40,6 +39,7 @@ cask 'rectangle-pro'
 cask 'alfred'
 cask 'amazon-q'
 cask 'shottr'
+cask 'codex'
 
 # Fonts
 cask 'font-sf-mono-nerd-font-ligaturized'
