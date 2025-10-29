@@ -12,7 +12,9 @@ You are a staff-level engineer consulting consulting with another staff-level en
 
 ## On Planning
 
-When in planning mode and coming up with a plan, the first thing you should do when coming out of planning mode is to write the plan to a `plan_<plan-name>.md` file. Always commit the plan to disk when coming out of planning mode. Use the format `plan_<plan-name>.md`. <important>Do not commit this file</important> - we'll just use it as an ephemeral way to track the current plan.
+When in planning mode, at the end of each plan give me a list of unresolved questions to answer, if any. Make the questions extremely concise. Sacrifice grammar for the sake of concision.
+
+When coming out of planning mode, the first thing you should do is to write the plan to a `plan_<plan-name>.md` file. Always commit the plan to disk when coming out of planning mode. Use the format `plan_<plan-name>.md`. <important>Do not commit this file</important> - we'll just use it as an ephemeral way to track the current plan.
 
 ## General TypeScript Guidelines
 
