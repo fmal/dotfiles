@@ -192,5 +192,6 @@
   "chat.commandCenter.enabled": false,
   "workbench.activityBar.location": "hidden",
   "inlineChat.holdToSpeech": false,
-  "accessibility.voice.speechLanguage": "en-US"
+  "accessibility.voice.speechLanguage": "en-US",
+  "chat.mcp.gallery.enabled": true
 }
