@@ -84,5 +84,11 @@ if [[ -f "$DOTFILES/secret/zshrc" ]]; then
   source "$DOTFILES/secret/zshrc"
 fi
 
+### Shell integrations ###
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"

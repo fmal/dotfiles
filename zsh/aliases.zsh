@@ -15,6 +15,14 @@ alias desktop="cd ~/Desktop"
 alias copy="cp -r"
 alias delete="rm -r"
 
+if command -v zoxide &> /dev/null; then
+  # Only remap cd in interactive shells
+  if [[ -o interactive ]]; then
+    alias cd="z"
+    alias cdi="zi"  # interactive mode
+  fi
+fi
+
 # Claude Code
 if [[ -x "$HOME/.claude/local/claude" ]]; then
   claude() {
