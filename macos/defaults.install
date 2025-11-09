@@ -2,11 +2,8 @@
 #
 # Set custom Mac OS defaults
 
-# Enable automatic termination of inactive apps
-defaults write NSGlobalDomain NSDisableAutomaticTermination -bool false
-
 # Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 1
+defaults -currentHost write -g AppleFontSmoothing -int 1
 
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
@@ -32,7 +29,7 @@ defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Set $HOME as the default location for new Finder windows
 defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
 # Finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
@@ -75,6 +72,7 @@ chflags nohidden ~/Library
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
+sudo nvram StartupMute=%01
 
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on 2> /dev/null
@@ -87,15 +85,6 @@ sudo pmset -c sleep 0
 
 # Set machine sleep to 10 minutes on battery
 sudo pmset -b sleep 10
-
-# Disable Notification Center
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
-
-# Disable Dashboard
-defaults write com.apple.dashboard mcx-disabled -bool true
-
-# Don’t show Dashboard as a Space
-defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
@@ -160,9 +149,10 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
 # Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Show battery percentage next to the battery menu bar icon
+defaults write com.apple.controlcenter BatteryShowPercentage -bool true
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # Don't show the day of week in the menu bar
@@ -170,3 +160,10 @@ defaults write com.apple.menuextra.clock ShowDayOfWeek -bool false
 
 # Don't show the time with seconds
 defaults write com.apple.menuextra.clock ShowSeconds -bool false
+
+# Remove widgets from desktop
+defaults write com.apple.WindowManager StandardHideWidgets -bool true
+defaults write com.apple.WindowManager StageManagerHideWidgets -bool true
+
+# Stop wallpaper tinting to make darkmode even darker
+defaults write -g AppleReduceDesktopTinting -bool yes
