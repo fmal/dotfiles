@@ -25,7 +25,6 @@ set_symlink "$DOTFILES/.config/gh/config.yml" "$HOME/.config/gh/config.yml"
 mkdir -p "$HOME/.config/mise"
 set_symlink "$DOTFILES/.config/mise/config.toml" "$HOME/.config/mise/config.toml"
 
-mkdir -p "$HOME/.config/ghostty"
 set_symlink "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
 
 # Symlink claude code conf
