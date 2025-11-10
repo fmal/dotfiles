@@ -1,7 +1,6 @@
 cask_args appdir: '/Applications'
 
 # Taps
-tap 'homebrew/bundle'
 tap 'shaunsingh/SFMono-Nerd-Font-Ligaturized'
 
 # Binaries

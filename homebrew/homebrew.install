@@ -25,6 +25,5 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 echo 'Installing Homebrew packages and apps...'
 
 brew update
-brew tap homebrew/bundle
 brew bundle --file="$HOME/.Brewfile"
 brew cleanup
