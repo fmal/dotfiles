@@ -6,7 +6,7 @@ source helpers.sh
 sudo -v
 
 # Checking file dir
-DOTFILES=$HOME/.dotfiles
+export DOTFILES=$HOME/.dotfiles
 [[ ! -d $DOTFILES ]] && die "Directory ~/.dotfiles is missing"
 
 for symlink ($DOTFILES/**/*.symlink) {
