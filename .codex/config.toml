@@ -5,7 +5,6 @@ sandbox_mode = "workspace-write"
 approval_policy = "on-request"
 
 file-opener = "vscode"
-experimental_use_rmcp_client = true
 
 [profiles.yolo]
 sandbox_mode = "danger-full-access"
@@ -14,8 +13,9 @@ approval_policy = "never"
 [sandbox_danger_full_access]
 network_access = true
 
-[tools]
-web_search = true
+[features]
+web_search_request = true
+rmcp_client = true
 
 [history]
 persistence = "save-all"
