@@ -3,6 +3,7 @@
   "cleanupPeriodDays": 14,
   "env": {
     "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1",
     "MAX_MCP_OUTPUT_TOKENS": "50000"
   },
   "includeCoAuthoredBy": false,
