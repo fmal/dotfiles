@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 
 # Taps
 tap 'shaunsingh/SFMono-Nerd-Font-Ligaturized'
+tap 'FelixKratz/formulae'
 
 # Binaries
 brew 'antidote'
@@ -19,6 +20,7 @@ brew 'croc'
 brew 'gpg'
 brew 'coreutils'
 brew 'mise'
+brew 'borders', restart_service: true
 # Docker for mac
 brew 'colima'
 brew 'docker'
@@ -40,8 +42,7 @@ cask 'monitorcontrol'
 cask 'stillcolor'
 cask 'iina'
 cask 'imageoptim'
-cask 'rectangle-pro'
-cask 'alfred'
+cask 'raycast'
 cask 'contexts'
 cask 'amazon-q'
 cask 'shottr'

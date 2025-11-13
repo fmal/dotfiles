@@ -89,8 +89,8 @@ sudo pmset -b sleep 10
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
-# Enable separate Spaces for each display
-defaults write com.apple.spaces spans-displays -bool false
+# Disable separate Spaces for each display
+defaults write com.apple.spaces spans-displays -bool true
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -125,8 +125,8 @@ defaults write com.apple.dock launchanim -bool false
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
 
-# Don’t group windows by application in Mission Control
-defaults write com.apple.dock expose-group-by-app -bool false
+# Group windows by application in Mission Control
+defaults write com.apple.dock expose-group-apps -bool true
 
 # Hot corners
 defaults write com.apple.dock wvous-br-corner -int 0
@@ -153,6 +153,9 @@ defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
 # Increase sound quality for Bluetooth headphones/headsets
 # defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+# Always auto-hide menu bar
+defaults write com.apple.controlcenter AutoHideMenuBarOption -int 0
 
 # Show battery percentage next to the battery menu bar icon
 defaults write com.apple.controlcenter BatteryShowPercentage -bool true
