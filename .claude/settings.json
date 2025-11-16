@@ -17,5 +17,6 @@
     "command": "bash ~/.claude/statusline.sh",
     "padding": 0
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": false,
+  "defaultMode": "acceptEdits"
 }

@@ -33,4 +33,4 @@ When coming out of planning mode, the first thing you should do is to write the 
 ## Commit Guidelines
 
 - Each commit should represent a complete, working change
-- Use conventional commits format (`feat:`, `fix:`, `docs:`, `ci:`, etc.)
+- Use conventional commits format (`feat:`, `fix:`, `chore:`, `docs:`, etc.)

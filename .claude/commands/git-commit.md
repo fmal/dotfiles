@@ -1,6 +1,6 @@
 ---
 description: Analyze git changes and create a well-structured commit
-allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*), Bash(git log:*), Bash(git diff:*)
+allowed-tools: Bash(git:*)
 ---
 
 ## Context

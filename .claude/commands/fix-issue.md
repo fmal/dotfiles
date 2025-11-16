@@ -1,7 +1,7 @@
 ---
 description: Analyze and fix a GitHub issue with comprehensive testing and verification
 argument-hint: <issue_number>
-allowed-tools: Bash(gh *), Read, Edit, Write, Bash(git *)
+allowed-tools: Bash(gh:*), Bash(git:*), Read, Edit, Write
 ---
 
 Analyze and fix the GitHub issue: $ARGUMENTS.

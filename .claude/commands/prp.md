@@ -1,33 +1,39 @@
 ---
 description: Process and address PR review comments from the current pull request
-allowed-tools: Bash(gh *), Bash(git *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(gh:*), Bash(git:*), Read, Edit, Write, Grep, Glob, TodoWrite
 ---
 
 # PR Review Processor
 
 Process and address PR review comments from the current pull request.
 
+## Context
+
+- Repository: !`gh repo view --json nameWithOwner -q .nameWithOwner`
+- PR Number: !`gh pr view --json number -q .number 2>/dev/null || echo "No PR found"`
+
 ## Steps
 
-1. First, verify we're on a PR branch and fetch the PR information:
+1. **STOP if PR Number above shows "No PR found"** - Tell user to checkout a PR branch first.
 
-```bash
-gh pr view 2>/dev/null || echo "ERROR: No PR found for current branch"
-```
+2. Fetch all comments:
 
-If no PR exists, stop and inform the user.
-
-2. Fetch review comments in a simple, readable format:
+Get PR-level and review comments:
 
 ```bash
 gh pr view --comments
 ```
 
-This shows all review comments, general comments, and inline code review threads in one view.
+Then get inline review comments with file context:
+
+```bash
+gh api repos/$REPO/pulls/$PR_NUMBER/comments --paginate | jq '[.[] | select(.position | type == "number") | {user: .user.login, user_type: .user.type, path, side, start_side, line, start_line, original_line, original_start_line, position, original_position, diff_hunk, body}]'
+```
 
 3. After reading all comments, I will:
 
 - Analyze each comment to understand what needs to be done
+- Identify specific lines/sections that need modification based on line numbers, diff hunks, and file paths
 - Group related comments by file or topic
 - Identify which comments are:
   - ✅ Actionable code changes

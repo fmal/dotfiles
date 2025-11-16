@@ -1,6 +1,6 @@
 ---
 description: Generate a concise PR description by analyzing branch changes
-allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git symbolic-ref:*)
+allowed-tools: Bash(git:*)
 ---
 
 ## Context

@@ -1,7 +1,7 @@
 ---
 description: Create a new GitHub issue from a brief description
 argument-hint: <brief description>
-allowed-tools: Bash(gh *), Read, Grep, Glob, Bash(git *)
+allowed-tools: Bash(gh:*), Bash(git:*), Read, Grep, Glob
 ---
 
 Create a new GitHub issue based on this brief description: $ARGUMENTS
