@@ -4,7 +4,7 @@ argument-hint: <issue_number>
 allowed-tools: Bash(gh *), Read, Edit, Write, Bash(git *)
 ---
 
-Please analyze and fix the GitHub issue: $ARGUMENTS.
+Analyze and fix the GitHub issue: $ARGUMENTS.
 
 Follow these steps:
 
