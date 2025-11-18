@@ -61,6 +61,11 @@ if [[ -d "$(brew --prefix m4)/bin" ]]; then
   export PATH="$(brew --prefix m4)/bin:$PATH"
 fi
 
+# Add dotfiles binaries
+if [[ -d "$DOTFILES/bin" ]]; then
+  export PATH="$DOTFILES/bin:$PATH"
+fi
+
 # Node-canvas / cairo stuff
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
