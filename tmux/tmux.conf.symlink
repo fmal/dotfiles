@@ -1,10 +1,13 @@
 set -g default-terminal "screen-256color"
 set -ga terminal-overrides ",xterm-256color*:Tc"
 
+# Prevent profile script from running many times instead of once
+set -g default-command "${SHELL}"
+
 # Set prefix key
 unbind C-b
-set-option -g prefix C-a
-bind-key C-a send-prefix
+set-option -g prefix `
+bind-key ` send-prefix
 
 # Reduce esc key delay
 set -sg escape-time 10
@@ -53,8 +56,8 @@ bind -n M-Down select-pane -D
 
 bind z resize-pane -Z
 
-# saving sessions
-set -g @continuum-restore 'on'
+unbind r
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # tmuxline
 set -g status "on"
@@ -78,15 +81,19 @@ set -g status-right "#[fg=brightblack,bg=default]%I:%M%p #[fg=brightblack,bg=def
 setw -g window-status-format "#[fg=#5fb3a1,bg=default] #I#[fg=brightblack,bg=default] #W "
 setw -g window-status-current-format "#[fg=green,bg=default] #I#[fg=brightwhite,bg=default] #W "
 
-unbind r
-bind r source-file ~/.tmux.conf \; display "Reloaded!"
-
+# List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'jaclu/tmux-menus'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# Saving sessions
+set -g @continuum-restore 'on'
+
+# Prevent yank from scrolling to the bottom of your buffer after copying
+set -g @yank_action 'copy-pipe'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'

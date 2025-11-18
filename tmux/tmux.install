@@ -3,4 +3,9 @@
 if [[ ! -d "${HOME}/.tmux/plugins/tpm" ]]; then
   echo "Installing Tmux Plugin Manager..."
   git clone --quiet https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
+
+  if [[ -f "${HOME}/.tmux/plugins/tpm/bin/install_plugins" ]]; then
+    echo "Installing tmux plugins..."
+    "${HOME}/.tmux/plugins/tpm/bin/install_plugins" > /dev/null 2>&1
+  fi
 fi
