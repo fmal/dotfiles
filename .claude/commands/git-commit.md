@@ -1,6 +1,7 @@
 ---
 description: Analyze git changes and create a well-structured commit
 allowed-tools: Bash(git:*)
+model: haiku
 ---
 
 ## Context

@@ -1,6 +1,7 @@
 ---
 description: Generate a concise PR description by analyzing branch changes
 allowed-tools: Bash(git:*)
+model: haiku
 ---
 
 ## Context
