@@ -50,6 +50,7 @@ cask 'amazon-q'
 cask 'shottr'
 cask 'shifty'
 cask 'codex'
+cask 'voiceink'
 cask 'legcord'
 cask 'transmission'
 
