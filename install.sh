@@ -43,6 +43,7 @@ set_symlink "$DOTFILES/.gemini/GEMINI.md" "$HOME/.gemini/GEMINI.md"
 mkdir -p "$HOME/.codex"
 set_symlink "$DOTFILES/.codex/config.toml" "$HOME/.codex/config.toml"
 set_symlink "$DOTFILES/.codex/AGENTS.md" "$HOME/.codex/AGENTS.md"
+set_symlink "$DOTFILES/.codex/prompts" "$HOME/.codex/prompts"
 
 # write Docker config file (don't link, because auth)
 mkdir -p "$HOME/.docker"
