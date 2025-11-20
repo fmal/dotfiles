@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # gwt-tmux — "git worktree in tmux"
-#  ▸ gwt-tmux NAME     → create/reuse worktrees/NAME
+#  ▸ gwt-tmux NAME     → create/reuse .worktrees/NAME
 #  ▸ gwt-tmux          → pick an existing work-tree with fzf
 
 set -euo pipefail
@@ -13,7 +13,7 @@ root=$(git -C . rev-parse --show-toplevel 2>/dev/null) || {
   exit 1
 }
 cd "$root"
-mkdir -p worktrees/ # folder that holds our work-trees
+mkdir -p .worktrees/ # folder that holds our work-trees
 
 ################################################################################
 # 1 · pick/create the work-tree
@@ -31,15 +31,15 @@ if [[ $# -eq 0 ]]; then
     fzf --prompt='Worktree ❯ ' --exit-0)
 
   [[ -n ${wtdir:-} ]] || exit 0 # user pressed <Esc>
-  name=$(basename "$wtdir")     # eg. worktrees/feature → feature
+  name=$(basename "$wtdir")     # eg. .worktrees/feature → feature
 else
-  # create/reuse worktrees/NAME
+  # create/reuse .worktrees/NAME
   name=$1
-  wtdir="$root/worktrees/$name"
+  wtdir="$root/.worktrees/$name"
 fi
 
-window="$name"      # tmux window name
-session="worktrees" # tmux session that herds all work-trees
+window="$name"       # tmux window name
+session="worktrees"  # tmux session that herds all work-trees
 
 ################################################################################
 # 2 · figure out the repo’s default branch for *new* work-trees
