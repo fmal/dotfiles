@@ -14,7 +14,7 @@ Process and address PR review comments from the current pull request.
 
 ## Steps
 
-1. **STOP if PR Number above shows "No PR found"** - Tell user to checkout a PR branch first.
+1. **ABORT if PR Number above shows "No PR found"** - Tell user to checkout a PR branch first.
 
 2. Fetch all comments:
 

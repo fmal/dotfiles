@@ -46,7 +46,7 @@ keybind = alt+left=unbind
 keybind = alt+right=unbind
 
 # Claude code
-keybind = shift+enter=text:\n
+keybind = shift+enter=text:\x1b\r
 
 keybind = alt+z=toggle_split_zoom
 keybind = global:cmd+space=toggle_quick_terminal

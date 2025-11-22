@@ -39,7 +39,6 @@ ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 ms-vscode.atom-keybindings
 ms-vscode.remote-explorer
-ms-vscode.vscode-speech
 nmsmith89.incrementor
 orta.vscode-jest
 phoenisx.cssvar

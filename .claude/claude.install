@@ -6,7 +6,6 @@ if ! command -v claude &> /dev/null; then
 fi
 
 claude config set -g theme dark 2>/dev/null
-claude config set -g preferredNotifChannel terminal_bell 2>/dev/null
 claude config set -g autoConnectIde true 2>/dev/null
 claude config set -g diffTool auto 2>/dev/null
 

@@ -1,4 +1,4 @@
-model = "gpt-5-codex"
+model = "gpt-5.1-codex-max"
 model_reasoning_effort = "medium"
 
 sandbox_mode = "workspace-write"
@@ -24,10 +24,3 @@ max_bytes = 52428800 # 50 MiB
 [mcp_servers.playwright]
 command = "npx"
 args = ["@playwright/mcp@latest"]
-
-[mcp_servers.figma]
-url = "https://mcp.figma.com/mcp"
-
-[mcp_servers.wave]
-command = "npx"
-args = ["-y", "@volue/wave-mcp@latest"]
