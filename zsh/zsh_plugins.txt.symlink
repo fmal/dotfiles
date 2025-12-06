@@ -12,15 +12,10 @@ ohmyzsh/ohmyzsh path:plugins/npm
 ohmyzsh/ohmyzsh path:plugins/yarn
 
 # 3rd party plugins
-b4b4r07/emoji-cli
-
-# Prompts
-spaceship-prompt/spaceship-prompt
+b4b4r07/emoji-cli kind:defer
 
 # Deferred plugins
 zdharma-continuum/fast-syntax-highlighting kind:defer
-
-# Late loading plugins
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-history-substring-search
+zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-history-substring-search kind:defer
 

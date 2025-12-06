@@ -26,7 +26,7 @@ WHITE='\033[37m'
 GRAY='\033[0;90m'
 NC='\033[0m' # No Color
 
-BRANCH_CHAR=''
+BRANCH_CHAR=''
 
 # Build the status line starting with model name
 status_line="${ORANGE}${model_name}${NC}"

@@ -54,7 +54,7 @@
   "workbench.settings.useSplitJSON": true,
   "window.titleBarStyle": "custom",
   "editor.fontSize": 18,
-  "editor.fontFamily": "'Dank Mono', Mononoki, LigaIBMPlexMono, monospace",
+  "editor.fontFamily": "'Dank Mono', Mononoki, LigaIBMPlexMono, 'Symbols Nerd Font Mono', monospace",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,

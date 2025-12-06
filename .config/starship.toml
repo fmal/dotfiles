@@ -1,0 +1,44 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+[character]
+success_symbol = '[\$](green)'
+error_symbol = '[\$](green)'
+
+[directory]
+truncation_length = 2
+read_only = " 󰌾"
+
+[git_branch]
+symbol = " "
+
+[git_commit]
+tag_symbol = '  '
+
+[nodejs]
+symbol = " "
+
+[python]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[docker_context]
+symbol = " "
+
+[package]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[battery]
+disabled = true
+
+[aws]
+disabled = true
+
+[kubernetes]
+disabled = true

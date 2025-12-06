@@ -1,4 +1,3 @@
-
 # Ghostty shell integration for ZSH. This should be at the top of your zshrc!
 # Only load once to avoid errors when re-sourcing ~/.zshrc
 if [[ -n "${GHOSTTY_RESOURCES_DIR}" && -z "$__GHOSTTY_LOADED" ]]; then
@@ -27,10 +26,12 @@ export HOMEBREW_INSTALL_BADGE="✨"
 # Disable Homebrew analytics https://docs.brew.sh/Analytics
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_BUNDLE_FILE="$HOME/.Brewfile"
+
 export EMOJI_CLI_KEYBIND="^e"
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=50
 
 if [[ -f "$HOME/.github_token" ]]; then
-  export GITHUB_TOKEN=$(cat "$HOME/.github_token")
+  export GITHUB_TOKEN=$(<"$HOME/.github_token")
 fi
 
 ### Paths ###
@@ -49,14 +50,17 @@ if [[ -f "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# Cache brew prefix (avoid repeated slow calls)
+: ${HOMEBREW_PREFIX:=$(brew --prefix)}
+
 # Add homebrew packages to path so they are found before
 # macOS's versions of the same software
-if [[ -d "$(brew --prefix coreutils)" ]]; then
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+if [[ -d "$HOMEBREW_PREFIX/opt/coreutils" ]]; then
+  export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
-if [[ -d "$(brew --prefix m4)/bin" ]]; then
-  export PATH="$(brew --prefix m4)/bin:$PATH"
+if [[ -d "$HOMEBREW_PREFIX/opt/m4/bin" ]]; then
+  export PATH="$HOMEBREW_PREFIX/opt/m4/bin:$PATH"
 fi
 
 # Add dotfiles binaries
@@ -68,10 +72,7 @@ fi
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # Homebrew completions (must be called before oh-my-zsh)
-FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
-
-### Prompt configuration ###
-source "$DOTFILES/zsh/prompt.zsh"
+FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH"
 
 ### Plugins ###
 source "$DOTFILES/zsh/plugins.zsh"
@@ -92,3 +93,8 @@ fi
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
 fi
+
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
+
