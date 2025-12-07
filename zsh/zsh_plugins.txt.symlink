@@ -2,6 +2,9 @@
 getantidote/use-omz
 ohmyzsh/ohmyzsh path:lib
 
+# Completions
+zsh-users/zsh-completions kind:fpath path:src
+
 # OMZ plugins
 ohmyzsh/ohmyzsh path:plugins/mise
 ohmyzsh/ohmyzsh path:plugins/git
@@ -13,6 +16,7 @@ ohmyzsh/ohmyzsh path:plugins/yarn
 
 # 3rd party plugins
 b4b4r07/emoji-cli kind:defer
+Aloxaf/fzf-tab
 
 # Deferred plugins
 zdharma-continuum/fast-syntax-highlighting kind:defer

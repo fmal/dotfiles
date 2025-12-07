@@ -90,6 +90,10 @@ fi
 
 ### Shell integrations ###
 
+if command -v fzf &> /dev/null; then
+  source "$DOTFILES/zsh/fzf.zsh"
+fi
+
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
 fi

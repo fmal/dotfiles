@@ -1,9 +1,9 @@
 alias zshconfig="code ~/.zshrc"
 alias ss='source ~/.zshrc' # quick source
 alias mkdir="mkdir -p"
-alias l="ls -al"
-alias ls="ls -GFh"
-alias ll="ls -GFhl"
+alias ls="ls -hF --color=auto --group-directories-first"
+alias la="ls -A"
+alias ll="ls -l"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

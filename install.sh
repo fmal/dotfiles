@@ -29,6 +29,8 @@ set_symlink "$DOTFILES/.config/starship.toml" "$HOME/.config/starship.toml"
 
 set_symlink "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
 
+set_symlink "$DOTFILES/.config/bat" "$HOME/.config/bat"
+
 # Symlink claude code conf
 mkdir -p "$HOME/.claude"
 set_symlink "$DOTFILES/.claude/settings.json" "$HOME/.claude/settings.json"
