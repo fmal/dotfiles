@@ -39,19 +39,12 @@ fi
 # Dir paths
 export DOTFILES="$HOME/.dotfiles"
 
-# Prepend Homebrew binaries first in path
-# For Intel Macs
-if [[ -f "/usr/local/bin/brew" ]]; then
-  export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-fi
-
-# For Apple Silicon Macs
+# Set up Homebrew environment (PATH, FPATH, etc.)
 if [[ -f "/opt/homebrew/bin/brew" ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"  # Apple Silicon
+elif [[ -f "/usr/local/bin/brew" ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"  # Intel
 fi
-
-# Cache brew prefix (avoid repeated slow calls)
-: ${HOMEBREW_PREFIX:=$(brew --prefix)}
 
 # Add homebrew packages to path so they are found before
 # macOS's versions of the same software
@@ -70,9 +63,6 @@ fi
 
 # Node-canvas / cairo stuff
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
-
-# Homebrew completions (must be called before oh-my-zsh)
-FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH"
 
 ### Plugins ###
 source "$DOTFILES/zsh/plugins.zsh"
