@@ -46,6 +46,12 @@ elif [[ -f "/usr/local/bin/brew" ]]; then
   eval "$(/usr/local/bin/brew shellenv)"  # Intel
 fi
 
+# Add Homebrew's dir to the end of $fpath, so that we use its completions
+# only for those commands that zsh doesn't already know how to complete
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
+  fpath=(${fpath:#$HOMEBREW_PREFIX/share/zsh/site-functions} $HOMEBREW_PREFIX/share/zsh/site-functions)
+fi
+
 # Add homebrew packages to path so they are found before
 # macOS's versions of the same software
 if [[ -d "$HOMEBREW_PREFIX/opt/coreutils" ]]; then

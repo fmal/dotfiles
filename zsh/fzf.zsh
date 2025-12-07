@@ -25,7 +25,8 @@ spinner:bright-blue"
 export FZF_DEFAULT_OPTS="
   --ansi
   --layout=reverse
-  --height=~50%
+  --height=50%
+  --min-height=15
   --info=hidden
   --no-scrollbar
   --no-separator
