@@ -1,6 +1,6 @@
 ---
 description: Generate a concise PR description by analyzing branch changes
-allowed-tools: Bash(git:*)
+allowed-tools: Bash(git:*), Bash(sed:*), Bash(echo:*), Bash(cat:*), Bash(pbcopy:*), Bash(xclip:*)
 model: haiku
 ---
 
@@ -35,3 +35,12 @@ model: haiku
 - Avoid obvious implementation details already clear from the code.
 - Structure with markdown to annotate important parts.
 - Wrap the final output in a markdown code block (```markdown) to preserve literal markdown syntax for copy-pasting.
+
+## After Generating
+
+Use `AskUserQuestion` tool with:
+
+- Question: "Copy to clipboard?"
+- Options: "Yes" / "No"
+
+If yes, copy the summary using `pbcopy` (macOS) or `xclip` (Linux).
