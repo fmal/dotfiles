@@ -9,7 +9,8 @@
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [],
-    "deny": []
+    "deny": [],
+    "defaultMode": "acceptEdits"
   },
   "enableAllProjectMcpServers": true,
   "statusLine": {
@@ -17,6 +18,5 @@
     "command": "bash ~/.claude/statusline.sh",
     "padding": 0
   },
-  "alwaysThinkingEnabled": false,
-  "defaultMode": "acceptEdits"
+  "alwaysThinkingEnabled": false
 }
