@@ -27,7 +27,7 @@ export HOMEBREW_INSTALL_BADGE="✨"
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_BUNDLE_FILE="$HOME/.Brewfile"
 
-export EMOJI_CLI_KEYBIND="^e"
+export EMOJI_CLI_KEYBIND="^[e"
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=50
 
 if [[ -f "$HOME/.github_token" ]]; then

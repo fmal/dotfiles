@@ -41,9 +41,8 @@ macos-option-as-alt = true
 mouse-hide-while-typing = true
 
 # --- Keybindings ---
-# Switching between tmux splits
-keybind = alt+left=unbind
-keybind = alt+right=unbind
+keybind = alt+left=esc:B
+keybind = alt+right=esc:F
 
 # Claude code
 keybind = shift+enter=text:\x1b\r
