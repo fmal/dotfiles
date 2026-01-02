@@ -52,6 +52,9 @@
   "workbench.tree.renderIndentGuides": "none",
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  },
   "window.titleBarStyle": "custom",
   "editor.fontSize": 18,
   "editor.fontFamily": "'Dank Mono', Mononoki, LigaIBMPlexMono, 'Symbols Nerd Font Mono', monospace",
