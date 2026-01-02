@@ -113,6 +113,9 @@ defaults write com.apple.dock tilesize -int 48
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
 
+# Disable double click on title bar action
+defaults write NSGlobalDomain AppleActionOnDoubleClick -string "None"
+
 # Minimize windows into application icons
 defaults write com.apple.dock minimize-to-application -bool true
 

@@ -193,5 +193,6 @@
   "workbench.activityBar.location": "hidden",
   "inlineChat.holdToSpeech": false,
   "accessibility.voice.speechLanguage": "en-US",
-  "chat.mcp.gallery.enabled": true
+  "chat.mcp.gallery.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": true
 }
