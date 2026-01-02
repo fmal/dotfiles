@@ -70,6 +70,9 @@ fi
 # Node-canvas / cairo stuff
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
+### Autoloads ###
+autoload -Uz zmv
+
 ### Plugins ###
 source "$DOTFILES/zsh/plugins.zsh"
 

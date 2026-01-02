@@ -23,6 +23,9 @@ if command -v zoxide &> /dev/null; then
   fi
 fi
 
+# redirect stderr to /dev/null global alias
+alias -g NE='2>/dev/null'
+
 # Claude Code
 if [[ -x "$HOME/.claude/local/claude" ]]; then
   claude() {
