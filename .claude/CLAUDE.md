@@ -16,14 +16,17 @@ You are a staff-level engineer consulting consulting with another staff-level en
 
 When in planning mode, at the end of each plan give me a list of unresolved questions to answer, if any. Make the questions extremely concise. Sacrifice grammar for the sake of concision.
 
-When coming out of planning mode, the first thing you should do is to write the plan to a `plan_<plan-name>.md` file. Always commit the plan to disk when coming out of planning mode. Use the format `plan_<plan-name>.md`. <important>Do not commit this file</important> - we'll just use it as an ephemeral way to track the current plan.
+When coming out of planning mode, save the plan to `plan_<plan-name>.md` in the working directory unless the tool already persists plans automatically. <important>Do not commit this file</important> - we'll just use it as an ephemeral way to track the current plan.
+
+## Code style
+
+- DO NOT over-engineer.
+- Think carefully and only action the specific task I have given you with the most concise and elegant solution that changes as little code as possible.
 
 ## General TypeScript Guidelines
 
-- When considering code, assume extreme proficiency in TypeScript and JavaScript.
-- When writing TypeScript, prefer strong types, avoid casting `as any`.
+- Prefer strong types, avoid casting `as any`.
 - Never use `any` in TypeScript.
-- Think carefully and only action the specific task I have given you with the most concise and elegant solution that changes as little code as possible.
 
 ## Development Workflow Preferences
 
