@@ -27,8 +27,7 @@ fi
 alias -g NE='2>/dev/null'
 
 # Claude Code
-if [[ -x "$HOME/.claude/local/claude" ]]; then
-  alias claude="$HOME/.claude/local/claude"
+if command -v claude &> /dev/null; then
   alias claude-yolo="claude --dangerously-skip-permissions"
 fi
 

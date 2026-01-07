@@ -67,6 +67,11 @@ if [[ -d "$DOTFILES/bin" ]]; then
   export PATH="$DOTFILES/bin:$PATH"
 fi
 
+# Add user-local binaries
+if [[ -d "$HOME/.local/bin" ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
 # Node-canvas / cairo stuff
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
@@ -100,4 +105,3 @@ fi
 if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
-

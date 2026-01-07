@@ -1,12 +1,12 @@
 #!/usr/bin/env zsh
 
-if ! command -v claude &> /dev/null; then
-  echo "Claude Code not installed: skipping global config setup."
+if command -v claude &> /dev/null; then
+  echo "Claude Code is already installed: skipping install."
   exit 0
 fi
 
-claude config set -g theme dark 2>/dev/null
-claude config set -g autoConnectIde true 2>/dev/null
-claude config set -g diffTool auto 2>/dev/null
+curl -fsSL https://claude.ai/install.sh | bash
 
-claude migrate-installer
+# claude config set -g theme dark-daltonized 2>/dev/null
+# claude config set -g autoConnectIde true 2>/dev/null
+# claude config set -g diffTool auto 2>/dev/null
