@@ -17,6 +17,6 @@ Analyze the git changes and create a single, well-crafted commit. If there are u
 
 ## Output rules
 
-- Follow conventional commits format.
+- Apply commit message guidelines via `commit-guidelines` skill.
 - Use the context of the conversation to help derive the message.
 - If possible, commit message should state why the change was made not what the change is.

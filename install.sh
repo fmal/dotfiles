@@ -36,6 +36,7 @@ mkdir -p "$HOME/.claude"
 set_symlink "$DOTFILES/.claude/settings.json" "$HOME/.claude/settings.json"
 set_symlink "$DOTFILES/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 set_symlink "$DOTFILES/.claude/commands" "$HOME/.claude/commands"
+set_symlink "$DOTFILES/.claude/skills" "$HOME/.claude/skills"
 set_symlink "$DOTFILES/.claude/statusline.sh" "$HOME/.claude/statusline.sh"
 
 # Symlink gemini CLI conf

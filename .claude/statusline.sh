@@ -37,6 +37,7 @@ GRAY='\033[90m'
 NC='\033[0m' # No Color
 
 BRANCH_CHAR=''
+SEP_CHAR='·'
 
 # Build the status line starting with model name
 short_model=$(echo "$model_name" | sed 's/Claude //' | sed 's/ Sonnet//')
@@ -73,13 +74,13 @@ if [ "$context_limit" -gt 0 ] 2>/dev/null; then
   details="${tokens_display}/${limit_display}"
   [ -n "$cost_display" ] && details+=" at ${cost_display}"
 
-  status_line+=" ${GRAY}|${NC} ${ctx_color}${usage_pct}%${NC} ${GRAY}(${details})${NC}"
+  status_line+=" ${GRAY}${SEP_CHAR}${NC} ${ctx_color}${usage_pct}%${NC} ${GRAY}(${details})${NC}"
 elif [ -n "$cost_display" ]; then
   status_line+=" ${GRAY}(${cost_display})${NC}"
 fi
 
 # Add pipe separator and directory name
-status_line+=" ${GRAY}|${NC} ${BLUE}${dir_name}${NC}"
+status_line+=" ${GRAY}${SEP_CHAR}${NC} ${BLUE}${dir_name}${NC}"
 
 # Add git branch if available
 if [[ -n "$git_branch" ]]; then

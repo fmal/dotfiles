@@ -22,16 +22,11 @@ When coming out of planning mode, the first thing you should do is to write the 
 
 - When considering code, assume extreme proficiency in TypeScript and JavaScript.
 - When writing TypeScript, prefer strong types, avoid casting `as any`.
-- Think carefully and only action the specific task I have given you with the most concise and elegant solution that changes as little code as possible.
 - Never use `any` in TypeScript.
+- Think carefully and only action the specific task I have given you with the most concise and elegant solution that changes as little code as possible.
 
 ## Development Workflow Preferences
 
 - I usually want to run the dev server myself. Do not offer to run it unless I explicilty ask you to run it.
 - If a yarn.lock files exists in this project, always use yarn over npm.
 - If a pnpm-lock.yaml files exists in this project, always use pnpnm over npm.
-
-## Commit Guidelines
-
-- Each commit should represent a complete, working change
-- Use conventional commits format (`feat:`, `fix:`, `chore:`, `docs:`, etc.)

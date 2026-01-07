@@ -28,10 +28,7 @@ alias -g NE='2>/dev/null'
 
 # Claude Code
 if [[ -x "$HOME/.claude/local/claude" ]]; then
-  claude() {
-    command "$HOME/.claude/local/claude" "$@" --mcp-config "$DOTFILES/.claude/.mcp.json"
-  }
-
+  alias claude="$HOME/.claude/local/claude"
   alias claude-yolo="claude --dangerously-skip-permissions"
 fi
 
