@@ -29,6 +29,7 @@ brew 'wget'
 brew 'mise'
 brew 'yt-dlp'
 brew 'ffmpeg'
+brew 'pngpaste'
 brew 'borders', restart_service: true
 # Docker for mac
 brew 'colima'
