@@ -9,12 +9,14 @@ description: Guidelines for creating git commits. Use when making commits, stagi
 
 - Each commit should represent a complete, working change
 - Commit messages must use conventional commits format
+- Keep the summary under 72 characters
 
 ## Conventional Commits
 
-Format: `<type>: <description>`
+Format: `<type>: <summary>`
 
 Types:
+
 - `feat:` - new feature
 - `fix:` - bug fix
 - `chore:` - maintenance, dependencies, config
