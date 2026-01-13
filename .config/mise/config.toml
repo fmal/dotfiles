@@ -2,7 +2,8 @@
 node = { version = "lts", postinstall = "corepack enable" }
 python = "3.12"
 uv = "latest"
-deno = 'latest'
+deno = "latest"
+bun = "latest"
 
 [settings]
 legacy_version_file = false
