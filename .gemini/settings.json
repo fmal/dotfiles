@@ -1,10 +1,11 @@
 {
+  "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
   "general": {
     "checkpointing": {
       "enabled": true
     },
     "preferredEditor": "vscode",
-    "previewFeatures": true
+    "enableAutoUpdate": true
   },
   "context": {
     "fileName": ["AGENTS.md", "GEMINI.md", "CLAUDE.md"]
