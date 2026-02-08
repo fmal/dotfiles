@@ -31,6 +31,9 @@ set_symlink "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
 
 set_symlink "$DOTFILES/.config/bat" "$HOME/.config/bat"
 
+# Symlink agents (skills) conf
+set_symlink "$DOTFILES/.agents" "$HOME/.agents"
+
 # Symlink claude code conf
 mkdir -p "$HOME/.claude"
 set_symlink "$DOTFILES/.claude/settings.json" "$HOME/.claude/settings.json"

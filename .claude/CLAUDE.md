@@ -27,7 +27,9 @@ When coming out of planning mode, save the plan to `plan_<plan-name>.md` in the 
 ## General TypeScript Guidelines
 
 - Prefer strong types, avoid casting `as any`.
-- Never use `any` in TypeScript.
+- Never use `any` in TypeScript, prefer `unknown` when the type is genuinely unknown.
+- Leverage type narrowing instead of type assertions.
+- Avoid return types unless they add value.
 
 ## Development Workflow Preferences
 
