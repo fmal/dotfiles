@@ -143,7 +143,11 @@
   "vscode_custom_css.statusbar": false,
   "formattingToggle.affects": ["editor.formatOnSave"],
   "search.exclude": {
-    "**/*.js.map": true
+    "**/*.js.map": true,
+    "**/.worktrees": true
+  },
+  "files.watcherExclude": {
+    "**/.worktrees": true
   },
   "[php]": {
     "editor.defaultFormatter": "vsce-toolroom.vscode-beautify"

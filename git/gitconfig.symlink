@@ -72,3 +72,7 @@
 [include]
   path = ~/.gitconfig.local
 
+[gtr "editor"]
+  default = vscode
+[gtr "ai"]
+  default = claude

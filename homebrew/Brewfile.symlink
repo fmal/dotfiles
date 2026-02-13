@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 # Taps
 tap 'shaunsingh/SFMono-Nerd-Font-Ligaturized'
 tap 'FelixKratz/formulae'
+tap 'coderabbitai/tap'
 
 # Binaries
 brew 'antidote'
@@ -10,6 +11,7 @@ brew 'diff-so-fancy'
 brew 'fzf'
 brew 'git'
 brew 'gh'
+brew 'git-gtr'
 brew 'jq'
 brew 'fd'
 brew 'bat'

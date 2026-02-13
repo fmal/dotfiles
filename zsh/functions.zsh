@@ -22,3 +22,20 @@ function show-permissions() {
 new() {
   touch $1 && code $1
 }
+
+# shorthand for navigating to git-gtr worktrees: gcd <branch>
+if command -v git-gtr &> /dev/null; then
+  unalias gcd 2>/dev/null
+
+  function gcd {
+    local dir
+    dir="$(git gtr go "$@")" && cd "$dir"
+  }
+
+  function _gcd {
+    local -a worktrees
+    worktrees=("1" ${(f)"$(git gtr list --porcelain 2>/dev/null | cut -f2)"})
+    _describe 'worktrees' worktrees
+  }
+  compdef _gcd gcd
+fi
