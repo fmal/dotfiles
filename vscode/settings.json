@@ -12,7 +12,7 @@
       "tab.hoverBorder": "#2d2a2e",
       "tab.activeBorder": "#2d2a2e",
       "tab.unfocusedActiveBorder": "#2d2a2e",
-      "editorLineNumber.activeForeground": "#939293"
+      "editorLineNumber.activeForeground": "#939293",
     },
     "[Night Owl]": {
       "activityBar.background": "#000C1D",
@@ -21,12 +21,12 @@
       "sideBar.border": "#102a44",
       "sideBar.foreground": "#8BADC1",
       "tab.border": "#010e1a",
-      "contrastBorder": "#011627"
+      "contrastBorder": "#011627",
     },
     "[Overnight Italics]": {
       "sideBar.background": "#0A1222",
       "tab.border": "#010e1a",
-      "contrastBorder": "#011627"
+      "contrastBorder": "#011627",
     },
     "[poimandres]": {
       "editorBracketHighlight.foreground1": "#d0679d",
@@ -34,15 +34,15 @@
       "editorBracketHighlight.foreground3": "#5fb3a1",
       "editorBracketHighlight.foreground4": "#89ddff",
       "panel.border": "#1b1e28",
-      "input.background": "#1e212b"
+      "input.background": "#1e212b",
     },
     "[poimandres] [Noir Poimandres*]": {
       "statusBarItem.warningBackground": "#fffac2",
       "statusBarItem.warningForeground": "#1b1e28",
       "statusBarItem.warningHoverForeground": "#1b1e28",
       "statusBarItem.errorHoverForeground": "#ffffff",
-      "terminal.ansiBrightBlack": "#506477"
-    }
+      "terminal.ansiBrightBlack": "#506477",
+    },
   },
   "workbench.sideBar.location": "right",
   "workbench.tips.enabled": false,
@@ -53,8 +53,9 @@
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
   "workbench.editorAssociations": {
-    "*.svg": "default"
+    "*.svg": "default",
   },
+  "window.commandCenter": false,
   "window.titleBarStyle": "custom",
   "editor.fontSize": 18,
   "editor.fontFamily": "'Dank Mono', Mononoki, LigaIBMPlexMono, 'Symbols Nerd Font Mono', monospace",
@@ -83,13 +84,13 @@
   "editor.quickSuggestions": {
     "other": true,
     "comments": false,
-    "strings": true
+    "strings": true,
   },
   "editor.guides.indentation": false,
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
   },
   "explorer.autoReveal": false,
   "explorer.openEditors.visible": 0,
@@ -97,8 +98,8 @@
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.profiles.osx": {
     "zsh": {
-      "path": "/usr/local/bin/zsh"
-    }
+      "path": "/usr/local/bin/zsh",
+    },
   },
   "workbench.fontAliasing": "default",
   "terminal.integrated.fontSize": 14,
@@ -118,58 +119,55 @@
   //   "ignorePath": ".gitignore"
   // },
   "files.associations": {
-    "*.tpl": "php"
+    "*.tpl": "php",
   },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
   ],
   "tailwindCSS.includeLanguages": {
-    "php": "html"
+    "php": "html",
   },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
-    "php": "html"
+    "php": "html",
   },
   "emmet.syntaxProfiles": {
-    "php": "html"
+    "php": "html",
   },
   "monokaiPro.fileIconsMonochrome": true,
   "vscode_custom_css.imports": [
-    "file:///Users/fima/.dotfiles/vscode/customizations.css"
+    "file:///Users/fima/.dotfiles/vscode/customizations.css",
   ],
   "vscode_custom_css.statusbar": false,
   "formattingToggle.affects": ["editor.formatOnSave"],
   "search.exclude": {
     "**/*.js.map": true,
-    "**/.worktrees": true
+    "**/.worktrees": true,
   },
   "files.watcherExclude": {
-    "**/.worktrees": true
+    "**/.worktrees": true,
   },
   "[php]": {
-    "editor.defaultFormatter": "vsce-toolroom.vscode-beautify"
+    "editor.defaultFormatter": "vsce-toolroom.vscode-beautify",
   },
   "[javascript][javascriptreact][typescript][typescriptreact]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "quokka.showStartViewOnFeatureRelease": false,
-  "terminal.integrated.env.osx": {
-    "Q_NEW_SESSION": "1"
-  },
   "terminal.integrated.minimumContrastRatio": 1,
   "editor.accessibilitySupport": "off",
   "git.openRepositoryInParentFolders": "never",
   "update.showReleaseNotes": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "[svg]": {
-    "editor.defaultFormatter": "jock.svg"
+    "editor.defaultFormatter": "jock.svg",
   },
   "workbench.editor.tabActionCloseVisibility": false,
   "jest.runMode": {
-    "type": "on-demand"
+    "type": "on-demand",
   },
   "workbench.editor.empty.hint": "hidden",
   "update.mode": "default",
@@ -184,22 +182,21 @@
     "eslint(no-empty-pattern)",
     "eslint(no-empty)",
     "eslint(semi)",
-    "ts(6133)"
+    "ts(6133)",
   ],
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
-    "scminput": false
+    "scminput": false,
   },
-  "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  "github.copilot.selectedCompletionModel": "gpt-41-copilot",
   "chat.agent.maxRequests": 100,
+  "chat.viewSessions.enabled": false,
   "workbench.editor.editorActionsLocation": "titleBar",
   "workbench.layoutControl.enabled": false,
   "workbench.navigationControl.enabled": false,
-  "chat.commandCenter.enabled": false,
   "workbench.activityBar.location": "hidden",
   "inlineChat.holdToSpeech": false,
-  "accessibility.voice.speechLanguage": "en-US",
   "chat.mcp.gallery.enabled": true,
-  "github.copilot.nextEditSuggestions.enabled": true
+  "github.copilot.nextEditSuggestions.enabled": true,
 }
