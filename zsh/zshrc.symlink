@@ -105,3 +105,7 @@ fi
 if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
+
+if command -v git-gtr &> /dev/null; then
+  eval "$(git gtr init zsh --as gwtr)"
+fi
