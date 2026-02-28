@@ -22,5 +22,6 @@
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true
   },
-  "syntaxHighlightingDisabled": false
+  "syntaxHighlightingDisabled": false,
+  "skipDangerousModePermissionPrompt": true
 }
