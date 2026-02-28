@@ -17,7 +17,3 @@ approval_policy = "never"
 [history]
 persistence = "save-all"
 max_bytes = 52428800 # 50 MiB
-
-[mcp_servers.playwright]
-command = "npx"
-args = ["@playwright/mcp@latest"]

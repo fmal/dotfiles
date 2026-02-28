@@ -15,10 +15,6 @@
     "enabled": true
   },
   "mcpServers": {
-    "playwright": {
-      "command": "npx",
-      "args": ["@playwright/mcp@latest"]
-    },
     "github": {
       "httpUrl": "https://api.githubcopilot.com/mcp/",
       "headers": {
