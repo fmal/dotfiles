@@ -1,6 +1,6 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 
-model = "gpt-5.3-codex"
+model = "gpt-5.4"
 model_reasoning_effort = "medium"
 
 sandbox_mode = "workspace-write"
@@ -17,3 +17,6 @@ approval_policy = "never"
 [history]
 persistence = "save-all"
 max_bytes = 52428800 # 50 MiB
+
+[tui]
+status_line = ["model-with-reasoning", "current-dir", "context-used", "five-hour-limit"]
