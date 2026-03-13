@@ -57,6 +57,8 @@ quick-terminal-screen = main
 
 # --- Directory & shell ---
 window-inherit-working-directory = false
+tab-inherit-working-directory = false
+split-inherit-working-directory = true
 working-directory = home
 
 # --- Clipboard ---
