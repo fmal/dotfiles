@@ -4,7 +4,8 @@
   "env": {
     "DISABLE_TELEMETRY": "1",
     "DISABLE_ERROR_REPORTING": "1",
-    "MAX_MCP_OUTPUT_TOKENS": "50000"
+    "MAX_MCP_OUTPUT_TOKENS": "50000",
+    "CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD": "1"
   },
   "includeCoAuthoredBy": false,
   "permissions": {
