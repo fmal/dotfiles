@@ -28,12 +28,14 @@ alias -g NE='2>/dev/null'
 
 # Claude Code
 if command -v claude &> /dev/null; then
-  alias claude-yolo="claude --dangerously-skip-permissions"
+  alias claude!="claude --dangerously-skip-permissions"
+  alias cc="claude"
+  alias cc!="claude!"
 fi
 
 # Codex
 if command -v codex &> /dev/null; then
-  alias codex-yolo="codex --dangerously-bypass-approvals-and-sandbox -c shell_environment_policy.ignore_default_excludes=true"
+  alias codex!="codex --dangerously-bypass-approvals-and-sandbox -c shell_environment_policy.ignore_default_excludes=true"
 fi
 
 # Inkscape
