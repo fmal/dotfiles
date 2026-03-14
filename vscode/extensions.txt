@@ -1,5 +1,4 @@
 aaron-bond.better-comments
-amazonwebservices.codewhisperer-for-command-line-companion
 andrewberty.noir-theme-bundle
 andrewleedham.vscode-css-modules
 anthropic.claude-code
@@ -22,7 +21,6 @@ dzhavat.css-initial-value
 editorconfig.editorconfig
 esbenp.prettier-vscode
 figma.figma-vscode-extension
-github.copilot
 github.copilot-chat
 github.vscode-github-actions
 google.gemini-cli-vscode-ide-companion
