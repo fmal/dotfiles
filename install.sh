@@ -52,6 +52,7 @@ mkdir -p "$HOME/.codex"
 set_symlink "$DOTFILES/.codex/config.toml" "$HOME/.codex/config.toml"
 set_symlink "$DOTFILES/.codex/AGENTS.md" "$HOME/.codex/AGENTS.md"
 set_symlink "$DOTFILES/.codex/prompts" "$HOME/.codex/prompts"
+set_symlink "$DOTFILES/.codex/themes" "$HOME/.codex/themes"
 
 # write Docker config file (don't link, because auth)
 mkdir -p "$HOME/.docker"

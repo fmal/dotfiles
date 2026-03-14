@@ -20,3 +20,7 @@ max_bytes = 52428800 # 50 MiB
 
 [tui]
 status_line = ["model-with-reasoning", "current-dir", "context-used", "five-hour-limit"]
+theme = "Poimandres-Storm"
+
+[notice]
+hide_full_access_warning = true
