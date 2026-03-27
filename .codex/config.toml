@@ -27,3 +27,4 @@ theme = "Poimandres-Storm"
 
 [notice]
 hide_full_access_warning = true
+hide_rate_limit_model_nudge = true

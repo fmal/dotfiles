@@ -13,7 +13,7 @@
     "deny": [],
     "defaultMode": "acceptEdits"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "enableAllProjectMcpServers": true,
   "statusLine": {
     "type": "command",
@@ -24,6 +24,7 @@
     "typescript-lsp@claude-plugins-official": true
   },
   "syntaxHighlightingDisabled": false,
+  "effortLevel": "high",
   "voiceEnabled": false,
   "skipDangerousModePermissionPrompt": true
 }
