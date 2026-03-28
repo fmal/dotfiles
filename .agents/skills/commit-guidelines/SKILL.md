@@ -19,10 +19,48 @@ Format: `<type>: <summary>`
 
 Types:
 
-- `feat:` - new feature
-- `fix:` - bug fix
-- `chore:` - maintenance, dependencies, config
-- `docs:` - documentation only
-- `refactor:` - code change that neither fixes a bug nor adds a feature
-- `test:` - adding or updating tests
-- `style:` - formatting, whitespace (no code change)
+| Type       | Purpose                                 |
+| ---------- | --------------------------------------- |
+| `feat`     | New feature                             |
+| `fix`      | Bug fix                                 |
+| `chore`    | Maintenance tasks, dependencies, config |
+| `refactor` | Refactoring (no behavior change)        |
+| `perf`     | Performance improvement                 |
+| `docs`     | Documentation only                      |
+| `test`     | Test additions or corrections           |
+| `style`    | Code formatting (no logic change)       |
+
+## Breaking Changes
+
+Append `!` after the type and add a `BREAKING CHANGE:` footer:
+
+```
+feat!: remove deprecated v1 endpoints
+
+BREAKING CHANGE: v1 endpoints no longer available
+```
+
+## Issue References
+
+Reference GitHub issues in the commit footer:
+
+- `Fixes #123` — closes the issue when merged
+- `Refs #123` — links without closing
+
+## Examples
+
+```
+feat: add OAuth2 login flow
+```
+
+```
+fix: handle null response in user endpoint
+
+The API could return null for deleted accounts, causing a crash.
+
+Fixes #42
+```
+
+```
+refactor: extract validation logic to shared module
+```
