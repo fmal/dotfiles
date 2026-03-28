@@ -1,11 +1,15 @@
 ---
-description: Simplify code for clarity, consistency, and maintainability while preserving functionality
+name: code-simplifier
+description: Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Use when asked to "simplify code", "clean up code", "refactor for clarity", "improve readability", or review recently modified code for elegance. Focuses on project-specific best practices.
+user-invocable: true
 argument-hint: <file_path_or_description_of_recent_changes>
 ---
 
-Simplify the code at `$ARGUMENTS` for clarity, consistency, and maintainability while preserving all functionality.
+# Code Simplifier
 
 Apply expert code simplification techniques. Prioritize readable, explicit code over overly compact solutions while following project-specific best practices.
+
+Simplify the code at `$ARGUMENTS`. If no target is specified, identify and simplify code that has been recently modified or touched in the current session.
 
 ## Core Principles
 
@@ -14,17 +18,15 @@ Apply expert code simplification techniques. Prioritize readable, explicit code 
 2. **Apply Project Standards**: Follow project coding standards and match existing patterns.
 
 3. **Enhance Clarity**: Simplify code structure by:
-
    - Reducing unnecessary complexity and nesting
    - Eliminating redundant code and abstractions
    - Improving readability through clear variable and function names
    - Consolidating related logic
    - Removing unnecessary comments that describe obvious code
-   - IMPORTANT: Avoid nested ternary operators - prefer switch statements or if/else chains for multiple conditions
-   - Choose clarity over brevity - explicit code is often better than overly compact code
+   - **Avoiding nested ternary operators** - prefer switch statements or if/else chains for multiple conditions
+   - Choosing clarity over brevity - explicit code is often better than overly compact code
 
 4. **Maintain Balance**: Avoid over-simplification that could:
-
    - Reduce code clarity or maintainability
    - Create overly clever solutions that are hard to understand
    - Combine too many concerns into single functions or components
@@ -42,18 +44,53 @@ Apply expert code simplification techniques. Prioritize readable, explicit code 
 4. Ensure all functionality remains unchanged
 5. Verify the refined code is simpler and more maintainable
 
-## Output Format
+## Examples
 
-### Summary
+### Nested ternaries → early returns
 
-Brief overview of the simplifications made.
+```typescript
+// before
+const status = isLoading
+  ? "loading"
+  : hasError
+    ? "error"
+    : isComplete
+      ? "complete"
+      : "idle";
 
-### Changes Made
+// after
+function getStatus(isLoading: boolean, hasError: boolean, isComplete: boolean) {
+  if (isLoading) return "loading";
+  if (hasError) return "error";
+  if (isComplete) return "complete";
+  return "idle";
+}
+```
 
-| Location  | Before      | After       | Rationale                  |
-| --------- | ----------- | ----------- | -------------------------- |
-| file:line | Description | Description | Why this improves the code |
+### Overly compact → clear steps
 
-### Questions
+```typescript
+// before
+const result = arr
+  .filter((x) => x > 0)
+  .map((x) => x * 2)
+  .reduce((a, b) => a + b, 0);
 
-Any clarifying questions about the code or constraints that would affect recommendations.
+// after
+const positiveNumbers = arr.filter((x) => x > 0);
+const doubled = positiveNumbers.map((x) => x * 2);
+const sum = doubled.reduce((a, b) => a + b, 0);
+```
+
+### Redundant abstraction → direct check
+
+```typescript
+// before
+function isNotEmpty(arr: unknown[]) {
+  return arr.length > 0;
+}
+if (isNotEmpty(items)) { ... }
+
+// after
+if (items.length > 0) { ... }
+```
