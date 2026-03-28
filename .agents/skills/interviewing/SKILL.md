@@ -1,6 +1,6 @@
 ---
 name: interviewing
-description: Systematic questioning to clarify requirements, goals, and constraints. Use when there's ambiguity about what the user wants, hidden complexity needs uncovering, or you need to understand before proceeding. Triggers on unclear requirements, vague goals, or when other skills encounter fundamental ambiguity.
+description: Systematic questioning to clarify requirements, goals, and constraints. Use when there's ambiguity about what the user wants, hidden complexity needs uncovering, or you need to understand before proceeding. Triggers on unclear requirements, vague goals, when the user says "interview me", or when other skills encounter fundamental ambiguity.
 user-invocable: false
 ---
 

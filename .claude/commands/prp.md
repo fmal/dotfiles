@@ -1,6 +1,7 @@
 ---
 description: Process and address PR review comments from the current pull request
 allowed-tools: Bash(gh:*), Bash(git:*), Read, Edit, Write, Grep, Glob, TodoWrite
+disable-model-invocation: true
 ---
 
 # PR Review Processor

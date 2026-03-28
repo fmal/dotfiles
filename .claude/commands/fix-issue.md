@@ -2,6 +2,7 @@
 description: Analyze and fix a GitHub issue with comprehensive testing and verification
 argument-hint: <issue_number>
 allowed-tools: Bash(gh:*), Bash(git:*), Read, Edit, Write
+disable-model-invocation: true
 ---
 
 Analyze and fix the GitHub issue: $ARGUMENTS.
@@ -16,7 +17,6 @@ Follow these steps:
 4. Search the codebase for relevant files to understand the context
 5. Think harder about how to break the issue down into a series of small, manageable tasks
 6. Document your plan
-
    - Include the issue name in the plan filename
    - Include a link to the issue in the plan
 

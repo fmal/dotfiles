@@ -2,6 +2,7 @@
 description: Interview to deeply understand what you're trying to achieve
 argument-hint: <topic_or_file>
 allowed-tools: Skill(interviewing)
+disable-model-invocation: true
 ---
 
 Invoke the `interviewing` skill to deeply understand what I'm trying to achieve.
