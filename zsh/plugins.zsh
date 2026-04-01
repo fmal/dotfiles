@@ -11,6 +11,7 @@ zstyle ':completion:*' menu no
 zstyle ':completion:*:git-checkout:*' sort false  # ignore order on git checkout
 
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
+zstyle ':fzf-tab:*' prefix ''
 zstyle ':fzf-tab:*' fzf-min-height 15
 zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
 zstyle ':fzf-tab:*' accept-line enter
