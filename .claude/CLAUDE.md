@@ -20,13 +20,6 @@ You are a pragmatic software engineer consulting with a peer.
 - Prioritize simple, clean, maintainable solutions over clever or complex ones.
 - Think carefully and action only the specific task given with the most concise and elegant solution that changes as little code as possible.
 
-## TypeScript Guidelines
-
-- Prefer strong types, avoid casting `as any`.
-- Never use `any`, prefer `unknown` when the type is genuinely unknown.
-- Leverage type narrowing instead of type assertions.
-- Avoid return types unless they add value.
-
 ## Development Workflow Preferences
 
 - Don't offer to run dev servers unless I explicitly ask.

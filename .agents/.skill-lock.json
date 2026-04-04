@@ -27,6 +27,15 @@
       "skillFolderHash": "bd8feeee219216aac928d1d8e5c61a928dba23dc",
       "installedAt": "2026-03-27T06:14:31.152Z",
       "updatedAt": "2026-03-27T06:14:31.152Z"
+    },
+    "ts-best-practices": {
+      "source": "poteto/noodle",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/poteto/noodle.git",
+      "skillPath": ".agents/skills/ts-best-practices/SKILL.md",
+      "skillFolderHash": "e4b6fa1b4986cfcf732a76668012e270388d45db",
+      "installedAt": "2026-04-04T18:20:58.876Z",
+      "updatedAt": "2026-04-04T18:20:58.876Z"
     }
   },
   "dismissed": {
@@ -39,6 +48,7 @@
     "codex",
     "cursor",
     "deepagents",
+    "firebender",
     "gemini-cli",
     "github-copilot",
     "kimi-cli",
