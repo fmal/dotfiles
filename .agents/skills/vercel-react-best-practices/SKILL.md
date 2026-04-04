@@ -9,7 +9,7 @@ metadata:
 
 # Vercel React Best Practices
 
-Comprehensive performance optimization guide for React and Next.js applications, maintained by Vercel. Contains 65 rules across 8 categories, prioritized by impact to guide automated refactoring and code generation.
+Comprehensive performance optimization guide for React and Next.js applications, maintained by Vercel. Contains 67 rules across 9 categories, prioritized by impact to guide automated refactoring and code generation.
 
 ## When to Apply
 
@@ -28,10 +28,11 @@ Reference these guidelines when:
 | 2 | Bundle Size Optimization | CRITICAL | `bundle-` |
 | 3 | Server-Side Performance | HIGH | `server-` |
 | 4 | Client-Side Data Fetching | MEDIUM-HIGH | `client-` |
-| 5 | Re-render Optimization | MEDIUM | `rerender-` |
-| 6 | Rendering Performance | MEDIUM | `rendering-` |
-| 7 | JavaScript Performance | LOW-MEDIUM | `js-` |
-| 8 | Advanced Patterns | LOW | `advanced-` |
+| 5 | useEffect Patterns | MEDIUM | `useeffect-` |
+| 6 | Re-render Optimization | MEDIUM | `rerender-` |
+| 7 | Rendering Performance | MEDIUM | `rendering-` |
+| 8 | JavaScript Performance | LOW-MEDIUM | `js-` |
+| 9 | Advanced Patterns | LOW | `advanced-` |
 
 ## Quick Reference
 
@@ -70,7 +71,12 @@ Reference these guidelines when:
 - `client-passive-event-listeners` - Use passive listeners for scroll
 - `client-localstorage-schema` - Version and minimize localStorage data
 
-### 5. Re-render Optimization (MEDIUM)
+### 5. useEffect Patterns (MEDIUM)
+
+- `useeffect-anti-patterns` - Common mistakes: derived state in effects, effect chains, notifying parents
+- `useeffect-alternatives` - Decision tree and alternatives: derived state, key prop, event handlers, useSyncExternalStore
+
+### 6. Re-render Optimization (MEDIUM)
 
 - `rerender-defer-reads` - Don't subscribe to state only used in callbacks
 - `rerender-memo` - Extract expensive work into memoized components
@@ -88,7 +94,7 @@ Reference these guidelines when:
 - `rerender-use-ref-transient-values` - Use refs for transient frequent values
 - `rerender-no-inline-components` - Don't define components inside components
 
-### 6. Rendering Performance (MEDIUM)
+### 7. Rendering Performance (MEDIUM)
 
 - `rendering-animate-svg-wrapper` - Animate div wrapper, not SVG element
 - `rendering-content-visibility` - Use content-visibility for long lists
@@ -102,7 +108,7 @@ Reference these guidelines when:
 - `rendering-resource-hints` - Use React DOM resource hints for preloading
 - `rendering-script-defer-async` - Use defer or async on script tags
 
-### 7. JavaScript Performance (LOW-MEDIUM)
+### 8. JavaScript Performance (LOW-MEDIUM)
 
 - `js-batch-dom-css` - Group CSS changes via classes or cssText
 - `js-index-maps` - Build Map for repeated lookups
@@ -119,7 +125,7 @@ Reference these guidelines when:
 - `js-flatmap-filter` - Use flatMap to map and filter in one pass
 - `js-request-idle-callback` - Defer non-critical work to browser idle time
 
-### 8. Advanced Patterns (LOW)
+### 9. Advanced Patterns (LOW)
 
 - `advanced-event-handler-refs` - Store event handlers in refs
 - `advanced-init-once` - Initialize app once per app load
@@ -132,6 +138,7 @@ Read individual rule files for detailed explanations and code examples:
 ```
 rules/async-parallel.md
 rules/bundle-barrel-imports.md
+rules/useeffect-anti-patterns.md
 ```
 
 Each rule file contains:
