@@ -30,10 +30,6 @@ export HOMEBREW_BUNDLE_FILE="$HOME/.Brewfile"
 export EMOJI_CLI_KEYBIND="^[e"
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=50
 
-if [[ -f "$HOME/.github_token" ]]; then
-  export GITHUB_TOKEN=$(<"$HOME/.github_token")
-fi
-
 ### Paths ###
 
 # Dir paths
