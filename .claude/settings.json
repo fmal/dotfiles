@@ -21,7 +21,9 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
   },
   "syntaxHighlightingDisabled": false,
   "effortLevel": "high",
