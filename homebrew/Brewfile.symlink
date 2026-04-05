@@ -67,6 +67,8 @@ cask 'yaak'
 cask 'voiceink'
 cask 'legcord'
 cask 'transmission'
+cask 'localsend'
+cask 'itsycal'
 
 # Fonts
 cask 'font-sf-mono-nerd-font-ligaturized'
