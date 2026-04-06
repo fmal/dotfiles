@@ -75,6 +75,7 @@ cask 'itsycal'
 # Fonts
 cask 'font-sf-mono-nerd-font-ligaturized'
 cask 'font-jetbrains-mono'
+cask 'font-geist-mono'
 cask 'font-ia-writer-mono'
 cask 'font-mononoki'
 cask 'font-symbols-only-nerd-font'

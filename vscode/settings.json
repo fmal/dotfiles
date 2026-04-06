@@ -93,12 +93,11 @@
     "source.fixAll.eslint": "explicit",
   },
   "explorer.autoReveal": false,
-  "explorer.openEditors.visible": 0,
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.profiles.osx": {
     "zsh": {
-      "path": "/usr/local/bin/zsh",
+      "path": "/opt/homebrew/bin/zsh",
     },
   },
   "workbench.fontAliasing": "default",
@@ -112,7 +111,6 @@
   "files.insertFinalNewline": true,
   "css.validate": false,
   "extensions.ignoreRecommendations": true,
-  "telemetry.enableTelemetry": false,
   "telemetry.telemetryLevel": "off",
   "intelephense.telemetry.enabled": false,
   // "eslint.options": {
