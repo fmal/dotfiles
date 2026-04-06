@@ -37,8 +37,3 @@ fi
 if command -v codex &> /dev/null; then
   alias codex!="codex --dangerously-bypass-approvals-and-sandbox -c shell_environment_policy.ignore_default_excludes=true"
 fi
-
-# Inkscape
-if [[ -f "/Applications/Inkscape.app/Contents/Resources/bin/inkscape" ]]; then
-  alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
-fi
