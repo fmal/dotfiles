@@ -9,7 +9,7 @@ user-invocable: false
 ## Principles
 
 - Each commit should represent a complete, working change
-- Commit messages must use conventional commits format
+- Use conventional commits format unless `git log` shows the repo follows a different convention
 - Write summaries in the imperative mood (`add`, not `added`/`adds`)
 - Keep the summary under 72 characters
 - Explain what and why, not how
