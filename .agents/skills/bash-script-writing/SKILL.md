@@ -88,3 +88,8 @@ main "$@"
 - **Log progress**: Start with `log "..."`, end with status
 - **Keep focused**: 5-20 lines per function
 - **Group with section headers**: Use `####` dividers between logical groups
+
+## Code Quality
+
+- **Lint with shellcheck**: Run `shellcheck script.sh` before considering a script done. Address all warnings, or explicitly disable with a `# shellcheck disable=SCxxxx` comment explaining why.
+- **Use meaningful exit codes**: `0` for success, `1` for general errors, `2` for misuse. Reserve higher codes for specific failure modes callers need to distinguish.
