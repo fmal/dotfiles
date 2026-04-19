@@ -1,7 +1,6 @@
 ---
 name: interview
 description: Systematic questioning to clarify requirements, goals, and constraints. Use when there's ambiguity about what the user wants, hidden complexity needs uncovering, or you need to understand before proceeding. Triggers on unclear requirements, vague goals, or when the user says "interview me" or invokes `/interview`.
-user-invocable: true
 argument-hint: <topic_or_file>
 ---
 
