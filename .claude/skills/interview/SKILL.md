@@ -1,19 +1,29 @@
 ---
-name: interviewing
-description: Systematic questioning to clarify requirements, goals, and constraints. Use when there's ambiguity about what the user wants, hidden complexity needs uncovering, or you need to understand before proceeding. Triggers on unclear requirements, vague goals, when the user says "interview me", or when other skills encounter fundamental ambiguity.
-user-invocable: false
+name: interview
+description: Systematic questioning to clarify requirements, goals, and constraints. Use when there's ambiguity about what the user wants, hidden complexity needs uncovering, or you need to understand before proceeding. Triggers on unclear requirements, vague goals, or when the user says "interview me" or invokes `/interview`.
+user-invocable: true
+argument-hint: <topic_or_file>
 ---
 
-# Interviewing
+# Interview
 
 ## When to Use
 
 - Requirements or goals are ambiguous
 - User isn't clear about what they want
 - Hidden complexity might derail implementation
-- Another skill encounters fundamental ambiguity
 
 Skip when requirements are already clear or user wants to proceed without clarification.
+
+## Starting the Interview
+
+Pick the starting context in this order:
+
+1. **Argument given**: if it looks like a file path, read the file; otherwise treat it as the topic.
+2. **Recent conversation**: if there's already a plan, topic, or problem under discussion, use that.
+3. **Cold start**: ask the user what they're trying to figure out.
+
+Once you have context, open by asking what's most ambiguous or unclear about it.
 
 ## Core Methodology
 
@@ -63,4 +73,3 @@ Summarize what you've learned:
 - **Key tradeoffs**: [prioritizing vs deprioritizing]
 - **Open questions**: [if any]
 ```
-
