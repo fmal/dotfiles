@@ -8,6 +8,7 @@ tap 'coderabbitai/tap'
 # Binaries
 brew 'antidote'
 brew 'diff-so-fancy'
+brew 'difftastic'
 brew 'fzf'
 brew 'git'
 brew 'gh'

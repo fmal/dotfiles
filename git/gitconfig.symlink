@@ -5,16 +5,48 @@
   whitespace = space-before-tab,indent-with-non-tab,trailing-space
   editor = code -w
   quotepath = false
-  # Make `git rebase` safer on Mac OS
-  trustctime = false
   pager = diff-so-fancy | less --tabs=4 -RFX
 
 [pull]
   rebase = true
-  default = set
 
 [push]
   default = simple
+
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+
+[interactive]
+  diffFilter = diff-so-fancy --patch
+
+[merge]
+  # show the base in conflict markers for easier resolution
+  conflictStyle = zdiff3
+
+[rebase]
+  autoStash = true
+  autoSquash = true
+
+[rerere]
+  # remember conflict resolutions across rebases
+  enabled = true
+
+[fetch]
+  # drop deleted remote branches on fetch
+  prune = true
+
+[commit]
+  # show diff in the commit-message editor
+  verbose = true
+
+[branch]
+  # list branches by most recent commit
+  sort = -committerdate
+
+[tag]
+  # natural version sort (v1.10 after v1.9)
+  sort = version:refname
 
 [alias]
   s = status -sb
@@ -24,13 +56,10 @@
   discard = checkout --
   difflast = diff HEAD^
   diffstaged = diff --cached
+  dft = -c diff.external=difft diff
   last = log -1 HEAD --stat --abbrev-commit
   lg = log --graph --pretty=format:'%C(bold green)%h%Creset -%C(magenta)%d%Creset %s %C(dim white)(%cr)%Creset %C(cyan)<%an>%Creset'
   log1 = log --oneline --max-count=15
-
-[color]
-  # Use colors in Git commands that are capable of colored output when outputting to the terminal
-  ui = always
 
 [color "diff"]
   meta = yellow bold
@@ -63,8 +92,7 @@
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
-  equired = true
-	required = true
+  required = true
 
 # use separate file for username / github token etc
 #   git config -f ~/.gitconfig.local user.name John Appleseed
