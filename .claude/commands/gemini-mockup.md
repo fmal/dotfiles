@@ -2,6 +2,7 @@
 description: Generate UX/UI mockups and design concepts using Gemini 3 Pro Image
 argument-hint: <mockup_description>
 allowed-tools: Glob, Grep, Read, Skill(gemini-image)
+disable-model-invocation: true
 ---
 
 Generate a UX/UI mockup: $ARGUMENTS
@@ -30,6 +31,7 @@ Construct a comprehensive design prompt including:
 ### 3. Generate
 
 Invoke `/gemini-image` skill and generate the mockup with:
+
 - The constructed prompt
 - Appropriate aspect ratio (see table)
 - Any reference image paths

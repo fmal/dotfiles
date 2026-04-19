@@ -2,6 +2,7 @@
 description: Create a new GitHub issue from a brief description
 argument-hint: <brief description>
 allowed-tools: Bash(gh:*), Bash(git:*), Read, Grep, Glob
+disable-model-invocation: true
 ---
 
 Create a new GitHub issue based on this brief description: $ARGUMENTS
