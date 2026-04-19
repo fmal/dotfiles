@@ -10,6 +10,7 @@ user-invocable: false
 
 - Each commit should represent a complete, working change
 - Commit messages must use conventional commits format
+- Write summaries in the imperative mood (`add`, not `added`/`adds`)
 - Keep the summary under 72 characters
 - Explain what and why, not how
 
@@ -29,6 +30,17 @@ Types:
 | `docs`     | Documentation only                      |
 | `test`     | Test additions or corrections           |
 | `style`    | Code formatting (no logic change)       |
+
+## Body
+
+Skip the body when the subject is self-explanatory. Add a body only for:
+
+- Non-obvious reasoning (the _why_)
+- Breaking changes
+- Migration notes
+- Linked issues or PRs
+
+Wrap body text at 72 characters.
 
 ## Breaking Changes
 
