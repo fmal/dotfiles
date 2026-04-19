@@ -45,6 +45,15 @@
       "skillFolderHash": "8b3a17889fbf12bedae20974a3c9f9de746ed754",
       "installedAt": "2026-04-06T11:54:06.982Z",
       "updatedAt": "2026-04-06T11:54:06.982Z"
+    },
+    "ast-grep": {
+      "source": "ast-grep/agent-skill",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/ast-grep/agent-skill.git",
+      "skillPath": "ast-grep/skills/ast-grep/SKILL.md",
+      "skillFolderHash": "ef60f77564e2d47d0cba25a809daa3af8f0c469b",
+      "installedAt": "2026-04-19T11:21:04.014Z",
+      "updatedAt": "2026-04-19T11:21:04.014Z"
     }
   },
   "dismissed": {
