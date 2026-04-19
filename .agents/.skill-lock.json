@@ -81,6 +81,24 @@
       "skillFolderHash": "2a1ad17028306ebe45f0e49703fa28b9b2e7f499",
       "installedAt": "2026-04-19T20:49:39.149Z",
       "updatedAt": "2026-04-19T20:49:39.149Z"
+    },
+    "design-an-interface": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "design-an-interface/SKILL.md",
+      "skillFolderHash": "59d5eca0fd23930d3d3821aa9da507f1bdb8a348",
+      "installedAt": "2026-04-19T21:46:00.226Z",
+      "updatedAt": "2026-04-19T21:46:00.226Z"
+    },
+    "to-issues": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "to-issues/SKILL.md",
+      "skillFolderHash": "5f1079ac639dbf09081653c265a132eb5ec4dc4d",
+      "installedAt": "2026-04-19T21:48:13.242Z",
+      "updatedAt": "2026-04-19T21:48:13.242Z"
     }
   },
   "dismissed": {
