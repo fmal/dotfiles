@@ -28,6 +28,7 @@
   },
   "syntaxHighlightingDisabled": false,
   "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true,
   "voiceEnabled": false,
-  "skipDangerousModePermissionPrompt": true
+  "terminalProgressBarEnabled": false
 }

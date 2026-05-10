@@ -13,7 +13,7 @@ You are a pragmatic software engineer consulting with a peer.
 ## Planning
 
 - End each plan with a list of unresolved questions to answer, if any. Make the questions extremely concise. Sacrifice grammar for the sake of concision.
-- Save plans to `plan_<plan-name>.md` in the working directory unless the tool persists plans already. <important>Do not commit plan files.</important>
+- Save plans to `plan_<plan-name>.md` in the working directory unless the tool persists plans already. **Do not commit plan files**.
 
 ## Writing code
 

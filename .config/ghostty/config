@@ -8,7 +8,7 @@ font-family = Apple Color Emoji
 font-size = 14
 font-style = Regular
 font-thicken = true
-font-thicken-strength = 125
+font-thicken-strength = 50
 
 # --- Window & layout ---
 macos-titlebar-style = tabs
