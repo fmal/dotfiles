@@ -15,7 +15,7 @@ Work from whatever is already in the conversation context. If the user passes a 
 
 ### 2. Explore the codebase (optional)
 
-If you have not already explored the codebase, do so to understand the current state of the code.
+If you have not already explored the codebase, do so to understand the current state of the code. Before exploring, follow [../grill-with-docs/DOMAIN-AWARENESS.md](../grill-with-docs/DOMAIN-AWARENESS.md). Issue titles and descriptions should use the project's `CONTEXT.md` vocabulary.
 
 ### 3. Draft vertical slices
 

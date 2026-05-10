@@ -12,7 +12,7 @@ If there's no prior conversation, plan, or argument to synthesize from, stop and
 
 ## Process
 
-1. **Explore the repo** to understand the current state of the codebase, if you haven't already.
+1. **Explore the repo** to understand the current state of the codebase, if you haven't already. Before exploring, follow [../grill-with-docs/DOMAIN-AWARENESS.md](../grill-with-docs/DOMAIN-AWARENESS.md). Use the project's `CONTEXT.md` vocabulary throughout the PRD.
 
 2. **Sketch the major modules** you will need to build or modify. Actively look for opportunities to extract deep modules that can be tested in isolation.
 
