@@ -21,17 +21,19 @@ Comprehensive performance optimization guide for React and Next.js applications,
 ## Table of Contents
 
 1. [Eliminating Waterfalls](#1-eliminating-waterfalls) — **CRITICAL**
-   - 1.1 [Defer Await Until Needed](#11-defer-await-until-needed)
-   - 1.2 [Dependency-Based Parallelization](#12-dependency-based-parallelization)
-   - 1.3 [Prevent Waterfall Chains in API Routes](#13-prevent-waterfall-chains-in-api-routes)
-   - 1.4 [Promise.all() for Independent Operations](#14-promiseall-for-independent-operations)
-   - 1.5 [Strategic Suspense Boundaries](#15-strategic-suspense-boundaries)
+   - 1.1 [Check Cheap Conditions Before Async Flags](#11-check-cheap-conditions-before-async-flags)
+   - 1.2 [Defer Await Until Needed](#12-defer-await-until-needed)
+   - 1.3 [Dependency-Based Parallelization](#13-dependency-based-parallelization)
+   - 1.4 [Prevent Waterfall Chains in API Routes](#14-prevent-waterfall-chains-in-api-routes)
+   - 1.5 [Promise.all() for Independent Operations](#15-promiseall-for-independent-operations)
+   - 1.6 [Strategic Suspense Boundaries](#16-strategic-suspense-boundaries)
 2. [Bundle Size Optimization](#2-bundle-size-optimization) — **CRITICAL**
    - 2.1 [Avoid Barrel File Imports](#21-avoid-barrel-file-imports)
    - 2.2 [Conditional Module Loading](#22-conditional-module-loading)
    - 2.3 [Defer Non-Critical Third-Party Libraries](#23-defer-non-critical-third-party-libraries)
    - 2.4 [Dynamic Imports for Heavy Components](#24-dynamic-imports-for-heavy-components)
-   - 2.5 [Preload Based on User Intent](#25-preload-based-on-user-intent)
+   - 2.5 [Prefer Statically Analyzable Paths](#25-prefer-statically-analyzable-paths)
+   - 2.6 [Preload Based on User Intent](#26-preload-based-on-user-intent)
 3. [Server-Side Performance](#3-server-side-performance) — **HIGH**
    - 3.1 [Authenticate Server Actions Like API Routes](#31-authenticate-server-actions-like-api-routes)
    - 3.2 [Avoid Duplicate Serialization in RSC Props](#32-avoid-duplicate-serialization-in-rsc-props)
@@ -91,9 +93,10 @@ Comprehensive performance optimization guide for React and Next.js applications,
    - 7.13 [Use Set/Map for O(1) Lookups](#713-use-setmap-for-o1-lookups)
    - 7.14 [Use toSorted() Instead of sort() for Immutability](#714-use-tosorted-instead-of-sort-for-immutability)
 8. [Advanced Patterns](#8-advanced-patterns) — **LOW**
-   - 8.1 [Initialize App Once, Not Per Mount](#81-initialize-app-once-not-per-mount)
-   - 8.2 [Store Event Handlers in Refs](#82-store-event-handlers-in-refs)
-   - 8.3 [useEffectEvent for Stable Callback Refs](#83-useeffectevent-for-stable-callback-refs)
+   - 8.1 [Do Not Put Effect Events in Dependency Arrays](#81-do-not-put-effect-events-in-dependency-arrays)
+   - 8.2 [Initialize App Once, Not Per Mount](#82-initialize-app-once-not-per-mount)
+   - 8.3 [Store Event Handlers in Refs](#83-store-event-handlers-in-refs)
+   - 8.4 [useEffectEvent for Stable Callback Refs](#84-useeffectevent-for-stable-callback-refs)
 
 ---
 
@@ -103,7 +106,40 @@ Comprehensive performance optimization guide for React and Next.js applications,
 
 Waterfalls are the #1 performance killer. Each sequential await adds full network latency. Eliminating them yields the largest gains.
 
-### 1.1 Defer Await Until Needed
+### 1.1 Check Cheap Conditions Before Async Flags
+
+**Impact: HIGH (avoids unnecessary async work when a synchronous guard already fails)**
+
+When a branch uses `await` for a flag or remote value and also requires a **cheap synchronous** condition (local props, request metadata, already-loaded state), evaluate the cheap condition **first**. Otherwise you pay for the async call even when the compound condition can never be true.
+
+This is a specialization of [Defer Await Until Needed](./async-defer-await.md) for `flag && cheapCondition` style checks.
+
+**Incorrect:**
+
+```typescript
+const someFlag = await getFlag()
+
+if (someFlag && someCondition) {
+  // ...
+}
+```
+
+**Correct:**
+
+```typescript
+if (someCondition) {
+  const someFlag = await getFlag()
+  if (someFlag) {
+    // ...
+  }
+}
+```
+
+This matters when `getFlag` hits the network, a feature-flag service, or `React.cache` / DB work: skipping it when `someCondition` is false removes that cost on the cold path.
+
+Keep the original order if `someCondition` is expensive, depends on the flag, or you must run side effects in a fixed order.
+
+### 1.2 Defer Await Until Needed
 
 **Impact: HIGH (avoids blocking unused code paths)**
 
@@ -179,7 +215,9 @@ async function updateResource(resourceId: string, userId: string) {
 
 This optimization is especially valuable when the skipped branch is frequently taken, or when the deferred operation is expensive.
 
-### 1.2 Dependency-Based Parallelization
+For `await getFlag()` combined with a cheap synchronous guard (`flag && someCondition`), see [Check Cheap Conditions Before Async Flags](./async-cheap-condition-before-await.md).
+
+### 1.3 Dependency-Based Parallelization
 
 **Impact: CRITICAL (2-10× improvement)**
 
@@ -226,7 +264,7 @@ We can also create all the promises first, and do `Promise.all()` at the end.
 
 Reference: [https://github.com/shuding/better-all](https://github.com/shuding/better-all)
 
-### 1.3 Prevent Waterfall Chains in API Routes
+### 1.4 Prevent Waterfall Chains in API Routes
 
 **Impact: CRITICAL (2-10× improvement)**
 
@@ -260,7 +298,7 @@ export async function GET(request: Request) {
 
 For operations with more complex dependency chains, use `better-all` to automatically maximize parallelism (see Dependency-Based Parallelization).
 
-### 1.4 Promise.all() for Independent Operations
+### 1.5 Promise.all() for Independent Operations
 
 **Impact: CRITICAL (2-10× improvement)**
 
@@ -284,7 +322,7 @@ const [user, posts, comments] = await Promise.all([
 ])
 ```
 
-### 1.5 Strategic Suspense Boundaries
+### 1.6 Strategic Suspense Boundaries
 
 **Impact: HIGH (faster initial paint)**
 
@@ -540,7 +578,66 @@ function CodePanel({ code }: { code: string }) {
 }
 ```
 
-### 2.5 Preload Based on User Intent
+### 2.5 Prefer Statically Analyzable Paths
+
+**Impact: HIGH (avoids accidental broad bundles and file traces)**
+
+Build tools work best when import and file-system paths are obvious at build time. If you hide the real path inside a variable or compose it too dynamically, the tool either has to include a broad set of possible files, warn that it cannot analyze the import, or widen file tracing to stay safe.
+
+Prefer explicit maps or literal paths so the set of reachable files stays narrow and predictable. This is the same rule whether you are choosing modules with `import()` or reading files in server/build code.
+
+When analysis becomes too broad, the cost is real:
+
+- Larger server bundles
+
+- Slower builds
+
+- Worse cold starts
+
+- More memory use
+
+**Incorrect: the bundler cannot tell what may be imported**
+
+```ts
+const PAGE_MODULES = {
+  home: './pages/home',
+  settings: './pages/settings',
+} as const
+
+const Page = await import(PAGE_MODULES[pageName])
+```
+
+**Correct: use an explicit map of allowed modules**
+
+```ts
+const PAGE_MODULES = {
+  home: () => import('./pages/home'),
+  settings: () => import('./pages/settings'),
+} as const
+
+const Page = await PAGE_MODULES[pageName]()
+```
+
+**Incorrect: a 2-value enum still hides the final path from static analysis**
+
+```ts
+const baseDir = path.join(process.cwd(), 'content/' + contentKind)
+```
+
+**Correct: make each final path literal at the callsite**
+
+```ts
+const baseDir =
+  kind === ContentKind.Blog
+    ? path.join(process.cwd(), 'content/blog')
+    : path.join(process.cwd(), 'content/docs')
+```
+
+In Next.js server code, this matters for output file tracing too. `path.join(process.cwd(), someVar)` can widen the traced file set because Next.js statically analyze `import`, `require`, and `fs` usage.
+
+Reference: [https://nextjs.org/docs/app/api-reference/config/next-config-js/output](https://nextjs.org/docs/app/api-reference/config/next-config-js/output), [https://nextjs.org/learn/seo/dynamic-imports](https://nextjs.org/learn/seo/dynamic-imports), [https://vite.dev/guide/features.html](https://vite.dev/guide/features.html), [https://esbuild.github.io/api/](https://esbuild.github.io/api/), [https://www.npmjs.com/package/@rollup/plugin-dynamic-import-vars](https://www.npmjs.com/package/@rollup/plugin-dynamic-import-vars), [https://webpack.js.org/guides/dependency-management/](https://webpack.js.org/guides/dependency-management/)
+
+### 2.6 Preload Based on User Intent
 
 **Impact: MEDIUM (reduces perceived latency)**
 
@@ -790,13 +887,123 @@ When loading static assets (fonts, logos, images, config files) in route handler
 
 **Incorrect: reads font file on every request**
 
+```typescript
+// app/api/og/route.tsx
+import { ImageResponse } from 'next/og'
+
+export async function GET(request: Request) {
+  // Runs on EVERY request - expensive!
+  const fontData = await fetch(
+    new URL('./fonts/Inter.ttf', import.meta.url)
+  ).then(res => res.arrayBuffer())
+
+  const logoData = await fetch(
+    new URL('./images/logo.png', import.meta.url)
+  ).then(res => res.arrayBuffer())
+
+  return new ImageResponse(
+    <div style={{ fontFamily: 'Inter' }}>
+      <img src={logoData} />
+      Hello World
+    </div>,
+    { fonts: [{ name: 'Inter', data: fontData }] }
+  )
+}
+```
+
 **Correct: loads once at module initialization**
 
-**Alternative: synchronous file reads with Node.js fs**
+```typescript
+// app/api/og/route.tsx
+import { ImageResponse } from 'next/og'
 
-**General Node.js example: loading config or templates**
+// Module-level: runs ONCE when module is first imported
+const fontData = fetch(
+  new URL('./fonts/Inter.ttf', import.meta.url)
+).then(res => res.arrayBuffer())
 
-**When to use this pattern:**
+const logoData = fetch(
+  new URL('./images/logo.png', import.meta.url)
+).then(res => res.arrayBuffer())
+
+export async function GET(request: Request) {
+  // Await the already-started promises
+  const [font, logo] = await Promise.all([fontData, logoData])
+
+  return new ImageResponse(
+    <div style={{ fontFamily: 'Inter' }}>
+      <img src={logo} />
+      Hello World
+    </div>,
+    { fonts: [{ name: 'Inter', data: font }] }
+  )
+}
+```
+
+**Correct: synchronous fs at module level**
+
+```typescript
+// app/api/og/route.tsx
+import { ImageResponse } from 'next/og'
+import { readFileSync } from 'fs'
+import { join } from 'path'
+
+// Synchronous read at module level - blocks only during module init
+const fontData = readFileSync(
+  join(process.cwd(), 'public/fonts/Inter.ttf')
+)
+
+const logoData = readFileSync(
+  join(process.cwd(), 'public/images/logo.png')
+)
+
+export async function GET(request: Request) {
+  return new ImageResponse(
+    <div style={{ fontFamily: 'Inter' }}>
+      <img src={logoData} />
+      Hello World
+    </div>,
+    { fonts: [{ name: 'Inter', data: fontData }] }
+  )
+}
+```
+
+**Incorrect: reads config on every call**
+
+```typescript
+import fs from 'node:fs/promises'
+
+export async function processRequest(data: Data) {
+  const config = JSON.parse(
+    await fs.readFile('./config.json', 'utf-8')
+  )
+  const template = await fs.readFile('./template.html', 'utf-8')
+
+  return render(template, data, config)
+}
+```
+
+**Correct: hoists config and template to module level**
+
+```typescript
+import fs from 'node:fs/promises'
+
+const configPromise = fs
+  .readFile('./config.json', 'utf-8')
+  .then(JSON.parse)
+const templatePromise = fs.readFile('./template.html', 'utf-8')
+
+export async function processRequest(data: Data) {
+  const [config, template] = await Promise.all([
+    configPromise,
+    templatePromise,
+  ])
+
+  return render(template, data, config)
+}
+```
+
+When to use this pattern:
 
 - Loading fonts for OG image generation
 
@@ -808,7 +1015,7 @@ When loading static assets (fonts, logos, images, config files) in route handler
 
 - Any static asset that's the same across all requests
 
-**When NOT to use this pattern:**
+When not to use this pattern:
 
 - Assets that vary per request or user
 
@@ -818,9 +1025,9 @@ When loading static assets (fonts, logos, images, config files) in route handler
 
 - Sensitive data that shouldn't persist in memory
 
-**With Vercel's [Fluid Compute](https://vercel.com/docs/fluid-compute):** Module-level caching is especially effective because multiple concurrent requests share the same function instance. The static assets stay loaded in memory across requests without cold start penalties.
+With Vercel's [Fluid Compute](https://vercel.com/docs/fluid-compute), module-level caching is especially effective because multiple concurrent requests share the same function instance. The static assets stay loaded in memory across requests without cold start penalties.
 
-**In traditional serverless:** Each cold start re-executes module-level code, but subsequent warm invocations reuse the loaded assets until the instance is recycled.
+In traditional serverless, each cold start re-executes module-level code, but subsequent warm invocations reuse the loaded assets until the instance is recycled.
 
 ### 3.5 Minimize Serialization at RSC Boundaries
 
@@ -3380,7 +3587,59 @@ const sorted = [...items].sort((a, b) => a.value - b.value)
 
 Advanced patterns for specific cases that require careful implementation.
 
-### 8.1 Initialize App Once, Not Per Mount
+### 8.1 Do Not Put Effect Events in Dependency Arrays
+
+**Impact: LOW (avoids unnecessary effect re-runs and lint errors)**
+
+Effect Event functions do not have a stable identity. Their identity intentionally changes on every render. Do not include the function returned by `useEffectEvent` in a `useEffect` dependency array. Keep the actual reactive values as dependencies and call the Effect Event from inside the effect body or subscriptions created by that effect.
+
+**Incorrect: Effect Event added as a dependency**
+
+```tsx
+import { useEffect, useEffectEvent } from 'react'
+
+function ChatRoom({ roomId, onConnected }: {
+  roomId: string
+  onConnected: () => void
+}) {
+  const handleConnected = useEffectEvent(onConnected)
+
+  useEffect(() => {
+    const connection = createConnection(roomId)
+    connection.on('connected', handleConnected)
+    connection.connect()
+
+    return () => connection.disconnect()
+  }, [roomId, handleConnected])
+}
+```
+
+Including the Effect Event in dependencies makes the effect re-run every render and triggers the React Hooks lint rule.
+
+**Correct: depend on reactive values, not the Effect Event**
+
+```tsx
+import { useEffect, useEffectEvent } from 'react'
+
+function ChatRoom({ roomId, onConnected }: {
+  roomId: string
+  onConnected: () => void
+}) {
+  const handleConnected = useEffectEvent(onConnected)
+
+  useEffect(() => {
+    const connection = createConnection(roomId)
+    connection.on('connected', handleConnected)
+    connection.connect()
+
+    return () => connection.disconnect()
+  }, [roomId])
+}
+```
+
+Reference: [https://react.dev/reference/react/useEffectEvent#effect-event-in-deps](https://react.dev/reference/react/useEffectEvent#effect-event-in-deps)
+
+### 8.2 Initialize App Once, Not Per Mount
 
 **Impact: LOW-MEDIUM (avoids duplicate init in development)**
 
@@ -3418,7 +3677,7 @@ function Comp() {
 
 Reference: [https://react.dev/learn/you-might-not-need-an-effect#initializing-the-application](https://react.dev/learn/you-might-not-need-an-effect#initializing-the-application)
 
-### 8.2 Store Event Handlers in Refs
+### 8.3 Store Event Handlers in Refs
 
 **Impact: LOW (stable subscriptions)**
 
@@ -3454,7 +3713,7 @@ function useWindowEvent(event: string, handler: (e) => void) {
 
 `useEffectEvent` provides a cleaner API for the same pattern: it creates a stable function reference that always calls the latest version of the handler.
 
-### 8.3 useEffectEvent for Stable Callback Refs
+### 8.4 useEffectEvent for Stable Callback Refs
 
 **Impact: LOW (prevents effect re-runs)**
 
