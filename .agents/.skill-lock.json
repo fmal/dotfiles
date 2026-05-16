@@ -15,27 +15,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "88b7e785240d14ab80eb11abdd0cbd27b20055c6",
+      "skillFolderHash": "c1470a475a0472fceda2401ea6763708a91680a8",
       "installedAt": "2026-02-08T19:31:25.803Z",
-      "updatedAt": "2026-02-28T19:27:39.485Z"
-    },
-    "vercel-react-best-practices": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/react-best-practices/SKILL.md",
-      "skillFolderHash": "bd8feeee219216aac928d1d8e5c61a928dba23dc",
-      "installedAt": "2026-03-27T06:14:31.152Z",
-      "updatedAt": "2026-03-27T06:14:31.152Z"
-    },
-    "ts-best-practices": {
-      "source": "poteto/noodle",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/poteto/noodle.git",
-      "skillPath": ".agents/skills/ts-best-practices/SKILL.md",
-      "skillFolderHash": "e4b6fa1b4986cfcf732a76668012e270388d45db",
-      "installedAt": "2026-04-04T18:20:58.876Z",
-      "updatedAt": "2026-04-04T18:20:58.876Z"
+      "updatedAt": "2026-05-16T11:24:59.251Z"
     },
     "humanizer": {
       "source": "blader/humanizer",
@@ -90,15 +72,6 @@
       "skillFolderHash": "59d5eca0fd23930d3d3821aa9da507f1bdb8a348",
       "installedAt": "2026-04-19T21:46:00.226Z",
       "updatedAt": "2026-04-19T21:46:00.226Z"
-    },
-    "to-issues": {
-      "source": "mattpocock/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "to-issues/SKILL.md",
-      "skillFolderHash": "5f1079ac639dbf09081653c265a132eb5ec4dc4d",
-      "installedAt": "2026-04-19T21:48:13.242Z",
-      "updatedAt": "2026-04-19T21:48:13.242Z"
     }
   },
   "dismissed": {
@@ -111,6 +84,7 @@
     "codex",
     "cursor",
     "deepagents",
+    "dexto",
     "firebender",
     "gemini-cli",
     "github-copilot",
