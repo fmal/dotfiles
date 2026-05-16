@@ -1,6 +1,7 @@
 @google/gemini-cli
 @github/copilot
 agent-browser
+opensrc
 
 typescript
 typescript-language-server

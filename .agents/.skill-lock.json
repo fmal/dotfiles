@@ -72,6 +72,15 @@
       "skillFolderHash": "59d5eca0fd23930d3d3821aa9da507f1bdb8a348",
       "installedAt": "2026-04-19T21:46:00.226Z",
       "updatedAt": "2026-04-19T21:46:00.226Z"
+    },
+    "opensrc": {
+      "source": "vercel-labs/opensrc",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/opensrc.git",
+      "skillPath": "skills/opensrc/SKILL.md",
+      "skillFolderHash": "0584838f454836cf26b7170348df5e266a7c2a79",
+      "installedAt": "2026-05-16T12:21:50.789Z",
+      "updatedAt": "2026-05-16T12:21:50.789Z"
     }
   },
   "dismissed": {
