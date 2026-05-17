@@ -81,6 +81,34 @@
       "skillFolderHash": "0584838f454836cf26b7170348df5e266a7c2a79",
       "installedAt": "2026-05-16T12:21:50.789Z",
       "updatedAt": "2026-05-16T12:21:50.789Z"
+    },
+    "migrate-oxlint": {
+      "source": "oxc-project/oxc",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/oxc-project/oxc.git",
+      "skillPath": ".agents/skills/migrate-oxlint/SKILL.md",
+      "skillFolderHash": "a21257269149e85f2613d93f20258dc5cc921cda",
+      "installedAt": "2026-05-16T16:57:04.999Z",
+      "updatedAt": "2026-05-16T16:57:04.999Z"
+    },
+    "handoff": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/handoff/SKILL.md",
+      "skillFolderHash": "85c644da8f99d073b434261f1e3fc058e2116236",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T15:34:29.759Z",
+      "updatedAt": "2026-05-17T15:34:29.759Z"
+    },
+    "deslop": {
+      "source": "brianlovin/claude-config",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/brianlovin/claude-config.git",
+      "skillPath": "skills/deslop/SKILL.md",
+      "skillFolderHash": "f5a57c61eaf9f0437029846d7ccf09f497e5e081",
+      "installedAt": "2026-05-17T18:13:05.756Z",
+      "updatedAt": "2026-05-17T18:13:05.756Z"
     }
   },
   "dismissed": {
