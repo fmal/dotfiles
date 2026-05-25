@@ -188,6 +188,7 @@
     "scminput": false,
   },
   "github.copilot.selectedCompletionModel": "gpt-41-copilot",
+  "github.copilot.chat.skillTool.enabled": true,
   "chat.agent.maxRequests": 100,
   "chat.viewSessions.enabled": false,
   "workbench.editor.editorActionsLocation": "titleBar",
