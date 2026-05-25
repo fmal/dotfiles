@@ -96,10 +96,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/handoff/SKILL.md",
-      "skillFolderHash": "85c644da8f99d073b434261f1e3fc058e2116236",
-      "pluginName": "mattpocock-skills",
+      "skillFolderHash": "7bbb60d64c911617cee7f71b2ba9e24364faa14e",
       "installedAt": "2026-05-17T15:34:29.759Z",
-      "updatedAt": "2026-05-17T15:34:29.759Z"
+      "updatedAt": "2026-05-23T11:03:18.796Z"
     },
     "deslop": {
       "source": "brianlovin/claude-config",
