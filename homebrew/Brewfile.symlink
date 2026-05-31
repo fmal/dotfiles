@@ -4,6 +4,7 @@ cask_args appdir: '/Applications'
 tap 'shaunsingh/SFMono-Nerd-Font-Ligaturized'
 tap 'FelixKratz/formulae'
 tap 'coderabbitai/tap'
+tap 'xykong/tap'
 
 # Binaries
 brew 'antidote'
@@ -78,6 +79,7 @@ cask 'legcord'
 cask 'transmission'
 cask 'localsend'
 cask 'itsycal'
+cask 'flux-markdown'
 
 # Fonts
 cask 'font-sf-mono-nerd-font-ligaturized'
