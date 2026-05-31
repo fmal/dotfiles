@@ -1,16 +1,22 @@
 ---
 name: deslop
-description: Remove AI-generated code slop from the current branch. Use after writing code to clean up unnecessary comments, defensive checks, and inconsistent style.
+description: Remove AI-generated code slop and clean up code style
 ---
 
 # Remove AI code slop
 
-Check the diff against main, and remove all AI generated slop introduced in this branch.
+Check the diff against main and remove AI-generated slop introduced in the branch.
 
-This includes:
-- Extra comments that a human wouldn't add or is inconsistent with the rest of the file
-- Extra defensive checks or try/catch blocks that are abnormal for that area of the codebase (especially if called by trusted / validated codepaths)
-- Casts to any to get around type issues
-- Any other style that is inconsistent with the file
+## Focus Areas
 
-Report at the end with only a 1-3 sentence summary of what you changed
+- Extra comments that are unnecessary or inconsistent with local style
+- Defensive checks or try/catch blocks that are abnormal for trusted code paths
+- Casts to `any` used only to bypass type issues
+- Deeply nested code that should be simplified with early returns
+- Other patterns inconsistent with the file and surrounding codebase
+
+## Guardrails
+
+- Keep behavior unchanged unless fixing a clear bug.
+- Prefer minimal, focused edits over broad rewrites.
+- Keep the final summary concise (1-3 sentences).
