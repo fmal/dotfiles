@@ -24,9 +24,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/blader/humanizer.git",
       "skillPath": "SKILL.md",
-      "skillFolderHash": "8b3a17889fbf12bedae20974a3c9f9de746ed754",
+      "skillFolderHash": "a2ace14a88a6746f64f1f53ed8272d6788828038",
       "installedAt": "2026-04-06T11:54:06.982Z",
-      "updatedAt": "2026-04-06T11:54:06.982Z"
+      "updatedAt": "2026-05-31T13:37:43.580Z"
     },
     "ast-grep": {
       "source": "ast-grep/agent-skill",
@@ -41,37 +41,38 @@
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "edit-article/SKILL.md",
+      "skillPath": "skills/personal/edit-article/SKILL.md",
       "skillFolderHash": "d86427caec7ecdccd963eb5dabc300e2c2e243a4",
       "installedAt": "2026-04-19T19:25:44.844Z",
-      "updatedAt": "2026-04-19T19:25:44.844Z"
+      "updatedAt": "2026-05-31T13:42:09.858Z"
     },
     "caveman": {
       "source": "juliusbrussee/caveman",
       "sourceType": "github",
       "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
-      "skillPath": "caveman/SKILL.md",
-      "skillFolderHash": "825e13085d1515fe67881b2123f3bf9b34c26154",
+      "skillPath": "skills/caveman/SKILL.md",
+      "skillFolderHash": "75b63aa9ec7bbb0e72bb6b3524ff6b576c14a05a",
       "installedAt": "2026-04-19T19:47:52.705Z",
-      "updatedAt": "2026-04-19T19:47:52.705Z"
+      "updatedAt": "2026-05-31T13:42:58.889Z"
     },
     "grill-me": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "grill-me/SKILL.md",
+      "skillPath": "skills/productivity/grill-me/SKILL.md",
       "skillFolderHash": "2a1ad17028306ebe45f0e49703fa28b9b2e7f499",
+      "pluginName": "mattpocock-skills",
       "installedAt": "2026-04-19T20:49:39.149Z",
-      "updatedAt": "2026-04-19T20:49:39.149Z"
+      "updatedAt": "2026-05-31T13:39:34.716Z"
     },
     "design-an-interface": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "design-an-interface/SKILL.md",
+      "skillPath": "skills/deprecated/design-an-interface/SKILL.md",
       "skillFolderHash": "59d5eca0fd23930d3d3821aa9da507f1bdb8a348",
       "installedAt": "2026-04-19T21:46:00.226Z",
-      "updatedAt": "2026-04-19T21:46:00.226Z"
+      "updatedAt": "2026-05-31T13:41:08.057Z"
     },
     "opensrc": {
       "source": "vercel-labs/opensrc",
@@ -101,13 +102,49 @@
       "updatedAt": "2026-05-23T11:03:18.796Z"
     },
     "deslop": {
-      "source": "brianlovin/claude-config",
+      "source": "cursor/plugins",
       "sourceType": "github",
-      "sourceUrl": "https://github.com/brianlovin/claude-config.git",
-      "skillPath": "skills/deslop/SKILL.md",
-      "skillFolderHash": "f5a57c61eaf9f0437029846d7ccf09f497e5e081",
+      "sourceUrl": "https://github.com/cursor/plugins.git",
+      "skillPath": "cursor-team-kit/skills/deslop/SKILL.md",
+      "skillFolderHash": "ac9ba043f9dd3b3a8850de6624ec5bc12e375599",
       "installedAt": "2026-05-17T18:13:05.756Z",
-      "updatedAt": "2026-05-17T18:13:05.756Z"
+      "updatedAt": "2026-05-31T13:36:45.496Z"
+    },
+    "what-did-i-get-done": {
+      "source": "cursor/plugins",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cursor/plugins.git",
+      "skillPath": "cursor-team-kit/skills/what-did-i-get-done/SKILL.md",
+      "skillFolderHash": "953a0fb2b6d763e4149da38a543778aed3091368",
+      "installedAt": "2026-05-31T13:35:57.108Z",
+      "updatedAt": "2026-05-31T13:35:57.108Z"
+    },
+    "fix-merge-conflicts": {
+      "source": "cursor/plugins",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cursor/plugins.git",
+      "skillPath": "cursor-team-kit/skills/fix-merge-conflicts/SKILL.md",
+      "skillFolderHash": "9a539a5c5359e25c9a57df5a741e42524f2fe3c8",
+      "installedAt": "2026-05-31T14:01:11.558Z",
+      "updatedAt": "2026-05-31T14:01:11.558Z"
+    },
+    "pr-review-canvas": {
+      "source": "cursor/plugins",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cursor/plugins.git",
+      "skillPath": "cursor-team-kit/skills/pr-review-canvas/SKILL.md",
+      "skillFolderHash": "44daadad1fe53ccd3a2773e87879965c1640ab71",
+      "installedAt": "2026-05-31T14:04:47.396Z",
+      "updatedAt": "2026-05-31T14:04:47.396Z"
+    },
+    "thermo-nuclear-code-quality-review": {
+      "source": "cursor/plugins",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cursor/plugins.git",
+      "skillPath": "cursor-team-kit/skills/thermo-nuclear-code-quality-review/SKILL.md",
+      "skillFolderHash": "d9c8935dd560b3b6f5941247d04a1843f8c7cc35",
+      "installedAt": "2026-05-31T14:13:27.769Z",
+      "updatedAt": "2026-05-31T14:13:27.769Z"
     }
   },
   "dismissed": {
@@ -127,6 +164,7 @@
     "kimi-cli",
     "opencode",
     "warp",
+    "zed",
     "claude-code"
   ]
 }
