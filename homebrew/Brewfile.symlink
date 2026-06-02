@@ -80,6 +80,7 @@ cask 'transmission'
 cask 'localsend'
 cask 'itsycal'
 cask 'flux-markdown'
+cask 'antinote'
 
 # Fonts
 cask 'font-sf-mono-nerd-font-ligaturized'
