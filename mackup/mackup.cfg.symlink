@@ -1,0 +1,16 @@
+[storage]
+engine = icloud
+directory = backups/mackup
+
+[applications_to_sync]
+fork
+alt-tab
+shottr
+voiceink
+antinote
+monitorcontrol
+alcove
+gifox
+itsycal
+shifty
+klack

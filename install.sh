@@ -31,6 +31,10 @@ set_symlink "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
 
 set_symlink "$DOTFILES/.config/bat" "$HOME/.config/bat"
 
+# Symlink mackup custom application definitions
+mkdir -p "$HOME/.config/mackup"
+set_symlink "$DOTFILES/mackup/applications" "$HOME/.config/mackup/applications"
+
 # Symlink agents (skills) conf
 set_symlink "$DOTFILES/.agents" "$HOME/.agents"
 
