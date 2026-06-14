@@ -20,9 +20,10 @@ Simplify the code at `$ARGUMENTS`. If no target is specified, identify and simpl
    - Reducing unnecessary complexity and nesting
    - Eliminating redundant code and abstractions
    - Improving readability through clear variable and function names
-   - Consolidating related logic
+   - Consolidating related logic, and merging types, functions, or constants that overlap so the reader holds fewer distinct concepts in their head
    - Removing unnecessary comments that describe obvious code
    - **Avoiding nested ternary operators** - prefer switch statements or if/else chains for multiple conditions
+   - **Removing derivable state** - if a value can be computed from values already in scope, don't pass or store it separately
    - Choosing clarity over brevity - explicit code is often better than overly compact code
 
 4. **Maintain Balance**: Avoid over-simplification that could:
@@ -92,4 +93,21 @@ if (isNotEmpty(items)) { ... }
 
 // after
 if (items.length > 0) { ... }
+```
+
+### Derivable state → compute where needed
+
+```typescript
+// before
+function render(content: string, baseline: string, isDirty: boolean) {
+  return isDirty ? `${content} *` : content;
+}
+render(content, baseline, content !== baseline);
+
+// after
+function render(content: string, baseline: string) {
+  const isDirty = content !== baseline;
+  return isDirty ? `${content} *` : content;
+}
+render(content, baseline);
 ```
