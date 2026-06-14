@@ -24,9 +24,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/blader/humanizer.git",
       "skillPath": "SKILL.md",
-      "skillFolderHash": "a2ace14a88a6746f64f1f53ed8272d6788828038",
+      "skillFolderHash": "9600f2b7241cb4eed6ad803abee5ea01d67fe8e4",
       "installedAt": "2026-04-06T11:54:06.982Z",
-      "updatedAt": "2026-05-31T13:37:43.580Z"
+      "updatedAt": "2026-06-14T09:07:13.805Z"
     },
     "ast-grep": {
       "source": "ast-grep/agent-skill",
@@ -51,9 +51,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
       "skillPath": "skills/caveman/SKILL.md",
-      "skillFolderHash": "75b63aa9ec7bbb0e72bb6b3524ff6b576c14a05a",
+      "skillFolderHash": "a22aa2a0a64d7d4b7b59bbddbdb865fedfb40d9c",
       "installedAt": "2026-04-19T19:47:52.705Z",
-      "updatedAt": "2026-05-31T13:42:58.889Z"
+      "updatedAt": "2026-06-14T09:07:14.946Z"
     },
     "grill-me": {
       "source": "mattpocock/skills",
@@ -145,6 +145,15 @@
       "skillFolderHash": "d9c8935dd560b3b6f5941247d04a1843f8c7cc35",
       "installedAt": "2026-05-31T14:13:27.769Z",
       "updatedAt": "2026-05-31T14:13:27.769Z"
+    },
+    "improve": {
+      "source": "shadcn/improve",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/shadcn/improve.git",
+      "skillPath": "skills/improve/SKILL.md",
+      "skillFolderHash": "a9977b8771077a3bd6985d24450dffcc96206d2d",
+      "installedAt": "2026-06-14T08:59:24.636Z",
+      "updatedAt": "2026-06-14T08:59:24.636Z"
     }
   },
   "dismissed": {
@@ -153,15 +162,14 @@
   "lastSelectedAgents": [
     "amp",
     "antigravity",
+    "antigravity-cli",
     "cline",
     "codex",
     "cursor",
     "deepagents",
-    "dexto",
-    "firebender",
     "gemini-cli",
     "github-copilot",
-    "kimi-cli",
+    "kimi-code-cli",
     "opencode",
     "warp",
     "zed",
