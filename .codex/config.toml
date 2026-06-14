@@ -13,10 +13,6 @@ file_opener = "vscode"
 
 web_search = "live"
 
-[profiles.yolo]
-sandbox_mode = "danger-full-access"
-approval_policy = "never"
-
 [history]
 persistence = "save-all"
 max_bytes = 52428800 # 50 MiB
