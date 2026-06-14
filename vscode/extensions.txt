@@ -21,7 +21,6 @@ dzhavat.css-initial-value
 editorconfig.editorconfig
 esbenp.prettier-vscode
 figma.figma-vscode-extension
-github.copilot-chat
 github.vscode-github-actions
 google.gemini-cli-vscode-ide-companion
 graphql.vscode-graphql
@@ -38,6 +37,7 @@ ms-vscode-remote.remote-ssh-edit
 ms-vscode.atom-keybindings
 ms-vscode.remote-explorer
 nmsmith89.incrementor
+openai.chatgpt
 orta.vscode-jest
 phoenisx.cssvar
 pmndrs.pmndrs
