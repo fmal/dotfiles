@@ -41,7 +41,7 @@ set_symlink "$DOTFILES/.agents" "$HOME/.agents"
 # Symlink claude code conf
 mkdir -p "$HOME/.claude"
 set_symlink "$DOTFILES/.claude/settings.json" "$HOME/.claude/settings.json"
-set_symlink "$DOTFILES/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+set_symlink "$DOTFILES/.agents/AGENTS.md" "$HOME/.claude/CLAUDE.md"
 set_symlink "$DOTFILES/.claude/commands" "$HOME/.claude/commands"
 set_symlink "$DOTFILES/.claude/skills" "$HOME/.claude/skills"
 set_symlink "$DOTFILES/.claude/statusline.sh" "$HOME/.claude/statusline.sh"
@@ -49,12 +49,12 @@ set_symlink "$DOTFILES/.claude/statusline.sh" "$HOME/.claude/statusline.sh"
 # Symlink gemini CLI conf
 mkdir -p "$HOME/.gemini"
 set_symlink "$DOTFILES/.gemini/settings.json" "$HOME/.gemini/settings.json"
-set_symlink "$DOTFILES/.gemini/GEMINI.md" "$HOME/.gemini/GEMINI.md"
+set_symlink "$DOTFILES/.agents/AGENTS.md" "$HOME/.gemini/AGENTS.md"
 
 # Symlink codex CLI conf
 mkdir -p "$HOME/.codex"
 set_symlink "$DOTFILES/.codex/config.toml" "$HOME/.codex/config.toml"
-set_symlink "$DOTFILES/.codex/AGENTS.md" "$HOME/.codex/AGENTS.md"
+set_symlink "$DOTFILES/.agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
 set_symlink "$DOTFILES/.codex/prompts" "$HOME/.codex/prompts"
 set_symlink "$DOTFILES/.codex/themes" "$HOME/.codex/themes"
 
