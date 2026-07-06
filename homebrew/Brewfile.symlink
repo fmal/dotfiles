@@ -5,6 +5,7 @@ tap 'shaunsingh/SFMono-Nerd-Font-Ligaturized'
 tap 'FelixKratz/formulae'
 tap 'coderabbitai/tap'
 tap 'xykong/tap'
+tap 'neurosnap/tap'
 
 # Binaries
 brew 'antidote'
@@ -45,6 +46,8 @@ brew 'mackup'
 brew 'yt-dlp'
 brew 'ffmpeg'
 brew 'pngpaste'
+brew 'zmx'
+brew 'autossh'
 brew 'borders', restart_service: true
 # Docker for mac
 brew 'colima'

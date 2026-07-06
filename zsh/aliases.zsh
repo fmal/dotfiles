@@ -37,3 +37,8 @@ fi
 if command -v codex &> /dev/null; then
   alias codex!="codex --dangerously-bypass-approvals-and-sandbox -c shell_environment_policy.ignore_default_excludes=true"
 fi
+
+# ssh that auto-reconnects after sleep/network drops
+if command -v autossh &> /dev/null; then
+  alias ash='autossh -M 0 -q'
+fi

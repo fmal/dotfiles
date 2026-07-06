@@ -2,9 +2,23 @@
 
 add_newline = true
 
+format = """
+$username\
+$hostname\
+${env_var.ZMX_SESSION}\
+$all\
+"""
+
 [character]
 success_symbol = '[\$](green)'
 error_symbol = '[\$](green)'
+
+[username]
+format = '[$user]($style) '
+
+[hostname]
+ssh_symbol = " "
+format = 'at [$ssh_symbol$hostname]($style) '
 
 [directory]
 truncation_length = 2
@@ -21,9 +35,6 @@ symbol = " "
 
 [python]
 symbol = " "
-
-[hostname]
-ssh_symbol = " "
 
 [docker_context]
 symbol = " "
@@ -42,3 +53,9 @@ disabled = true
 
 [kubernetes]
 disabled = true
+
+[env_var.ZMX_SESSION]
+symbol = "󰧾 "
+format = "[$symbol$env_value]($style) "
+description = "zmx session name"
+style = "bold green"
