@@ -15,18 +15,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "c1470a475a0472fceda2401ea6763708a91680a8",
+      "skillFolderHash": "9b31e495b887e4ca123960415eca69fc7e1bba28",
       "installedAt": "2026-02-08T19:31:25.803Z",
-      "updatedAt": "2026-05-16T11:24:59.251Z"
+      "updatedAt": "2026-07-04T11:45:28.382Z"
     },
     "humanizer": {
       "source": "blader/humanizer",
       "sourceType": "github",
       "sourceUrl": "https://github.com/blader/humanizer.git",
       "skillPath": "SKILL.md",
-      "skillFolderHash": "9600f2b7241cb4eed6ad803abee5ea01d67fe8e4",
+      "skillFolderHash": "1b48564898e999219882660237fde01bf4843a0f",
       "installedAt": "2026-04-06T11:54:06.982Z",
-      "updatedAt": "2026-06-14T09:07:13.805Z"
+      "updatedAt": "2026-07-04T11:45:29.932Z"
     },
     "ast-grep": {
       "source": "ast-grep/agent-skill",
@@ -42,28 +42,27 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/personal/edit-article/SKILL.md",
-      "skillFolderHash": "d86427caec7ecdccd963eb5dabc300e2c2e243a4",
+      "skillFolderHash": "d3e748a6f03a951c46f4e3621a850346ede89a87",
       "installedAt": "2026-04-19T19:25:44.844Z",
-      "updatedAt": "2026-05-31T13:42:09.858Z"
+      "updatedAt": "2026-07-04T11:45:31.341Z"
     },
     "caveman": {
       "source": "juliusbrussee/caveman",
       "sourceType": "github",
       "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
       "skillPath": "skills/caveman/SKILL.md",
-      "skillFolderHash": "a22aa2a0a64d7d4b7b59bbddbdb865fedfb40d9c",
+      "skillFolderHash": "166040c027f7764d43df36abc5df0079bfc6394b",
       "installedAt": "2026-04-19T19:47:52.705Z",
-      "updatedAt": "2026-06-14T09:07:14.946Z"
+      "updatedAt": "2026-07-04T11:45:35.786Z"
     },
     "grill-me": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/grill-me/SKILL.md",
-      "skillFolderHash": "2a1ad17028306ebe45f0e49703fa28b9b2e7f499",
-      "pluginName": "mattpocock-skills",
+      "skillFolderHash": "8320e7b87f7b208f50ce165b1dd43d1e93c8e801",
       "installedAt": "2026-04-19T20:49:39.149Z",
-      "updatedAt": "2026-05-31T13:39:34.716Z"
+      "updatedAt": "2026-07-04T11:45:33.007Z"
     },
     "design-an-interface": {
       "source": "mattpocock/skills",
@@ -97,9 +96,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/handoff/SKILL.md",
-      "skillFolderHash": "7bbb60d64c911617cee7f71b2ba9e24364faa14e",
+      "skillFolderHash": "aa82ffd61d7a3bda110060b4e24ec782b983cb8d",
       "installedAt": "2026-05-17T15:34:29.759Z",
-      "updatedAt": "2026-05-23T11:03:18.796Z"
+      "updatedAt": "2026-07-04T11:45:34.306Z"
     },
     "deslop": {
       "source": "cursor/plugins",
@@ -151,9 +150,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/shadcn/improve.git",
       "skillPath": "skills/improve/SKILL.md",
-      "skillFolderHash": "a9977b8771077a3bd6985d24450dffcc96206d2d",
+      "skillFolderHash": "7d77d76815e6deb704427f17f6e393f55e3cb6da",
       "installedAt": "2026-06-14T08:59:24.636Z",
-      "updatedAt": "2026-06-14T08:59:24.636Z"
+      "updatedAt": "2026-07-04T11:45:36.843Z"
+    },
+    "okf-open-knowledge-format": {
+      "source": "fabricioctelles/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fabricioctelles/skills.git",
+      "skillPath": "skills/okf-open-knowledge-format/SKILL.md",
+      "skillFolderHash": "46be54a98fe54cfed60f49aba68b6b8af7315d34",
+      "installedAt": "2026-07-05T11:22:53.009Z",
+      "updatedAt": "2026-07-05T11:22:53.009Z"
     }
   },
   "dismissed": {
