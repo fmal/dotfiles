@@ -1,18 +1,19 @@
 ---
-name: create-prd
-description: Turn the current conversation context into a Product Requirements Document (PRD) and submit it as a GitHub issue. Use when the user wants to create a PRD from the current context, or invokes `/create-prd`.
+name: create-spec
+description: Turn the current conversation context into a spec and submit it as a GitHub issue. Use when the user wants to create a spec from the current context, or invokes `/create-spec`.
+disable-model-invocation: true
 argument-hint: <feature description>
 ---
 
-# Create PRD
+# Create Spec
 
-Synthesize what you already know — from the argument, conversation, or codebase — into a PRD, then submit it as a GitHub issue. Do NOT interview the user.
+Synthesize what you already know — from the argument, conversation, or codebase — into a spec (you may know this document as a PRD), then submit it as a GitHub issue. Do NOT interview the user.
 
 If there's no prior conversation, plan, or argument to synthesize from, stop and ask the user to provide context.
 
 ## Process
 
-1. **Explore the repo** to understand the current state of the codebase, if you haven't already. Before exploring, follow [../grill-with-docs/DOMAIN-AWARENESS.md](../grill-with-docs/DOMAIN-AWARENESS.md). Use the project's `CONTEXT.md` vocabulary throughout the PRD.
+1. **Explore the repo** to understand the current state of the codebase, if you haven't already. Before exploring, follow [../domain-modeling/DOMAIN-AWARENESS.md](../domain-modeling/DOMAIN-AWARENESS.md). Use the project's `CONTEXT.md` vocabulary throughout the spec.
 
 2. **Sketch the major modules** you will need to build or modify. Actively look for opportunities to extract deep modules that can be tested in isolation.
 
@@ -20,11 +21,11 @@ If there's no prior conversation, plan, or argument to synthesize from, stop and
 
    Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
 
-3. **Write the PRD** using the template below and submit it as a GitHub issue via `gh issue create`. If the working directory is not a GitHub repo, or `gh` is not authenticated, write the PRD to `PRD.md` in the working directory instead and tell the user why you fell back.
+3. **Write the spec** using the template below and submit it as a GitHub issue via `gh issue create`. If the working directory is not a GitHub repo, or `gh` is not authenticated, write the spec to `SPEC.md` in the working directory instead and tell the user why you fell back.
 
-## PRD Template
+## Spec Template
 
-<prd-template>
+<spec-template>
 
 ## Problem Statement
 
@@ -46,9 +47,9 @@ A LONG, numbered list of user stories. Each user story should be in the format:
 
 This list should be extremely extensive and cover all aspects of the feature.
 
-## Success Metrics
+## Definition of Done
 
-How success will be measured. Prefer concrete, observable metrics over vague goals.
+Concrete, checkable outcomes that tell us the feature worked — observable behaviours or conditions that hold once it ships, not product KPIs. Each should be verifiable (a check that passes, a behaviour that now holds), not a vague goal.
 
 ## Non-Functional Requirements
 
@@ -80,10 +81,10 @@ A list of testing decisions that were made. Include:
 
 ## Out of Scope
 
-A description of the things that are out of scope for this PRD.
+A description of the things that are out of scope for this spec.
 
 ## Further Notes
 
 Any further notes about the feature.
 
-</prd-template>
+</spec-template>
