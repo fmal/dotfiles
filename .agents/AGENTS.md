@@ -22,5 +22,5 @@ You are a pragmatic software engineer consulting with a peer.
 
 ## Development Workflow Preferences
 
-- Don't offer to run dev servers unless I explicitly ask.
+- Assume I have a dev server running; don't start, restart, or offer to run one unless I explicitly ask.
 - Use yarn if `yarn.lock` exists, pnpm if `pnpm-lock.yaml` exists.
