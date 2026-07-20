@@ -100,6 +100,8 @@ fi
 
 if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
+  # blank line between prompts, but not before the first one
+  precmd() { precmd() { print '' } }
 fi
 
 if command -v git-gtr &> /dev/null; then

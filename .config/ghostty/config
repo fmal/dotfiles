@@ -13,10 +13,12 @@ font-thicken-strength = 50
 # --- Window & layout ---
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
+macos-window-buttons = hidden
 initial-window = false
 window-width = 90
-window-height = 25
+window-height = 26
 window-padding-x = 12
+window-padding-y = 0,6
 window-padding-balance = true
 window-colorspace = display-p3
 quit-after-last-window-closed = false
@@ -25,9 +27,10 @@ quit-after-last-window-closed = false
 adjust-cell-height = 25%
 adjust-underline-position = 2
 split-divider-color = 33394a
-background-opacity = 0.9
-background-blur-radius = 20
-unfocused-split-opacity = 0.6
+macos-window-shadow = false
+background-blur = macos-glass-clear
+background-opacity = 0.96
+unfocused-split-opacity = 0.65
 
 # --- Cursor ---
 cursor-style = underline
