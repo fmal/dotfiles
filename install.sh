@@ -31,6 +31,10 @@ set_symlink "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
 
 set_symlink "$DOTFILES/.config/bat" "$HOME/.config/bat"
 
+# lazygit reads from Application Support on macOS (no XDG_CONFIG_HOME set)
+mkdir -p "$HOME/Library/Application Support/lazygit"
+set_symlink "$DOTFILES/.config/lazygit/config.yml" "$HOME/Library/Application Support/lazygit/config.yml"
+
 # Symlink mackup custom application definitions
 mkdir -p "$HOME/.config/mackup"
 set_symlink "$DOTFILES/mackup/applications" "$HOME/.config/mackup/applications"

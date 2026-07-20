@@ -1,11 +1,10 @@
 cask_args appdir: '/Applications'
 
 # Taps
-tap 'shaunsingh/SFMono-Nerd-Font-Ligaturized'
-tap 'FelixKratz/formulae'
-tap 'coderabbitai/tap'
-tap 'xykong/tap'
-tap 'neurosnap/tap'
+tap 'FelixKratz/formulae', trusted: { formula: 'borders' }
+tap 'coderabbitai/tap', trusted: { formula: 'git-gtr' }
+tap 'xykong/tap', trusted: { cask: 'flux-markdown' }
+tap 'neurosnap/tap', trusted: { formula: 'zmx' }
 
 # Binaries
 brew 'antidote'
@@ -14,6 +13,7 @@ brew 'difftastic'
 brew 'fzf'
 brew 'git'
 brew 'gh'
+brew 'lazygit'
 brew 'git-gtr'
 brew 'jq'
 brew 'yq'
@@ -32,7 +32,6 @@ brew 'tmux'
 brew 'curl'
 brew 'croc'
 brew 'scc'
-brew 'codex'
 brew 'tldx'
 brew 'gpg'
 brew 'qpdf'
@@ -75,6 +74,7 @@ cask 'raycast'
 cask 'alt-tab'
 cask 'shottr'
 cask 'shifty'
+cask 'codex'
 cask 'codex-app'
 cask 'yaak'
 cask 'voiceink'
@@ -86,7 +86,6 @@ cask 'flux-markdown'
 cask 'antinote'
 
 # Fonts
-cask 'font-sf-mono-nerd-font-ligaturized'
 cask 'font-jetbrains-mono'
 cask 'font-geist-mono'
 cask 'font-ia-writer-mono'

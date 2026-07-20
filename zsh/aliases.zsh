@@ -38,6 +38,18 @@ if command -v codex &> /dev/null; then
   alias codex!="codex --dangerously-bypass-approvals-and-sandbox -c shell_environment_policy.ignore_default_excludes=true"
 fi
 
+# lazygit that cd's into the last repo you visited (via the repo switcher)
+if command -v lazygit &> /dev/null; then
+  lg() {
+    export LAZYGIT_NEW_DIR_FILE="$HOME/.lazygit/newdir"
+    lazygit "$@"
+    if [[ -f "$LAZYGIT_NEW_DIR_FILE" ]]; then
+      cd "$(cat "$LAZYGIT_NEW_DIR_FILE")"
+      rm -f "$LAZYGIT_NEW_DIR_FILE"
+    fi
+  }
+fi
+
 # ssh that auto-reconnects after sleep/network drops
 if command -v autossh &> /dev/null; then
   alias ash='autossh -M 0 -q'
