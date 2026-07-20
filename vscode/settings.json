@@ -141,12 +141,17 @@
   ],
   "vscode_custom_css.statusbar": false,
   "formattingToggle.affects": ["editor.formatOnSave"],
+  "search.followSymlinks": false,
   "search.exclude": {
     "**/*.js.map": true,
     "**/.worktrees": true,
+    "**/dist": true,
+    "**/coverage": true,
   },
   "files.watcherExclude": {
     "**/.worktrees": true,
+    "**/dist/**": true,
+    "**/coverage/**": true,
   },
   "[php]": {
     "editor.defaultFormatter": "vsce-toolroom.vscode-beautify",
