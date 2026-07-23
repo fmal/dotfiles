@@ -7,9 +7,7 @@ be5invis.vscode-custom-css
 bierner.markdown-preview-github-styles
 bmewburn.vscode-intelephense-client
 bradgashler.htmltagwrap
-bradlc.vscode-tailwindcss
 burkeholland.simple-react-snippets
-cev.overnight
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 christianalfoni.overmind-devtools-vscode
@@ -22,10 +20,7 @@ editorconfig.editorconfig
 esbenp.prettier-vscode
 figma.figma-vscode-extension
 github.vscode-github-actions
-google.gemini-cli-vscode-ide-companion
-graphql.vscode-graphql
 graphql.vscode-graphql-syntax
-heybourn.headwind
 htmlhint.vscode-htmlhint
 jock.svg
 mattpocock.ts-error-translator
@@ -50,10 +45,5 @@ tamasfe.even-better-toml
 tombonnike.vscode-status-bar-format-toggle
 unifiedjs.vscode-mdx
 usernamehw.errorlens
-vitest.explorer
-vsce-toolroom.vscode-beautify
-vscode-ext.sync-rsync
-wallabyjs.quokka-vscode
 webben.browserslist
 yoavbls.pretty-ts-errors
-yzane.markdown-pdf

@@ -125,9 +125,6 @@
     "typescript",
     "typescriptreact",
   ],
-  "tailwindCSS.includeLanguages": {
-    "php": "html",
-  },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "php": "html",
@@ -137,7 +134,7 @@
   },
   "monokaiPro.fileIconsMonochrome": true,
   "vscode_custom_css.imports": [
-    "file:///Users/fima/.dotfiles/vscode/customizations.css",
+    "file:///Users/filip/.dotfiles/vscode/customizations.css",
   ],
   "vscode_custom_css.statusbar": false,
   "formattingToggle.affects": ["editor.formatOnSave"],
@@ -153,13 +150,9 @@
     "**/dist/**": true,
     "**/coverage/**": true,
   },
-  "[php]": {
-    "editor.defaultFormatter": "vsce-toolroom.vscode-beautify",
-  },
   "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.formatOnSave": false,
   },
-  "quokka.showStartViewOnFeatureRelease": false,
   "terminal.integrated.minimumContrastRatio": 1,
   "editor.accessibilitySupport": "off",
   "git.openRepositoryInParentFolders": "never",
@@ -203,4 +196,5 @@
   "inlineChat.holdToSpeech": false,
   "chat.mcp.gallery.enabled": true,
   "github.copilot.nextEditSuggestions.enabled": true,
+  "totalTypeScript.hideBasicTips": true,
 }
