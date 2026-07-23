@@ -195,6 +195,12 @@
   "workbench.activityBar.location": "hidden",
   "inlineChat.holdToSpeech": false,
   "chat.mcp.gallery.enabled": true,
+  "extensions.experimental.affinity": {
+    "openai.chatgpt": 1,
+    "Anthropic.claude-code": 1,
+  },
   "github.copilot.nextEditSuggestions.enabled": true,
   "totalTypeScript.hideBasicTips": true,
+  "chat.titleBar.openInAgentsWindow.enabled": false,
+  "workbench.browser.showInTitleBar": false,
 }
