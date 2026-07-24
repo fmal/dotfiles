@@ -133,10 +133,6 @@
     "php": "html",
   },
   "monokaiPro.fileIconsMonochrome": true,
-  "vscode_custom_css.imports": [
-    "file:///Users/filip/.dotfiles/vscode/customizations.css",
-  ],
-  "vscode_custom_css.statusbar": false,
   "formattingToggle.affects": ["editor.formatOnSave"],
   "search.followSymlinks": false,
   "search.exclude": {
@@ -189,7 +185,7 @@
   "github.copilot.chat.skillTool.enabled": true,
   "chat.agent.maxRequests": 100,
   "chat.viewSessions.enabled": false,
-  "workbench.editor.editorActionsLocation": "titleBar",
+  "workbench.editor.editorActionsLocation": "hidden",
   "workbench.layoutControl.enabled": false,
   "workbench.navigationControl.enabled": false,
   "workbench.activityBar.location": "hidden",

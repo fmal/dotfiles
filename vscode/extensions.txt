@@ -3,7 +3,6 @@ andrewberty.noir-theme-bundle
 andrewleedham.vscode-css-modules
 anthropic.claude-code
 arcanis.vscode-zipfs
-be5invis.vscode-custom-css
 bierner.markdown-preview-github-styles
 bmewburn.vscode-intelephense-client
 bradgashler.htmltagwrap
@@ -37,7 +36,6 @@ orta.vscode-jest
 phoenisx.cssvar
 pmndrs.pmndrs
 pnp.polacode
-rimuruchan.vscode-fix-checksums-next
 sdras.night-owl
 stackbreak.comment-divider
 streetsidesoftware.code-spell-checker
