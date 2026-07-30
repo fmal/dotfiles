@@ -15,18 +15,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "9b31e495b887e4ca123960415eca69fc7e1bba28",
+      "skillFolderHash": "037e8078db4b20b4aa25c04f21c6de7d335ec449",
       "installedAt": "2026-02-08T19:31:25.803Z",
-      "updatedAt": "2026-07-04T11:45:28.382Z"
+      "updatedAt": "2026-07-30T19:11:12.042Z"
     },
     "humanizer": {
       "source": "blader/humanizer",
       "sourceType": "github",
       "sourceUrl": "https://github.com/blader/humanizer.git",
       "skillPath": "SKILL.md",
-      "skillFolderHash": "1b48564898e999219882660237fde01bf4843a0f",
+      "skillFolderHash": "523374dee72d67c7b2b5f858ea0094ffda49c3ac",
       "installedAt": "2026-04-06T11:54:06.982Z",
-      "updatedAt": "2026-07-04T11:45:29.932Z"
+      "updatedAt": "2026-07-30T19:11:14.357Z"
     },
     "ast-grep": {
       "source": "ast-grep/agent-skill",
@@ -42,9 +42,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/personal/edit-article/SKILL.md",
-      "skillFolderHash": "d3e748a6f03a951c46f4e3621a850346ede89a87",
+      "skillFolderHash": "19ce34c6f4afcb58788e8e525dbb80c79a45a4a0",
       "installedAt": "2026-04-19T19:25:44.844Z",
-      "updatedAt": "2026-07-04T11:45:31.341Z"
+      "updatedAt": "2026-07-30T19:11:16.352Z"
     },
     "caveman": {
       "source": "juliusbrussee/caveman",
@@ -60,18 +60,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/grill-me/SKILL.md",
-      "skillFolderHash": "8320e7b87f7b208f50ce165b1dd43d1e93c8e801",
+      "skillFolderHash": "c817f6f36acd483294144694a935a76d3e3eb101",
       "installedAt": "2026-04-19T20:49:39.149Z",
-      "updatedAt": "2026-07-04T11:45:33.007Z"
+      "updatedAt": "2026-07-30T19:11:18.423Z"
     },
     "design-an-interface": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/deprecated/design-an-interface/SKILL.md",
-      "skillFolderHash": "59d5eca0fd23930d3d3821aa9da507f1bdb8a348",
+      "skillFolderHash": "080dd14b88424aea0c6aca72357c617d6ab42625",
       "installedAt": "2026-04-19T21:46:00.226Z",
-      "updatedAt": "2026-05-31T13:41:08.057Z"
+      "updatedAt": "2026-07-30T19:11:20.245Z"
     },
     "opensrc": {
       "source": "vercel-labs/opensrc",
@@ -96,9 +96,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/handoff/SKILL.md",
-      "skillFolderHash": "3f7df8e717e41dfd6eacd03d47319a2e01248ffb",
+      "skillFolderHash": "184d485ae68a2132893a94239b2b85d253e6152b",
       "installedAt": "2026-05-17T15:34:29.759Z",
-      "updatedAt": "2026-07-11T13:37:44.144Z"
+      "updatedAt": "2026-07-30T19:11:22.012Z"
     },
     "deslop": {
       "source": "cursor/plugins",
@@ -168,20 +168,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/engineering/grill-with-docs/SKILL.md",
-      "skillFolderHash": "21adba95de7d93065d9fec725ddf37f871e01d05",
-      "pluginName": "mattpocock-skills",
+      "skillFolderHash": "5fdcdeedf2d0c73b3ecb1da0a464dd885590f8d6",
       "installedAt": "2026-07-11T13:26:56.605Z",
-      "updatedAt": "2026-07-11T13:26:56.605Z"
+      "updatedAt": "2026-07-30T19:11:23.913Z"
     },
     "grilling": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/grilling/SKILL.md",
-      "skillFolderHash": "0ace40ac10f5c0b1534324e4e109ebfa831fb361",
-      "pluginName": "mattpocock-skills",
+      "skillFolderHash": "10b0db61f9b3869243db8a1a0ee84f862139b94e",
       "installedAt": "2026-07-11T13:28:30.925Z",
-      "updatedAt": "2026-07-11T13:28:30.925Z"
+      "updatedAt": "2026-07-30T19:11:25.676Z"
     }
   },
   "dismissed": {
