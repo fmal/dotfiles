@@ -27,7 +27,7 @@
     "claude-md-management@claude-plugins-official": true
   },
   "syntaxHighlightingDisabled": false,
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
   "terminalProgressBarEnabled": false,
   "voiceEnabled": false
