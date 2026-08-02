@@ -122,8 +122,10 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
-# Don’t show recent applications in Dock
-defaults write com.apple.dock show-recents -bool false
+# Show the suggested/recent apps section in the Dock (groups running unpinned
+# apps behind a separator), but never let quit apps linger as "recents"
+defaults write com.apple.dock show-recents -bool true
+defaults write com.apple.dock show-recent-count -int 0
 
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
