@@ -83,15 +83,17 @@ source "$DOTFILES/zsh/aliases.zsh"
 ### Functions ###
 source "$DOTFILES/zsh/functions.zsh"
 
-### Secret stuff ###
-if [[ -f "$DOTFILES/secret/zshrc" ]]; then
-  source "$DOTFILES/secret/zshrc"
-fi
-
 ### Shell integrations ###
 
 if command -v fzf &> /dev/null; then
   source "$DOTFILES/zsh/fzf.zsh"
+fi
+
+# Secrets (global config + per-project fnox.toml on cd)
+# (completions come with the brew install)
+if command -v fnox &> /dev/null; then
+  export FNOX_SHELL_OUTPUT=none
+  eval "$(fnox activate zsh)"
 fi
 
 if command -v zoxide &> /dev/null; then
