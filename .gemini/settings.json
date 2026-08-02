@@ -14,16 +14,6 @@
     "hasSeenNudge": true,
     "enabled": true
   },
-  "mcpServers": {
-    "github": {
-      "httpUrl": "https://api.githubcopilot.com/mcp/",
-      "headers": {
-        "Authorization": "Bearer $GITHUB_TOKEN"
-      },
-      "timeout": 10000,
-      "trust": true
-    }
-  },
   "security": {
     "auth": {
       "selectedType": "gemini-api-key"
