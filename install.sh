@@ -25,6 +25,10 @@ set_symlink "$DOTFILES/.config/gh/config.yml" "$HOME/.config/gh/config.yml"
 mkdir -p "$HOME/.config/mise"
 set_symlink "$DOTFILES/.config/mise/config.toml" "$HOME/.config/mise/config.toml"
 
+# ssh: generic client config only; host blocks live in ~/.ssh/config.local (untracked)
+mkdir -p "$HOME/.ssh" && chmod 700 "$HOME/.ssh"
+set_symlink "$DOTFILES/ssh/config" "$HOME/.ssh/config"
+
 # fnox secrets (age key at ~/.config/fnox/age.txt is machine-local, not in repo)
 mkdir -p "$HOME/.config/fnox"
 set_symlink "$DOTFILES/.config/fnox/config.toml" "$HOME/.config/fnox/config.toml"

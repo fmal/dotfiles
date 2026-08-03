@@ -1,0 +1,13 @@
+# colima re-adds this include to ~/.ssh/config if it goes missing (it only
+# scans this file, not included ones)
+Include ~/.colima/ssh_config
+
+# Host blocks and anything machine-specific (untracked)
+Include ~/.ssh/config.local
+
+UseKeychain yes
+AddKeysToAgent yes
+
+# Keepalives: survive NAT timeouts, drop dead connections after ~3min
+ServerAliveInterval 60
+ServerAliveCountMax 3
