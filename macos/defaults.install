@@ -122,10 +122,14 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
-# Show the suggested/recent apps section in the Dock (groups running unpinned
-# apps behind a separator), but never let quit apps linger as "recents"
-defaults write com.apple.dock show-recents -bool true
-defaults write com.apple.dock show-recent-count -int 0
+# Keep the app area limited to Finder and currently running applications
+defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock persistent-apps -array
+
+# Keep Applications and Downloads next to Trash
+defaults write com.apple.dock persistent-others -array \
+  '{"tile-data"={"arrangement"=1;"displayas"=0;"file-data"={"_CFURLString"="file:///Applications/";"_CFURLStringType"=15;};"file-label"="Applications";"showas"=3;};"tile-type"="directory-tile";}' \
+  "{\"tile-data\"={\"arrangement\"=2;\"displayas\"=0;\"file-data\"={\"_CFURLString\"=\"file://${HOME}/Downloads/\";\"_CFURLStringType\"=15;};\"file-label\"=\"Downloads\";\"showas\"=3;};\"tile-type\"=\"directory-tile\";}"
 
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
