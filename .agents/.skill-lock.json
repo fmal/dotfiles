@@ -51,9 +51,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
       "skillPath": "skills/caveman/SKILL.md",
-      "skillFolderHash": "166040c027f7764d43df36abc5df0079bfc6394b",
+      "skillFolderHash": "3e4386ca694c65a65ba84024f0fe2646a8c9076a",
       "installedAt": "2026-04-19T19:47:52.705Z",
-      "updatedAt": "2026-07-04T11:45:35.786Z"
+      "updatedAt": "2026-08-05T16:58:30.572Z"
     },
     "grill-me": {
       "source": "mattpocock/skills",
@@ -177,9 +177,28 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/grilling/SKILL.md",
-      "skillFolderHash": "10b0db61f9b3869243db8a1a0ee84f862139b94e",
+      "skillFolderHash": "fd99bcbb818f7ef766b83656fb5fac0b58e223ad",
       "installedAt": "2026-07-11T13:28:30.925Z",
-      "updatedAt": "2026-07-30T19:11:25.676Z"
+      "updatedAt": "2026-08-05T16:58:28.946Z"
+    },
+    "wait-what": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/wait-what/SKILL.md",
+      "skillFolderHash": "6abe708f1bf253158a037ac49faea2944e2809dc",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-08-05T16:57:14.087Z",
+      "updatedAt": "2026-08-05T16:57:14.087Z"
+    },
+    "claude-handoff": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/in-progress/claude-handoff/SKILL.md",
+      "skillFolderHash": "b312afac556f7229717dbd9b786d77bc160c8649",
+      "installedAt": "2026-08-05T16:57:45.092Z",
+      "updatedAt": "2026-08-05T16:57:45.092Z"
     }
   },
   "dismissed": {
