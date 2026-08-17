@@ -209,6 +209,24 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-08-15T13:47:38.917Z",
       "updatedAt": "2026-08-15T13:47:38.917Z"
+    },
+    "workers-best-practices": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/workers-best-practices/SKILL.md",
+      "skillFolderHash": "7dd384e79c76d3e388dfe53e12e93642679ff1fd",
+      "installedAt": "2026-08-17T14:39:37.610Z",
+      "updatedAt": "2026-08-17T14:39:37.610Z"
+    },
+    "wrangler": {
+      "source": "cloudflare/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/skills.git",
+      "skillPath": "skills/wrangler/SKILL.md",
+      "skillFolderHash": "45cc198b2aad3f06e8abf91333f55fbe7579f659",
+      "installedAt": "2026-08-17T14:39:37.641Z",
+      "updatedAt": "2026-08-17T14:39:37.641Z"
     }
   },
   "dismissed": {
