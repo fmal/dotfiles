@@ -100,15 +100,6 @@
       "installedAt": "2026-05-17T15:34:29.759Z",
       "updatedAt": "2026-07-30T19:11:22.012Z"
     },
-    "deslop": {
-      "source": "cursor/plugins",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/cursor/plugins.git",
-      "skillPath": "cursor-team-kit/skills/deslop/SKILL.md",
-      "skillFolderHash": "ac9ba043f9dd3b3a8850de6624ec5bc12e375599",
-      "installedAt": "2026-05-17T18:13:05.756Z",
-      "updatedAt": "2026-05-31T13:36:45.496Z"
-    },
     "what-did-i-get-done": {
       "source": "cursor/plugins",
       "sourceType": "github",
