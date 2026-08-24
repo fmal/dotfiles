@@ -19,6 +19,15 @@
       "installedAt": "2026-04-19T11:21:04.014Z",
       "updatedAt": "2026-04-19T11:21:04.014Z"
     },
+    "bro": {
+      "source": "cursor/plugins",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cursor/plugins.git",
+      "skillPath": "pstack/skills/bro/SKILL.md",
+      "skillFolderHash": "53c3b2c5dc11fe0ee4156468da27505df9239dc6",
+      "installedAt": "2026-08-23T19:00:16.846Z",
+      "updatedAt": "2026-08-23T19:00:16.846Z"
+    },
     "caveman": {
       "source": "juliusbrussee/caveman",
       "sourceType": "github",
@@ -217,6 +226,15 @@
       "skillFolderHash": "ad2925850efb8973a72d2e666f7a975f9a2d4a9b",
       "installedAt": "2026-08-15T13:47:38.917Z",
       "updatedAt": "2026-08-23T23:00:21.609Z"
+    },
+    "unslop": {
+      "source": "cursor/plugins",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cursor/plugins.git",
+      "skillPath": "pstack/skills/unslop/SKILL.md",
+      "skillFolderHash": "6161508c5c7959b156ff0e4e10b510863b51f9cc",
+      "installedAt": "2026-08-23T23:12:41.709Z",
+      "updatedAt": "2026-08-23T23:12:41.709Z"
     }
   },
   "dismissed": {
