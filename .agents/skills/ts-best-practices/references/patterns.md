@@ -57,17 +57,105 @@ Rules:
 - Every variant shares the same discriminant field name
 - Each variant's discriminant value is unique
 
-## Type Narrowing
+## Branded Types
+
+Brand primitives so they can't be mixed up. Validate once at creation; downstream code trusts the type.
 
 ```ts
-// Narrowing patterns (best to worst):
-// 1. Discriminated union switch/if — compiler narrows automatically
-// 2. `in` operator — "key" in obj narrows to variants containing that key
-// 3. typeof / instanceof — for primitives and class instances
-// 4. User-defined type guard — when above aren't sufficient
-// 5. `as` cast — last resort, only after validation
+type AgentId = string & { readonly __brand: "AgentId" };
 
-// `in` operator narrowing
+function parseAgentId(input: string): AgentId {
+  if (!isUUID(input)) throw new Error(`Invalid agent id: ${input}`);
+  return input as AgentId;
+}
+
+function focusAgent(id: AgentId): void {
+  /* input is trusted */
+}
+```
+
+Match the `readonly __brand: "X"` shape; don't invent a new convention.
+
+## Constructive Modeling
+
+Build the type from parts that are all legal instead of restricting a loose type with runtime checks.
+
+Non-empty, via a variadic tuple:
+
+```ts
+type NonEmpty<T> = [T, ...T[]];
+
+// BAD — T[] plus a length check every caller must repeat
+function pickWinner(entries: string[]): string {
+  if (entries.length === 0) throw new Error("no entries");
+  return entries[Math.floor(Math.random() * entries.length)];
+}
+
+// GOOD — an empty value of the type can't exist
+function pickWinner(entries: NonEmpty<string>): string {
+  return entries[Math.floor(Math.random() * entries.length)];
+}
+```
+
+Where a plain `T[]` arrives, narrow once with a guard. The fact then travels in the type:
+
+```ts
+const isNonEmpty = <T>(arr: T[]): arr is NonEmpty<T> => arr.length > 0;
+```
+
+Even length, as pairs (TypeScript has no refinement types; you don't need one):
+
+```ts
+type Pairs<T> = [T, T][];
+```
+
+A time range, as start plus duration:
+
+```ts
+// BAD — a comment holds the invariant
+type TimeRange = { start: Date; end: Date }; // start <= end
+
+// GOOD — a negative range can't be written; derive end when needed
+type TimeRange = { start: Date; durationMs: number };
+```
+
+Pick the representation that makes the bad state unconstructable, then expose the reading you need on top (`pairs.flat()`, a `rangeEnd()` helper).
+
+## Simplest Total Type
+
+Don't strengthen everything. Keep `T[]` when every operation on it is total:
+
+```ts
+const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0); // [] is 0, fine
+```
+
+Strengthen when the loose type forces a lie at a use site. The tells are `!`, `arr[0] as T`, and a "should never happen" throw:
+
+```ts
+// BAD — partiality smuggled past the compiler
+function newestSession(sessions: Session[]): Session {
+  return sessions.at(0)!;
+}
+
+// GOOD — strengthen the input; the assertion disappears
+function newestSession(sessions: NonEmpty<Session>): Session {
+  return sessions[0];
+}
+```
+
+Weakening the result to `Session | undefined` is the other total signature. Either way the empty case lands at the call site, the one place that knows what empty means.
+
+## Narrowing Hierarchy
+
+From best to last-resort:
+
+1. **Discriminated union switch / if.** Compiler narrows automatically.
+2. **`in` operator.** `"key" in obj` narrows to variants containing that key.
+3. **`typeof` / `instanceof`.** For primitives and class instances.
+4. **User-defined type guard.** When the above aren't enough.
+5. **`as` cast.** Only after validation.
+
+```ts
 function area(s: Shape): number {
   if ("radius" in s) return Math.PI * s.radius ** 2; // narrowed to circle
   return s.width * s.height; // narrowed to rect
@@ -89,29 +177,41 @@ Rules:
 
 ## Exhaustiveness Checks
 
+In default arms, assign the discriminant to a `never`-typed local. The compiler errors if a new variant is added without handling.
+
 ```ts
+// Value-returning switch
 function area(s: Shape): number {
   switch (s.kind) {
-    case "circle": return Math.PI * s.radius ** 2;
-    case "rect": return s.width * s.height;
+    case "circle":
+      return Math.PI * s.radius ** 2;
+    case "rect":
+      return s.width * s.height;
     default: {
       const _exhaustive: never = s;
-      throw new Error(`unhandled shape: ${(_exhaustive as { kind: string }).kind}`);
+      return _exhaustive;
+    }
+  }
+}
+
+// Void switch
+function handle(s: Shape): void {
+  switch (s.kind) {
+    case "circle":
+      drawCircle(s);
+      break;
+    case "rect":
+      drawRect(s);
+      break;
+    default: {
+      const _exhaustive: never = s;
+      void _exhaustive;
     }
   }
 }
 ```
 
-Helper to reduce boilerplate:
-
-```ts
-function absurd(x: never, msg?: string): never {
-  throw new Error(msg ?? `unexpected value: ${JSON.stringify(x)}`);
-}
-
-// usage in default arm:
-default: return absurd(s, `unhandled shape`);
-```
+Return-style in value-returning switches; void-style in statement switches.
 
 ## `satisfies` Over `as`
 
@@ -139,6 +239,25 @@ type State =
 ```
 
 If a bug requires checking "wait, can this combination actually happen?" — the type is too loose. Tighten it so the type system answers that question at compile time.
+
+## Schema-Derived Types
+
+When a `.proto`, OpenAPI spec, GraphQL schema, Zod schema, or database migration already defines a shape, derive from the generated types instead of duplicating them.
+
+```ts
+// BAD — duplicate shape, drifts when the schema changes
+type CheckSummary = {
+  totalCount: number;
+  checks: { name: string; status: string }[];
+};
+function renderChecks(s: CheckSummary) { /* ... */ }
+
+// GOOD — derive from the generated schema type
+import type { ChecksMessage } from "<generated module>";
+function renderChecks(s: Pick<ChecksMessage, "totalCount" | "checks">) { /* ... */ }
+```
+
+Reach for `Pick`, `Omit`, `Parameters`, `ReturnType`, `Awaited`, `typeof` before writing a new interface.
 
 ## Omit Return Types
 
