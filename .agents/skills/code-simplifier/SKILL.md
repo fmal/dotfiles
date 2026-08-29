@@ -17,15 +17,18 @@ Simplify the code at `$ARGUMENTS`. If no target is specified, identify and simpl
 2. **Apply Project Standards**: Follow project coding standards and match existing patterns.
 
 3. **Enhance Clarity**: Simplify code structure by:
-   - Reducing unnecessary complexity and nesting
+   - Reducing unnecessary complexity and nesting - flatten deep nesting with guard clauses and early returns
+   - **Splitting functions with multiple responsibilities** into focused, well-named ones - length alone is not the signal; a long but linear function can stay whole
    - Eliminating redundant code and abstractions
-   - Improving readability through variable and function names that say what they hold without a trip to the implementation
+   - **Deleting dead code** - unreachable branches, unused variables and exports, commented-out blocks
+   - Improving readability through variable and function names that say what they hold without a trip to the implementation - and that don't lie: a `get` that also mutates needs renaming
+   - **Replacing boolean parameter flags** - `doThing(true, false)` tells the reader nothing at the call site; use an options object or split into separate functions
    - Consolidating related logic, and merging types, functions, or constants that overlap so the reader holds fewer distinct concepts in their head
-   - **Avoiding nested ternary operators** - prefer switch statements or if/else chains for multiple conditions
+   - **Avoiding nested ternary operators** - prefer switch statements or if/else chains for multiple conditions, or a lookup object when the branching is a pure key → value mapping
    - **Removing derivable state** - if a value can be computed from values already in scope, don't pass or store it separately
    - **Removing comments the code already states** - apply the deletion test: if deleting the comment loses no information, delete it. Go after comments that restate the line below them, narrate structure (`// Step 2: validate`, `// --- Helpers ---`), or explain language and library semantics. Keep what code cannot say: why this approach, a non-obvious constraint, a spec or bug link, a footgun warning - and leave docstrings on exported API alone
    - **Removing defensive scaffolding** - drop try/catch, null guards, and fallbacks whose failure case cannot occur on the path they sit on; keep them at genuine trust boundaries (I/O, user input, third-party responses)
-   - **Removing casts that only silence the compiler** - if an `any` cast or non-null assertion exists solely to clear a type error, fix the type instead; use `unknown` plus narrowing where the shape is genuinely not known
+   - **Removing casts that only silence the compiler** - if an `any` cast or non-null assertion exists solely to clear a type error, fix the type instead; use `unknown` plus narrowing where the shape is genuinely not known. Delete assertions to a type the compiler already infers - they are pure noise
    - Choosing clarity over brevity - explicit code is often better than overly compact code
 
 4. **Maintain Balance**: Avoid over-simplification that could:
@@ -36,14 +39,14 @@ Simplify the code at `$ARGUMENTS`. If no target is specified, identify and simpl
    - Prioritize "fewer lines" over readability (e.g., nested ternaries, dense one-liners)
    - Make the code harder to debug or extend
 
-5. **Focus Scope**: Only refine code that has been specified or recently modified, unless explicitly instructed to review a broader scope. Within that scope, prefer minimal, focused edits over broad rewrites.
+5. **Focus Scope**: Only refine code that has been specified or recently modified, unless explicitly instructed to review a broader scope. Within that scope, prefer minimal, focused edits over broad rewrites. If the code in scope is already clean, report that and change nothing - churn is not simplification.
 
 ## Refinement Process
 
-1. Read and understand the specified code
+1. Read and understand the specified code: what calls it, what it calls, its edge cases. Before deleting anything that looks unnecessary, apply Chesterton's Fence - check git blame or callers for why it exists; an odd-looking guard may cover a real case the types don't show
 2. Identify opportunities to improve elegance and consistency
 3. Apply project-specific best practices and coding standards
-4. Ensure all functionality remains unchanged
+4. Verify functionality is unchanged by running the tests, build, and type check - if an assertion must change to pass, revert that simplification
 5. Verify the refined code is simpler and more maintainable
 
 ## Examples
@@ -84,10 +87,10 @@ const doubled = positiveNumbers.map((x) => x * 2);
 const sum = doubled.reduce((a, b) => a + b, 0);
 ```
 
-### Redundant abstraction → direct check
+### Redundant abstraction → direct check; repeated condition → named predicate
 
 ```typescript
-// before
+// before: trivial wrapper read in one place — inline it
 function isNotEmpty(arr: unknown[]) {
   return arr.length > 0;
 }
@@ -95,6 +98,17 @@ if (isNotEmpty(items)) { ... }
 
 // after
 if (items.length > 0) { ... }
+
+// before: same non-trivial condition at several call sites — extract it
+if (user.plan === "pro" && !user.trialExpired) { ... }
+// ...elsewhere
+if (user.plan === "pro" && !user.trialExpired) { ... }
+
+// after
+function hasActiveProPlan(user: User) {
+  return user.plan === "pro" && !user.trialExpired;
+}
+if (hasActiveProPlan(user)) { ... }
 ```
 
 ### Comments that restate code → delete; comments that add context → keep
