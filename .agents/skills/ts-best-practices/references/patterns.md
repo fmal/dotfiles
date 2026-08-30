@@ -62,15 +62,15 @@ Rules:
 Brand primitives so they can't be mixed up. Validate once at creation; downstream code trusts the type.
 
 ```ts
-type AgentId = string & { readonly __brand: "AgentId" };
+type TaskId = string & { readonly __brand: "TaskId" };
+type UserId = string & { readonly __brand: "UserId" };
 
-function parseAgentId(input: string): AgentId {
-  if (!isUUID(input)) throw new Error(`Invalid agent id: ${input}`);
-  return input as AgentId;
-}
+// Prevents accidentally passing a UserId where a TaskId is expected
+function getTask(id: TaskId): Promise<Task> { ... }
 
-function focusAgent(id: AgentId): void {
-  /* input is trusted */
+function parseTaskId(input: string): TaskId {
+  if (!isUUID(input)) throw new Error(`Invalid task id: ${input}`);
+  return input as TaskId;
 }
 ```
 
