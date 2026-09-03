@@ -38,4 +38,6 @@ GOOD
 > error, so our biggest customers couldn't download their data at all. Exports
 > now stream, so any size works.
 
-Open a real PR rather than a draft so review bots run.
+Rebase onto the latest default branch before opening; a stale branch wastes a
+review round on conflicts. Open a real PR rather than a draft so review bots
+run.
