@@ -38,6 +38,10 @@ GOOD
 > error, so our biggest customers couldn't download their data at all. Exports
 > now stream, so any size works.
 
+Before posting, apply the `unslop` skill to the title and body. For the title,
+skip unslop rules 14 (colon overuse) and 33 (over-compression); the repository's
+title conventions win where they conflict.
+
 Rebase onto the latest default branch before opening; a stale branch wastes a
 review round on conflicts. Open a real PR rather than a draft so review bots
 run.
