@@ -6,18 +6,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "037e8078db4b20b4aa25c04f21c6de7d335ec449",
+      "skillFolderHash": "82def67855a0d2aad7794207951820fa5422fdb0",
       "installedAt": "2026-02-08T19:31:25.803Z",
-      "updatedAt": "2026-07-30T19:11:12.042Z"
+      "updatedAt": "2026-09-10T18:43:37.916Z"
     },
     "ast-grep": {
       "source": "ast-grep/agent-skill",
       "sourceType": "github",
       "sourceUrl": "https://github.com/ast-grep/agent-skill.git",
       "skillPath": "ast-grep/skills/ast-grep/SKILL.md",
-      "skillFolderHash": "ef60f77564e2d47d0cba25a809daa3af8f0c469b",
+      "skillFolderHash": "1f1877bfb051fff6e6de5ebe529fb47758a03367",
       "installedAt": "2026-04-19T11:21:04.014Z",
-      "updatedAt": "2026-04-19T11:21:04.014Z"
+      "updatedAt": "2026-09-10T18:43:40.277Z"
     },
     "bro": {
       "source": "cursor/plugins",
@@ -33,9 +33,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
       "skillPath": "skills/caveman/SKILL.md",
-      "skillFolderHash": "75d927c628bcb304f061e193c80c21d617a314e5",
+      "skillFolderHash": "efae5ae14e1ace5f456e895abb9e5643925a754c",
       "installedAt": "2026-04-19T19:47:52.705Z",
-      "updatedAt": "2026-08-23T23:00:11.705Z"
+      "updatedAt": "2026-09-10T18:43:49.630Z"
     },
     "claude-handoff": {
       "source": "mattpocock/skills",
@@ -114,10 +114,10 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/blader/humanizer.git",
       "skillPath": "SKILL.md",
-      "skillFolderHash": "e2e92e7b4b8229253ed5c8e81dc65463fdeddda5",
+      "skillFolderHash": "9862685f575c65a8247f90369951df1b3416e3d6",
       "pluginName": "humanizer",
       "installedAt": "2026-04-06T11:54:06.982Z",
-      "updatedAt": "2026-08-23T23:00:22.749Z"
+      "updatedAt": "2026-09-10T18:43:51.661Z"
     },
     "improve": {
       "source": "shadcn/improve",
@@ -142,9 +142,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/fabricioctelles/skills.git",
       "skillPath": "skills/okf-open-knowledge-format/SKILL.md",
-      "skillFolderHash": "46be54a98fe54cfed60f49aba68b6b8af7315d34",
+      "skillFolderHash": "a739a82f4735f4dde3a97e8b2757332358e90766",
       "installedAt": "2026-07-05T11:22:53.009Z",
-      "updatedAt": "2026-07-05T11:22:53.009Z"
+      "updatedAt": "2026-09-10T18:43:54.218Z"
     },
     "opensrc": {
       "source": "vercel-labs/opensrc",
@@ -205,18 +205,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/cloudflare/skills.git",
       "skillPath": "skills/workers-best-practices/SKILL.md",
-      "skillFolderHash": "7dd384e79c76d3e388dfe53e12e93642679ff1fd",
+      "skillFolderHash": "2b353123539948ca95c757166437c1fc5eefc208",
       "installedAt": "2026-08-17T14:39:37.610Z",
-      "updatedAt": "2026-08-17T14:39:37.610Z"
+      "updatedAt": "2026-09-10T18:43:57.161Z"
     },
     "wrangler": {
       "source": "cloudflare/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/cloudflare/skills.git",
       "skillPath": "skills/wrangler/SKILL.md",
-      "skillFolderHash": "45cc198b2aad3f06e8abf91333f55fbe7579f659",
+      "skillFolderHash": "d87d80a0c3f0a3c2d38222b02d459ef85af60320",
       "installedAt": "2026-08-17T14:39:37.641Z",
-      "updatedAt": "2026-08-17T14:39:37.641Z"
+      "updatedAt": "2026-09-10T18:44:00.779Z"
     },
     "writing-for-agents": {
       "source": "mattpocock/skills",
@@ -232,9 +232,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/cursor/plugins.git",
       "skillPath": "pstack/skills/unslop/SKILL.md",
-      "skillFolderHash": "6161508c5c7959b156ff0e4e10b510863b51f9cc",
+      "skillFolderHash": "e19dcc9c531f4609df38bc86c62cf0e8b6d8f444",
       "installedAt": "2026-08-23T23:12:41.709Z",
-      "updatedAt": "2026-08-23T23:12:41.709Z"
+      "updatedAt": "2026-09-10T18:43:43.528Z"
     }
   },
   "dismissed": {
