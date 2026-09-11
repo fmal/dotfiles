@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# pw-attach — connect playwright-cli to the running Helium via the Playwright extension
+#  ▸ pw-attach [URL]
+# Reads the extension token from fnox so no approval dialog appears.
+
+set -euo pipefail
+
+helium=/Applications/Helium.app/Contents/MacOS/Helium
+[[ -x "$helium" ]] || { echo "pw-attach: Helium not found at $helium" >&2; exit 1; }
+export PLAYWRIGHT_MCP_EXECUTABLE_PATH="$helium"
+
+PLAYWRIGHT_MCP_EXTENSION_TOKEN=$(fnox get --config "$HOME/.config/fnox/config.toml" PLAYWRIGHT_MCP_EXTENSION_TOKEN)
+export PLAYWRIGHT_MCP_EXTENSION_TOKEN
+
+# -s=default: otherwise the session is named after the channel and bare commands miss it.
+# The connect URL contains the token: keep attach output off stdout, then move off that page.
+playwright-cli -s=default attach --extension=chrome > /dev/null
+playwright-cli goto "${1:-about:blank}"
+
+# shellcheck disable=SC2016  # literal backticks
+printf '%s\n' \
+  'Attached to Helium (session default). Run `playwright-cli detach` when finished.' \
+  'Navigate with `playwright-cli goto <URL>`; `playwright-cli open` would replace this session with a fresh browser.'
