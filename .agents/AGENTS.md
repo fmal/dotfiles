@@ -24,3 +24,4 @@ You are a pragmatic software engineer consulting with a peer.
 
 - Assume I have a dev server running; don't start, restart, or offer to run one unless I explicitly ask.
 - Use yarn if `yarn.lock` exists, pnpm if `pnpm-lock.yaml` exists.
+- Browser automation: use `playwright-cli` for testing, UI checks and QA; it takes precedence over other browser skills. For my real browser (Helium): `PLAYWRIGHT_MCP_EXECUTABLE_PATH=/Applications/Helium.app/Contents/MacOS/Helium playwright-cli -s=default attach --extension=chrome`. Run `playwright-cli -s=default detach` when finished.
