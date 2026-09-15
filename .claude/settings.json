@@ -28,6 +28,7 @@
   },
   "syntaxHighlightingDisabled": false,
   "effortLevel": "high",
+  "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
   "terminalProgressBarEnabled": false,
   "voiceEnabled": false
