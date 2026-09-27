@@ -8,11 +8,11 @@ argument-hint: <file_path_or_description_of_recent_changes>
 
 Apply expert code simplification techniques. Prioritize readable, explicit code over overly compact solutions while following project-specific best practices.
 
-Simplify the code at `$ARGUMENTS`. If no target is specified, identify and simplify code that has been recently modified or touched in the current session.
+Simplify the code at `$ARGUMENTS`. If no target is specified, use code modified in the current session; if there is none, use the diff against the default branch (`git diff main...HEAD` or equivalent).
 
 ## Core Principles
 
-1. **Preserve Functionality**: Never change what the code does - only how it does it. All original features, outputs, and behaviors must remain intact.
+1. **Preserve Functionality**: Never change what the code does - only how it does it. All original features, outputs, and behaviors must remain intact. If you find a bug along the way, report it and leave it - a fix mixed into a simplification diff is harder to review and breaks this rule.
 
 2. **Apply Project Standards**: Follow project coding standards and match existing patterns.
 
@@ -29,6 +29,7 @@ Simplify the code at `$ARGUMENTS`. If no target is specified, identify and simpl
    - **Removing comments the code already states** - apply the deletion test: if deleting the comment loses no information, delete it. Go after comments that restate the line below them, narrate structure (`// Step 2: validate`, `// --- Helpers ---`), or explain language and library semantics. Keep what code cannot say: why this approach, a non-obvious constraint, a spec or bug link, a footgun warning - and leave docstrings on exported API alone
    - **Removing defensive scaffolding** - drop try/catch, null guards, and fallbacks whose failure case cannot occur on the path they sit on; keep them at genuine trust boundaries (I/O, user input, third-party responses)
    - **Removing casts that only silence the compiler** - if an `any` cast or non-null assertion exists solely to clear a type error, fix the type instead; use `unknown` plus narrowing where the shape is genuinely not known. Delete assertions to a type the compiler already infers - they are pure noise
+   - **Matching the surrounding file** - a new helper style, error-handling idiom, or naming convention that differs from what the file already uses is noise even when it is fine in isolation; conform to the local pattern
    - Choosing clarity over brevity - explicit code is often better than overly compact code
 
 4. **Maintain Balance**: Avoid over-simplification that could:
@@ -48,6 +49,7 @@ Simplify the code at `$ARGUMENTS`. If no target is specified, identify and simpl
 3. Apply project-specific best practices and coding standards
 4. Verify functionality is unchanged by running the tests, build, and type check - if an assertion must change to pass, revert that simplification
 5. Verify the refined code is simpler and more maintainable
+6. Report in one to three sentences: what changed and anything flagged but left alone. Do not narrate every edit
 
 ## Examples
 
