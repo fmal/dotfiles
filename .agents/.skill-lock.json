@@ -33,9 +33,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
       "skillPath": "skills/caveman/SKILL.md",
-      "skillFolderHash": "efae5ae14e1ace5f456e895abb9e5643925a754c",
+      "skillFolderHash": "2d9a159619205a175577d6540b1ed64fd73d83b1",
       "installedAt": "2026-04-19T19:47:52.705Z",
-      "updatedAt": "2026-09-10T18:43:49.630Z"
+      "updatedAt": "2026-09-27T17:15:15.705Z"
     },
     "claude-handoff": {
       "source": "mattpocock/skills",
@@ -214,9 +214,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/cloudflare/skills.git",
       "skillPath": "skills/wrangler/SKILL.md",
-      "skillFolderHash": "d87d80a0c3f0a3c2d38222b02d459ef85af60320",
+      "skillFolderHash": "2cef5beb18fd736ee300a08fc87fca16522f14d6",
       "installedAt": "2026-08-17T14:39:37.641Z",
-      "updatedAt": "2026-09-10T18:44:00.779Z"
+      "updatedAt": "2026-09-27T17:15:17.697Z"
     },
     "writing-for-agents": {
       "source": "mattpocock/skills",
@@ -232,18 +232,27 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/cursor/plugins.git",
       "skillPath": "pstack/skills/unslop/SKILL.md",
-      "skillFolderHash": "e19dcc9c531f4609df38bc86c62cf0e8b6d8f444",
+      "skillFolderHash": "d5baa969e71c4ddb563412b0ec170fa3b05b6d6e",
       "installedAt": "2026-08-23T23:12:41.709Z",
-      "updatedAt": "2026-09-10T18:43:43.528Z"
+      "updatedAt": "2026-09-27T17:15:12.175Z"
     },
     "playwright-cli": {
       "source": "microsoft/playwright-cli",
       "sourceType": "github",
       "sourceUrl": "https://github.com/microsoft/playwright-cli.git",
       "skillPath": "skills/playwright-cli/SKILL.md",
-      "skillFolderHash": "fe74b7fb02fe5d0697d1e1359cb44e1f48d1fc54",
+      "skillFolderHash": "4b040465accc10048d4b16479bb54d6d1d3bdeb6",
       "installedAt": "2026-09-11T12:51:15.659Z",
-      "updatedAt": "2026-09-11T12:51:15.659Z"
+      "updatedAt": "2026-09-27T17:15:19.381Z"
+    },
+    "technical-writing": {
+      "source": "cursor/plugins",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cursor/plugins.git",
+      "skillPath": "pstack/skills/technical-writing/SKILL.md",
+      "skillFolderHash": "062212933adc6148a035a440dc5208757864fb42",
+      "installedAt": "2026-09-27T17:17:23.674Z",
+      "updatedAt": "2026-09-27T17:17:23.674Z"
     }
   },
   "dismissed": {
@@ -251,14 +260,13 @@
   },
   "lastSelectedAgents": [
     "amp",
-    "antigravity",
-    "antigravity-cli",
     "cline",
     "codex",
     "cursor",
-    "deepagents",
+    "droid",
     "gemini-cli",
     "github-copilot",
+    "kilo",
     "kimi-code-cli",
     "opencode",
     "warp",
