@@ -4,7 +4,7 @@ description: Guidelines for creating git commits. Use when making commits, stagi
 user-invocable: false
 ---
 
-# Commit Guidelines
+# Commit guidelines
 
 ## Principles
 
@@ -14,9 +14,9 @@ user-invocable: false
 - Keep the summary under 72 characters
 - Explain what and why, not how
 
-## Conventional Commits
+## Conventional commits
 
-Format: `<type>: <summary>`
+Format: `<type>: <summary>`, or `<type>(<scope>): <summary>` with a scope.
 
 Types:
 
@@ -42,7 +42,10 @@ Skip the body when the subject is self-explanatory. Add a body only for:
 
 Wrap body text at 72 characters.
 
-## Breaking Changes
+Write the body with the `technical-writing` skill, then apply the `unslop`
+skill.
+
+## Breaking changes
 
 Append `!` after the type and add a `BREAKING CHANGE:` footer:
 
@@ -52,12 +55,12 @@ feat!: remove deprecated v1 endpoints
 BREAKING CHANGE: v1 endpoints no longer available
 ```
 
-## Issue References
+## Issue references
 
 Reference GitHub issues in the commit footer:
 
-- `Fixes #123` — closes the issue when merged
-- `Refs #123` — links without closing
+- `Fixes #123` closes the issue when merged
+- `Refs #123` links without closing
 
 ## Examples
 
@@ -68,7 +71,7 @@ feat: add OAuth2 login flow
 ```
 fix: handle null response in user endpoint
 
-The API could return null for deleted accounts, causing a crash.
+The API returned null for deleted accounts and the endpoint crashed.
 
 Fixes #42
 ```
