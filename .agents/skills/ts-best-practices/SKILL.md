@@ -1,7 +1,6 @@
 ---
 name: ts-best-practices
-description: >
-  TypeScript type safety guidelines for writing maximally type-safe code. Use when reading or editing any .ts or .tsx file.
+description: TypeScript type-safety rules. Use when reading or editing any .ts or .tsx file.
 ---
 
 # Type Safety

@@ -1,6 +1,6 @@
 ---
 name: code-simplifier
-description: Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Use when asked to "simplify code", "clean up code", "refactor for clarity", "improve readability", "deslop", or review recently modified code for elegance. Focuses on project-specific best practices.
+description: Simplify code without changing behavior. Use when asked to "simplify", "clean up", "deslop", "refactor for clarity", or "improve readability".
 argument-hint: <file_path_or_description_of_recent_changes>
 ---
 
