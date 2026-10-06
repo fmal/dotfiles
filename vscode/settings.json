@@ -199,4 +199,5 @@
   "totalTypeScript.hideBasicTips": true,
   "chat.titleBar.openInAgentsWindow.enabled": false,
   "workbench.browser.showInTitleBar": false,
+  "chat.titleBar.signIn.enabled": false,
 }

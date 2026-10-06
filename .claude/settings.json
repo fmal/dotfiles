@@ -14,7 +14,7 @@
     "deny": [],
     "defaultMode": "acceptEdits"
   },
-  "model": "claude-fable-5-1[1m]",
+  "model": "opus",
   "enableAllProjectMcpServers": true,
   "statusLine": {
     "type": "command",

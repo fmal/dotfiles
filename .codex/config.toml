@@ -1,8 +1,8 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 
-model = "gpt-6-astra"
-model_reasoning_effort = "high"
-plan_mode_reasoning_effort = "high"
+model = "gpt-6.1-sol"
+model_reasoning_effort = "xhigh"
+plan_mode_reasoning_effort = "xhigh"
 
 # tool_output_token_limit = 25000
 
@@ -21,6 +21,11 @@ max_bytes = 52428800 # 50 MiB
 status_line = ["model-with-reasoning", "current-dir", "context-used", "five-hour-limit", "used-tokens"]
 theme = "Poimandres-Storm"
 status_line_use_colors = true
+screen_reader_detection_done = true
+
+[tui.model_availability_nux]
+gpt-6-astra = 4
+"gpt-6.1-sol" = 4
 
 [notice]
 hide_full_access_warning = true
