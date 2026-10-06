@@ -36,7 +36,7 @@ fi
 
 # Codex
 if command -v codex &> /dev/null; then
-  alias codex!="codex --dangerously-bypass-approvals-and-sandbox -c shell_environment_policy.ignore_default_excludes=true"
+  alias codex!="codex --dangerously-bypass-approvals-and-sandbox"
 fi
 
 # lazygit that cd's into the last repo you visited (via the repo switcher)
