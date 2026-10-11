@@ -94,7 +94,8 @@ if command -v fnox &> /dev/null; then
 fi
 
 if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
+  # replaces cd with zoxide's version and adds cdi (interactive picker)
+  eval "$(zoxide init zsh --cmd cd)"
 fi
 
 if command -v starship &> /dev/null; then

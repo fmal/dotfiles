@@ -21,7 +21,7 @@ zstyle ':fzf-tab:*' accept-line enter
 zstyle ':fzf-tab:*' continuous-trigger 'tab'
 zstyle ':fzf-tab:*' show-group none
 
-zstyle ':fzf-tab:complete:z:*' fzf-preview 'ls -AF --color=always --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -AF --color=always --group-directories-first $realpath'
 zstyle ':fzf-tab:complete:git-(add|restore):*' fzf-preview 'git diff --color=always $realpath | diff-so-fancy'
 zstyle ':fzf-tab:complete:git-diff:*' fzf-preview 'git diff --color=always $word | diff-so-fancy'
 zstyle ':fzf-tab:complete:git-(checkout|branch|log):*' fzf-preview 'git log --graph --oneline --color=always -n 25 $word'
