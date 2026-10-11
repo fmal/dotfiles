@@ -1,9 +1,6 @@
 # Use Antidote as zsh package manager
 source "$HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh"
 
-zstyle ':omz:plugins:yarn' global-path no
-zstyle ':omz:plugins:yarn' berry yes
-
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=black,bg=cyan'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=black,bg=red'
 
