@@ -11,3 +11,8 @@ AddKeysToAgent yes
 # Keepalives: survive NAT timeouts, drop dead connections after ~3min
 ServerAliveInterval 60
 ServerAliveCountMax 3
+
+# Remote terminal type: every server knows xterm-256color. Hosts set up with
+# these dotfiles have Ghostty's terminfo, so pass the real local TERM to them
+# with `SetEnv TERM=${TERM}` in their config.local block (first value wins)
+SetEnv TERM=xterm-256color

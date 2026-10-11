@@ -84,6 +84,15 @@ for installer in $(find . -name "*.install" | grep -v "homebrew"); do
   run_installer $installer
 done
 
+# Ghostty's terminfo lives in its app bundle, which only Ghostty's own shells
+# search. Copy it to ~/.terminfo so SSH sessions recognize TERM=xterm-ghostty.
+if [[ -d /Applications/Ghostty.app ]]; then
+  mkdir -p "$HOME/.terminfo"
+  TERMINFO=/Applications/Ghostty.app/Contents/Resources/terminfo infocmp -x xterm-ghostty \
+    | tic -x -o "$HOME/.terminfo" - \
+    || echo "Warning: couldn't install xterm-ghostty terminfo"
+fi
+
 # don't show last login message
 if [[ ! -f $HOME/.hushlogin ]]; then
   touch $HOME/.hushlogin
