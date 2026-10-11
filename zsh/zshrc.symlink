@@ -65,9 +65,6 @@ if [[ -d "$HOME/.local/bin" ]]; then
   path=("$HOME/.local/bin" $path)
 fi
 
-# Node-canvas / cairo stuff
-export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
-
 ### Autoloads ###
 autoload -Uz zmv
 
