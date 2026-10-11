@@ -43,6 +43,10 @@ if command -v lazygit &> /dev/null; then
   }
 fi
 
+if command -v lazydocker &> /dev/null; then
+  alias lzd="lazydocker"
+fi
+
 # ssh that auto-reconnects after sleep/network drops
 if command -v autossh &> /dev/null; then
   alias ash='autossh -M 0 -q'
