@@ -39,6 +39,10 @@ set_symlink "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
 
 set_symlink "$DOTFILES/.config/bat" "$HOME/.config/bat"
 
+# JankyBorders (brew 'borders') runs bordersrc as its startup script
+mkdir -p "$HOME/.config/borders"
+set_symlink "$DOTFILES/.config/borders/bordersrc" "$HOME/.config/borders/bordersrc"
+
 # lazygit reads from Application Support on macOS (no XDG_CONFIG_HOME set)
 mkdir -p "$HOME/Library/Application Support/lazygit"
 set_symlink "$DOTFILES/.config/lazygit/config.yml" "$HOME/Library/Application Support/lazygit/config.yml"
