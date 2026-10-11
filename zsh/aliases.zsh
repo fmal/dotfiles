@@ -9,7 +9,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias o="open ./"
-alias f="finder"
+alias f="open -R" # reveal a file in Finder
 alias projects="cd ~/Code"
 alias desktop="cd ~/Desktop"
 # will copy folder contents, if folder ends in / will copy contents, not folder itself
