@@ -1,6 +1,6 @@
 alias zshconfig="code ~/.zshrc"
 alias sshconfig="code ~/.ssh/config.local" # host blocks live here, ~/.ssh/config is tracked
-alias ss='source ~/.zshrc' # quick source
+alias ss='exec zsh' # restart shell to pick up config changes
 alias mkdir="mkdir -p"
 alias ls="ls -hF --color=auto --group-directories-first"
 alias la="ls -A"
