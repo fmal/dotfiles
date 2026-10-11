@@ -1,8 +1,8 @@
 # Ghostty shell integration for ZSH. This should be at the top of your zshrc!
-# Only load once to avoid errors when re-sourcing ~/.zshrc
-if [[ -n "${GHOSTTY_RESOURCES_DIR}" && -z "$__GHOSTTY_LOADED" ]]; then
+# Ghostty auto-injects it only into the shell it launches; this covers nested
+# shells (e.g. zmx sessions). The script guards itself against loading twice.
+if [[ -n "${GHOSTTY_RESOURCES_DIR}" ]]; then
   builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
-  export __GHOSTTY_LOADED=1
 fi
 
 # Set colors to match iTerm2 Terminal Colors
