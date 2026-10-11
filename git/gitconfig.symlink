@@ -12,6 +12,8 @@
 
 [push]
   default = simple
+  # set upstream on first push of a new branch (no -u needed)
+  autoSetupRemote = true
 
 [diff]
   algorithm = histogram
