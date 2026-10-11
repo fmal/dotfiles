@@ -105,5 +105,10 @@ if command -v starship &> /dev/null; then
 fi
 
 if command -v git-gtr &> /dev/null; then
-  eval "$(git gtr init zsh --as gwtr)"
+  # Source gtr's own cached init (named after the --as function); regenerate
+  # when missing or its schema changes (match init=N to `git gtr help init`)
+  _gtr_init="${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gwtr.zsh"
+  [[ -r $_gtr_init ]] && read -r _gtr_stamp < $_gtr_init
+  [[ $_gtr_stamp == *' init=6 '* ]] || git gtr init zsh --as gwtr >/dev/null
+  source $_gtr_init; unset _gtr_init _gtr_stamp
 fi
