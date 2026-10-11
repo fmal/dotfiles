@@ -1,6 +1,9 @@
 # Use Antidote as zsh package manager
 source "$HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh"
 
+EMOJI_CLI_KEYBIND="^[e"
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=50
+
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=black,bg=cyan'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=black,bg=red'
 
