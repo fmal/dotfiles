@@ -2,19 +2,20 @@
 
 Code examples for each rule in the project's TypeScript policy.
 
-## Never `as` cast
+## Validate Before Asserting
 
 ```ts
 // BAD
 const user = data as User;
 
-// GOOD — validate at the boundary
+// GOOD — validate at the boundary and construct the typed result
+type User = { id: string };
+
 function parseUser(data: unknown): User {
   if (typeof data !== "object" || data === null) throw new Error("expected object");
-  if (!("id" in data) || typeof (data as Record<string, unknown>).id !== "string")
+  if (!("id" in data) || typeof data.id !== "string")
     throw new Error("expected id");
-  // ... validate all fields
-  return data as User; // OK — earned cast after full validation
+  return { id: data.id };
 }
 ```
 
@@ -22,7 +23,8 @@ function parseUser(data: unknown): User {
 - Missing discriminant field — add one, use discriminated union
 - Overly wide type (e.g. `Record<string, any>`) — narrow the type definition
 - Untyped API boundary — add a type guard or schema parse at the boundary
-- Genuinely impossible to express — use a branded type or `satisfies` instead
+- A brand needs construction — validate its invariant before asserting the brand
+- A value needs a compatibility check — use `satisfies` rather than an assertion
 
 ## `unknown` over `any`
 
@@ -97,6 +99,8 @@ function pickWinner(entries: NonEmpty<string>): string {
 }
 ```
 
+Under `noUncheckedIndexedAccess`, only index `0` is typed `T`; a computed index is still `T | undefined`.
+
 Where a plain `T[]` arrives, narrow once with a guard. The fact then travels in the type:
 
 ```ts
@@ -115,7 +119,7 @@ A time range, as start plus duration:
 // BAD — a comment holds the invariant
 type TimeRange = { start: Date; end: Date }; // start <= end
 
-// GOOD — a negative range can't be written; derive end when needed
+// GOOD — the invariant shrinks to one field; derive end when needed
 type TimeRange = { start: Date; durationMs: number };
 ```
 
@@ -216,6 +220,8 @@ Return-style in value-returning switches; void-style in statement switches.
 ## `satisfies` Over `as`
 
 ```ts
+type Config = { theme: "light" | "dark"; cols: number };
+
 // BAD — widens, loses literal types
 const config = { theme: "dark", cols: 3 } as Config;
 
@@ -223,6 +229,8 @@ const config = { theme: "dark", cols: 3 } as Config;
 const config = { theme: "dark", cols: 3 } satisfies Config;
 // config.theme is "dark" (literal), not string
 ```
+
+`satisfies` checks compatibility without replacing the inferred type; it is not a general literal-freezing operation. Use `as const` when literal or readonly inference is needed.
 
 ## Making Impossible States Unrepresentable
 
