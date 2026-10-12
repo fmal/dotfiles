@@ -1,6 +1,6 @@
 ---
 name: code-simplifier
-description: Simplify code without changing behavior. Use when asked to "simplify", "clean up", "deslop", "refactor for clarity", or "improve readability".
+description: Use when asked to "simplify", "clean up", "deslop", "refactor for clarity", or "improve readability" of code while preserving behavior.
 argument-hint: <file_path_or_description_of_recent_changes>
 ---
 
@@ -46,10 +46,9 @@ Simplify the code at `$ARGUMENTS`. If no target is specified, use code modified 
 
 1. Read and understand the specified code: what calls it, what it calls, its edge cases. Before deleting anything that looks unnecessary, apply Chesterton's Fence - check git blame or callers for why it exists; an odd-looking guard may cover a real case the types don't show
 2. Identify opportunities to improve elegance and consistency
-3. Apply project-specific best practices and coding standards
-4. Verify functionality is unchanged by running the tests, build, and type check - if an assertion must change to pass, revert that simplification
-5. Verify the refined code is simpler and more maintainable
-6. Report in one to three sentences: what changed and anything flagged but left alone. Do not narrate every edit
+3. Verify functionality is unchanged by running the relevant tests, build, and type check - if an assertion must change to pass, revert that simplification
+4. Verify the refined code is simpler and more maintainable
+5. Report in one to three sentences: what changed and anything flagged but left alone. Do not narrate every edit
 
 ## Examples
 

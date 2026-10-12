@@ -1,6 +1,6 @@
 ---
 name: gemini-image
-description: Generate images using Gemini 3 Pro Image (Nano Banana Pro). Use this skill when the user asks to create, generate, or make an image, picture, illustration, artwork, mockup, or visual. Also use for image editing, transformation, or style transfer when a reference image is provided.
+description: Use when asked to generate raster images, illustrations, artwork, or visual mockups, or edit, transform, or restyle a reference image.
 allowed-tools: Bash, Read
 ---
 

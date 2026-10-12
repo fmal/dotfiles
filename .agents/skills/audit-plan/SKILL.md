@@ -6,10 +6,6 @@ disable-model-invocation: true
 
 # Plan Audit
 
-Audit the current plan for coverage and alignment against the original user request.
-
-## Input
-
 Treat the original user request as the source of truth.
 
 ## Instructions

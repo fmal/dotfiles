@@ -1,6 +1,6 @@
 ---
 name: html-communication
-description: Use when the user wants a plan, spec, report, or other write-up delivered as HTML, wants UI mock variants to compare, or mentions "HTML" with no additional context.
+description: Use when the user wants a plan, spec, report, or other write-up delivered as HTML, wants UI mock variants to compare, or mentions "HTML" with no additional context. Exclude HTML that ships in a product.
 ---
 
 # HTML Communication

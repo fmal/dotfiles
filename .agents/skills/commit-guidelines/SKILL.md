@@ -1,6 +1,6 @@
 ---
 name: commit-guidelines
-description: Guidelines for creating git commits. Use when making commits, staging changes for commit, or deciding how to split changes across commits.
+description: Use when making commits, staging changes for commit, or deciding how to split changes across commits.
 user-invocable: false
 ---
 

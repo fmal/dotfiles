@@ -1,6 +1,6 @@
 ---
 name: bash-script-writing
-description: Write clean, modular bash scripts with proper error handling. Triggers on 'write a script', 'bash script', 'shell script', or 'automate with bash'.
+description: Use when the user asks you to write a bash script.
 ---
 
 # Modular Bash Script Writing
