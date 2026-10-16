@@ -37,7 +37,7 @@ custom-shader = shaders/space.glsl
 cursor-style = underline
 cursor-click-to-move = true
 adjust-cursor-thickness = 200%
-bold-is-bright = true
+bold-color = bright
 shell-integration-features = no-cursor
 
 # --- Input & interaction ---
