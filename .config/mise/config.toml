@@ -4,6 +4,11 @@ python = "3.12"
 uv = "latest"
 deno = "latest"
 bun = "latest"
+"npm:@google/gemini-cli" = "latest"
+"npm:@github/copilot" = "latest"
+"npm:@playwright/cli" = "latest"
+"npm:agent-browser" = "latest"
+"npm:opensrc" = "latest"
 
 [settings]
 legacy_version_file = false

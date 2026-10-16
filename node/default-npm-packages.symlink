@@ -1,8 +1,2 @@
-@google/gemini-cli
-@github/copilot
-@playwright/cli
-agent-browser
-opensrc
-
 typescript
 typescript-language-server
