@@ -90,7 +90,9 @@ if command -v fnox &> /dev/null; then
   eval "$(fnox activate zsh)"
 fi
 
-if command -v zoxide &> /dev/null; then
+# Interactive only: agents source this file non-interactively, where zoxide's cd
+# would jump to a fuzzy match instead of failing on a missing path
+if [[ -o interactive ]] && command -v zoxide &> /dev/null; then
   # replaces cd with zoxide's version and adds cdi (interactive picker)
   eval "$(zoxide init zsh --cmd cd)"
 fi
