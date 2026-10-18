@@ -8,6 +8,7 @@ bun = "latest"
 "npm:@github/copilot" = "latest"
 "npm:@playwright/cli" = "latest"
 "npm:agent-browser" = "latest"
+"npm:cf" = { version = "latest", prerelease = true }
 "npm:opensrc" = "latest"
 
 [settings]
