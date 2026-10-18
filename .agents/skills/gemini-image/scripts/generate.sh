@@ -101,7 +101,8 @@ build_parts() {
     local mime="image/png"
     [[ "$img" == *.jpg || "$img" == *.jpeg ]] && mime="image/jpeg"
     [[ "$img" == *.webp ]] && mime="image/webp"
-    local b64=$(base64 -i "$img" | tr -d '\n')
+    local b64
+    b64=$(base64 -i "$img" | tr -d '\n')
     [[ "$first" != true ]] && parts+=","
     first=false
     parts+="{\"inlineData\":{\"mimeType\":\"$mime\",\"data\":\"$b64\"}}"
