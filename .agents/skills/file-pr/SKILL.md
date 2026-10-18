@@ -5,10 +5,10 @@ description: Use when the user asks to file, open, or create a PR for the curren
 
 # File PR
 
-Before filing, check whether a PR for this branch already exists. Review the
-diff locally against the repository's default branch to make sure its contents
-match the goal. Run the `code-simplifier` skill over the diff and commit what
-it changes before filing.
+Rebase onto the latest default branch. A stale branch wastes a review round on
+conflicts. Review the diff locally against the repository's default branch to
+make sure its contents match the goal. If the diff changes code, run the
+`code-simplifier` skill over it and commit what it changes before filing.
 
 PR titles usually become commit messages, so follow the repository's title
 conventions. Look at recently merged PRs and Git history for examples. Prefer a
@@ -22,9 +22,25 @@ GOOD
 
 > ✅ fix(auth): keep users signed in during a token refresh
 
-Open the description with a simple explanation of the problem based on the
-user's original prompt, then briefly explain the solution. Do not lead with an
-implementation inventory:
+Use this body template. If the repository has its own PR template, fold these
+parts into its sections instead.
+
+```markdown
+<problem, then solution>
+
+## Evidence
+
+<before and after>
+
+## Risk
+
+**Door:** <one-way or two-way>
+**Blast radius:** <what the change can break>
+```
+
+Open with a simple explanation of the problem, taken from the user's original
+prompt or the issue the branch addresses, then briefly explain the solution.
+Do not lead with an implementation inventory:
 
 BAD
 
@@ -40,12 +56,28 @@ GOOD
 > streams rows and no longer builds the whole file in memory, so an export of
 > any size completes.
 
-Write the title and body with the `technical-writing` skill, then apply the
-`unslop` skill to both. The conventional-commit prefix is convention, not
-prose, so neither skill applies to it. In `unslop` that means rules 14 (colon
-overuse) and 33 (over-compression). The rest of the title follows both skills,
-and the repository's title conventions win where they conflict with either.
+Evidence is concrete proof that the change works, from runs in this session:
+the test or command that failed before and passes now. If the session has no
+before run, get one from the default branch. For visual changes, use before
+and after screenshots from `playwright-cli screenshot --filename`, or short
+videos from `playwright-cli video-start` when they fit better, saved outside
+the repository. Reference each in the section as
+`![before](/tmp/pr/before.png)` and pass the same path to `--attach` on
+`gh pr create` or `gh pr edit`. Put a video reference alone in its paragraph
+so it renders as a player. Drop the Evidence section when there is nothing to
+show.
 
-Rebase onto the latest default branch before opening. A stale branch wastes a
-review round on conflicts. Open a real PR rather than a draft so review bots
-run.
+Say whether the merge is a one-way or two-way door, meaning how cheap it is
+to roll back. For a one-way door, name the reason, such as a destructive
+migration. Name the blast radius in a few words: which consumers, surfaces,
+or data the change can break.
+
+Write the title and body with the `technical-writing` skill, which applies
+`unslop`. The conventional-commit prefix is convention, not prose, so neither
+skill applies to it. In `unslop` that means rules 14 (colon overuse) and 33
+(over-compression). The rest of the title follows both skills, and the
+repository's title conventions win where they conflict with either.
+
+Push the branch, with `--force-with-lease` if it was pushed before the rebase.
+If a PR for this branch already exists, update its title and body with
+`gh pr edit`. Otherwise open a real PR rather than a draft so review bots run.
