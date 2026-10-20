@@ -10,7 +10,7 @@ die () {
 run_installer () {
 	installer=$1
 	echo "Running ${installer}"
-	sh -c "${installer}"
+	"$installer"
 }
 
 set_symlink () {
@@ -33,7 +33,7 @@ set_symlink () {
       if [ "$current_link_target" = "$link_target" ]; then
         skip=true;
       else
-        echo "⚠️ File already exists: $link_target ($(basename "$link_target")), what do you want to do?\n\
+        echo "⚠️ File already exists: $link_file, what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -k action
 
@@ -42,9 +42,8 @@ set_symlink () {
           O ) overwrite_all=true;;
           b ) backup=true;;
           B ) backup_all=true;;
-          s ) skip=true;;
           S ) skip_all=true;;
-          * ) ;;
+          * ) skip=true;;  # s, unknown key or no tty: never clobber
         esac
       fi
     fi
@@ -64,13 +63,12 @@ set_symlink () {
     fi
 
     if [ "$skip" = "true" ]; then
-      echo "Skipped $link_target"
+      echo "Skipped $link_file"
     fi
   fi
 
   if [ "$skip" != "true" ]; then
-    ln -s "$1" "$2"
-    echo "Linked $1 ➠ $2"
+    ln -s "$1" "$2" && echo "Linked $1 ➠ $2"
   fi
 }
 

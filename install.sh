@@ -2,8 +2,11 @@
 
 source helpers.sh
 
-# Ask for the administrator password upfront
+# Ask for the administrator password upfront and keep the ticket alive until
+# the script exits; brew bundle alone can outlast the 5-minute sudo timeout
 sudo -v
+( while sudo -n true; do sleep 50; done ) &
+trap "kill $! 2>/dev/null" EXIT
 
 # Checking file dir
 export DOTFILES=$HOME/.dotfiles
@@ -80,13 +83,10 @@ cat "$DOTFILES/.docker/config.json" > "$HOME/.docker/config.json"
 
 set -e
 
-# Before running any install scripts, make sure homebrew is installed
-run_installer "./homebrew/homebrew.install"
-
-# Find generic installers and run them iteratively
-for installer in $(find . -name "*.install" | grep -v "homebrew"); do
-  run_installer $installer
-done
+# Homebrew first, the rest in sorted order. (u) drops homebrew's duplicate from
+# the glob; (D) includes dot-dirs like .claude
+installers=($DOTFILES/homebrew/homebrew.install $DOTFILES/**/*.install(D))
+for installer (${(u)installers}) run_installer "$installer"
 
 # Ghostty's terminfo lives in its app bundle, which only Ghostty's own shells
 # search. Copy it to ~/.terminfo so SSH sessions recognize TERM=xterm-ghostty.
