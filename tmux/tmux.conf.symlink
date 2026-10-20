@@ -21,7 +21,6 @@ setw -g pane-base-index 1
 
 set -g set-titles on
 set -g set-titles-string "#W #{command} #T #{session_path}"
-set -g escape-time 10
 set -g focus-events on
 set -g set-clipboard on
 
@@ -60,7 +59,6 @@ unbind r
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # tmuxline
-set -g status "on"
 set -g status-justify "left"
 set -g status-style "none,bg=default"
 set -g status-left-style "none"
