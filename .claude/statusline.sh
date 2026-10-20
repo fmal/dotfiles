@@ -1,90 +1,46 @@
 #!/bin/bash
+# Claude Code status line: model effort · ctx% (tokens/limit at $cost) · dir on branch
+# Reads the session JSON from stdin: https://code.claude.com/docs/en/statusline
 
-# Read JSON input
-input=$(cat)
+IFS=$'\t' read -r current_dir model_name usage_pct context_tokens context_limit session_cost effort < <(
+  jq -r '[
+    .workspace.current_dir,
+    .model.display_name,
+    (.context_window.used_percentage // 0 | floor),
+    (.context_window.total_input_tokens // 0),
+    (.context_window.context_window_size // 0),
+    (.cost.total_cost_usd // 0),
+    (.effort.level // "")
+  ] | @tsv'
+)
 
-# Extract information from Claude context
-current_dir=$(echo "$input" | jq -r '.workspace.current_dir')
-model_name=$(echo "$input" | jq -r '.model.display_name')
-input_tokens=$(echo "$input" | jq -r '.context_window.total_input_tokens // 0')
-output_tokens=$(echo "$input" | jq -r '.context_window.total_output_tokens // 0')
-context_limit=$(echo "$input" | jq -r '.context_window.context_window_size // 0')
-context_tokens=$((input_tokens + output_tokens))
+RED=$'\033[31m' GREEN=$'\033[32m' YELLOW=$'\033[33m' BLUE=$'\033[34m'
+WHITE=$'\033[37m' GRAY=$'\033[90m' NC=$'\033[0m'
+BRANCH_CHAR='' SEP="${GRAY}·${NC}"
 
-# Extract and format cost information
-session_cost=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
-cost_display=""
-if [ "$session_cost" != "empty" ] && [ -n "$session_cost" ] && [ "$session_cost" != "null" ]; then
-  cost_display=$(printf "\$%.2f" "$session_cost")
-fi
-
-# Get directory name (basename)
-dir_name=$(basename "$current_dir")
-
-# Get git branch if in a git repository
-git_branch=""
-if git -C "$current_dir" rev-parse --git-dir >/dev/null 2>&1; then
-  git_branch=$(git -C "$current_dir" -c core.useBuiltinFSMonitor=false branch --show-current 2>/dev/null)
-fi
-
-# ANSI color codes
-RED='\033[31m'
-GREEN='\033[32m'
-YELLOW='\033[33m'
-BLUE='\033[34m'
-WHITE='\033[37m'
-GRAY='\033[90m'
-NC='\033[0m' # No Color
-
-BRANCH_CHAR=''
-SEP_CHAR='·'
-
-# Build the status line starting with model name
-short_model=$(echo "$model_name" | sed 's/Claude //' | sed 's/ Sonnet//')
-
-status_line="${YELLOW}${short_model}${NC}"
-
-# Add context window usage with color
-if [ "$context_limit" -gt 0 ] 2>/dev/null; then
-  usage_pct=$((context_tokens * 100 / context_limit))
-
-  # Format tokens for readability (e.g., 125000 -> 125k)
-  format_tokens() {
-    local tokens=$1
-    if [ "$tokens" -ge 1000000 ]; then
-      printf "%.1fM" "$(echo "scale=1; $tokens/1000000" | bc)"
-    elif [ "$tokens" -ge 1000 ]; then
-      printf "%.0fk" "$(echo "scale=0; $tokens/1000" | bc)"
-    else
-      printf "%d" "$tokens"
-    fi
-  }
-
-  tokens_display=$(format_tokens "$context_tokens")
-  limit_display=$(format_tokens "$context_limit")
-
-  # Color based on usage: green <70%, red >=70%
-  if [ "$usage_pct" -ge 70 ]; then
-    ctx_color="$RED"
-  else
-    ctx_color="$GREEN"
+# 125000 -> 125k, 1250000 -> 1.2M (truncated, not rounded)
+format_tokens() {
+  if (( $1 >= 1000000 )); then printf '%d.%dM' $(( $1 / 1000000 )) $(( $1 % 1000000 / 100000 ))
+  elif (( $1 >= 1000 )); then printf '%dk' $(( $1 / 1000 ))
+  else printf '%d' "$1"
   fi
+}
 
-  # Build details: tokens/limit at cost
-  details="${tokens_display}/${limit_display}"
-  [ -n "$cost_display" ] && details+=" at ${cost_display}"
+status_line="${YELLOW}${model_name}${NC}"
+[[ -n $effort ]] && status_line+=" ${effort}"
 
-  status_line+=" ${GRAY}${SEP_CHAR}${NC} ${ctx_color}${usage_pct}%${NC} ${GRAY}(${details})${NC}"
-elif [ -n "$cost_display" ]; then
-  status_line+=" ${GRAY}(${cost_display})${NC}"
+if (( context_limit > 0 )); then
+  (( usage_pct >= 70 )) && ctx_color=$RED || ctx_color=$GREEN
+  details="$(format_tokens "$context_tokens")/$(format_tokens "$context_limit")"
+  [[ $session_cost != 0 ]] && printf -v details '%s at $%.2f' "$details" "$session_cost"
+  status_line+=" ${SEP} ${ctx_color}${usage_pct}%${NC} ${GRAY}(${details})${NC}"
 fi
 
-# Add pipe separator and directory name
-status_line+=" ${GRAY}${SEP_CHAR}${NC} ${BLUE}${dir_name}${NC}"
+status_line+=" ${SEP} ${BLUE}${current_dir##*/}${NC}"
 
-# Add git branch if available
-if [[ -n "$git_branch" ]]; then
-  status_line+=" on ${WHITE}${BRANCH_CHAR} ${git_branch}${NC}"
-fi
+# branch name, or the short SHA when HEAD is detached (rebase, checkout of a commit)
+git_ref=$(git -C "$current_dir" symbolic-ref --short -q HEAD 2>/dev/null)
+[[ -z $git_ref ]] && sha=$(git -C "$current_dir" rev-parse --short HEAD 2>/dev/null) && git_ref="detached @$sha"
+[[ -n $git_ref ]] && status_line+=" on ${WHITE}${BRANCH_CHAR} ${git_ref}${NC}"
 
-echo -e "$status_line"
+printf '%s\n' "$status_line"
