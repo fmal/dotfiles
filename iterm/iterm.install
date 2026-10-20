@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 if [[ ! -d /Applications/iTerm.app ]]; then
   echo "iTerm not installed: skipping preferences setup."
