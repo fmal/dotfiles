@@ -8,7 +8,9 @@ description: Use when the user asks to file, open, or create a PR for the curren
 Rebase onto the latest default branch. A stale branch wastes a review round on
 conflicts. Review the diff locally against the repository's default branch to
 make sure its contents match the goal. If the diff changes code, run the
-`code-simplifier` skill over it and commit what it changes before filing.
+`code-simplifier` skill over it and commit what it changes before filing. If it
+finds a bug the branch introduced, ask before filing. Include the rest of its
+report in your final message.
 
 PR titles usually become commit messages, so follow the repository's title
 conventions. Look at recently merged PRs and Git history for examples. Prefer a
