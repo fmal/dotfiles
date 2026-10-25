@@ -20,13 +20,16 @@ Simplify the code at `$ARGUMENTS`. If no target is specified, use code modified 
    - Reducing unnecessary complexity and nesting - flatten deep nesting with guard clauses and early returns
    - **Splitting functions with multiple responsibilities** into focused, well-named ones - length alone is not the signal; a long but linear function can stay whole
    - Eliminating redundant code and abstractions
+   - **Reusing existing helpers** - search the codebase and its dependencies for a helper that already implements hand-rolled logic, and call it when its behaviour matches exactly, edge cases included
+   - **Removing quadratic work** - replace O(n²) operations on collections that aren't explicitly bounded with a lower-complexity version when one reads as clearly and returns the same results, edge cases included; flag fixes that need more machinery
    - **Deleting dead code** - unreachable branches, unused variables and exports, commented-out blocks
    - Improving readability through variable and function names that say what they hold without a trip to the implementation - and that don't lie: a `get` that also mutates needs renaming
    - **Replacing boolean parameter flags** - `doThing(true, false)` tells the reader nothing at the call site; use an options object or split into separate functions
-   - Consolidating related logic, and merging types, functions, or constants that overlap so the reader holds fewer distinct concepts in their head
+   - Consolidating related logic, and merging types, functions, or constants that overlap so the reader holds fewer distinct concepts in their head - merge only what shares a reason to change; lookalikes that change for different reasons stay separate
    - **Avoiding nested ternary operators** - prefer switch statements or if/else chains for multiple conditions, or a lookup object when the branching is a pure key → value mapping
    - **Removing derivable state** - if a value can be computed from values already in scope, don't pass or store it separately
-   - **Removing comments the code already states** - apply the deletion test: if deleting the comment loses no information, delete it. Go after comments that restate the line below them, narrate structure (`// Step 2: validate`, `// --- Helpers ---`), or explain language and library semantics. Keep what code cannot say: why this approach, a non-obvious constraint, a spec or bug link, a footgun warning - and leave docstrings on exported API alone
+   - **Narrowing parameters** - pass a function only the values it uses; a broad context object hides its real dependencies
+   - **Removing comments the code already states** - apply the deletion test: if deleting the comment loses no information, delete it. Go after comments that restate the line below them, narrate structure (`// Step 2: validate`, `// --- Helpers ---`), or explain language and library semantics. Keep what code cannot say: why this approach, a non-obvious constraint or assumption, a spec or bug link, a footgun warning - and leave docstrings on exported API alone
    - **Removing defensive scaffolding** - drop try/catch, null guards, and fallbacks whose failure case cannot occur on the path they sit on; keep them at genuine trust boundaries (I/O, user input, third-party responses)
    - **Removing casts that only silence the compiler** - if an `any` cast or non-null assertion exists solely to clear a type error, fix the type instead; use `unknown` plus narrowing where the shape is genuinely not known. Delete assertions to a type the compiler already infers - they are pure noise
    - **Matching the surrounding file** - a new helper style, error-handling idiom, or naming convention that differs from what the file already uses is noise even when it is fine in isolation; conform to the local pattern
@@ -48,7 +51,7 @@ Simplify the code at `$ARGUMENTS`. If no target is specified, use code modified 
 2. Identify opportunities to improve elegance and consistency
 3. Verify functionality is unchanged by running the relevant tests, build, and type check - if an assertion must change to pass, revert that simplification
 4. Verify the refined code is simpler and more maintainable
-5. Report in one to three sentences: what changed and anything flagged but left alone. Do not narrate every edit
+5. Report in one to three sentences: what changed, anything flagged but left alone, and which of its changes no test covers. Do not narrate every edit
 
 ## Examples
 
@@ -203,4 +206,14 @@ function render(content: string, baseline: string) {
   return isDirty ? `${content} *` : content;
 }
 render(content, baseline);
+```
+
+### Hidden quadratic → single pass
+
+```typescript
+// before: each spread copies the whole accumulator - O(n²)
+const itemsById = items.reduce((acc, item) => ({ ...acc, [item.id]: item }), {});
+
+// after: one pass - O(n)
+const itemsById = Object.fromEntries(items.map((item) => [item.id, item]));
 ```
