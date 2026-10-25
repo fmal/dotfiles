@@ -23,7 +23,7 @@ function parseUser(data: unknown): User {
 - Missing discriminant field — add one, use discriminated union
 - Overly wide type (e.g. `Record<string, any>`) — narrow the type definition
 - Untyped API boundary — add a type guard or schema parse at the boundary
-- A brand needs construction — validate its invariant before asserting the brand
+- A brand needs construction — narrow through a verifying type guard (see Branded Types)
 - A value needs a compatibility check — use `satisfies` rather than an assertion
 
 ## `unknown` over `any`
@@ -70,9 +70,13 @@ type UserId = string & { readonly __brand: "UserId" };
 // Prevents accidentally passing a UserId where a TaskId is expected
 function getTask(id: TaskId): Promise<Task> { ... }
 
+function isTaskId(input: string): input is TaskId {
+  return isUUID(input);
+}
+
 function parseTaskId(input: string): TaskId {
-  if (!isUUID(input)) throw new Error(`Invalid task id: ${input}`);
-  return input as TaskId;
+  if (!isTaskId(input)) throw new Error(`Invalid task id: ${input}`);
+  return input;
 }
 ```
 
@@ -179,6 +183,32 @@ Rules:
 - Prefer discriminated union narrowing over custom guards when possible
 - Name guards `isX` or `hasX` for readability
 
+## Local Narrowing
+
+```ts
+// BAD — the `!` leans on the caller's check; a new caller that skips it crashes at runtime
+function renderInvoice(order: Order) {
+  if (!order.customer) return null;
+  return formatBillTo(order);
+}
+
+function formatBillTo(order: Order) {
+  return `${order.customer!.name}, ${order.customer!.address}`;
+}
+
+// GOOD — pass the narrowed value; the type carries the check
+function renderInvoice(order: Order) {
+  if (!order.customer) return null;
+  return formatBillTo(order.customer);
+}
+
+function formatBillTo(customer: Customer) {
+  return `${customer.name}, ${customer.address}`;
+}
+```
+
+`map.has(key)` followed by `map.get(key)!` is the same smell: read once with `get` and compare to `undefined`.
+
 ## Exhaustiveness Checks
 
 In default arms, assign the discriminant to a `never`-typed local. The compiler errors if a new variant is added without handling.
@@ -231,6 +261,27 @@ const config = { theme: "dark", cols: 3 } satisfies Config;
 ```
 
 `satisfies` checks compatibility without replacing the inferred type; it is not a general literal-freezing operation. Use `as const` when literal or readonly inference is needed.
+
+## Readonly Array Parameters
+
+```ts
+const PRIORITIES = ["high", "medium", "low"] as const;
+
+// BAD — rejects readonly input, and nothing stops a mutation
+function formatList(items: string[]) {
+  return items.join(", ");
+}
+formatList(PRIORITIES); // error: readonly tuple not assignable to string[]
+
+// GOOD — accepts both, and `items.push()` won't compile
+function formatList(items: readonly string[]) {
+  return items.join(", ");
+}
+formatList(PRIORITIES);
+formatList(["a", "b"]);
+```
+
+Stop at arrays: `Readonly<T>` on object params adds noise for little gain. When a readonly array must reach a library typed `T[]`, copy it (`[...items]`) rather than casting.
 
 ## Making Impossible States Unrepresentable
 
@@ -287,3 +338,19 @@ export function parseConfig(raw: unknown): Config {
 ```
 
 Annotate return types when they serve a purpose: exported API boundaries, recursive functions, overloaded signatures, or when inference produces a type that's too wide. Otherwise let TypeScript infer.
+
+## Object Args
+
+```ts
+// BAD — swap the dates and it still compiles
+function bookStay(checkIn: Date, checkOut: Date, guests: number) { ... }
+bookStay(checkOut, checkIn, 2);
+
+// GOOD — each value is named at the call site
+type Stay = { checkIn: Date; checkOut: Date; guests: number };
+
+function bookStay({ checkIn, checkOut, guests }: Stay) { ... }
+bookStay({ checkIn, checkOut, guests: 2 });
+```
+
+Distinct types already catch a swap: `openFile(uri, range)` stays positional. Skip objects on hot paths (per-frame render, tokenizers, parsers) where the allocation matters.
