@@ -68,7 +68,9 @@ gh api repos/$REPO/pulls/$PR_NUMBER/comments --paginate | jq '[.[] | select(.pos
 - Post the summary using:
 
 ```bash
-gh pr comment --body "<summary text>"
+gh pr comment --body-file - <<'MD'
+<summary text>
+MD
 ```
 
 - Ask if you want to request re-review:
