@@ -21,3 +21,8 @@ idempotent and prompts before touching existing files.
   tracked `ssh/config`).
 - After iCloud has synced, run `mackup restore` to bring back app settings
   (see `mackup/mackup.cfg.symlink`).
+
+## Commands
+
+- [Refresh GitHub access in Helium](docs/helium-github-refresh.md)
+  with `bin/helium-github-refresh`.

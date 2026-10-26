@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+import { options, optionsHelp, refresh, runMain, UsageError } from "./lib/helium-session.mjs";
+
+const site = {
+  name: "GitHub",
+  hosts: ["github.com", ".github.com"],
+  // GitHub ties the login and the org SSO to user_session; the rest describe that session.
+  cookieNames: /^(user_session|__Host-user_session_same_site|logged_in|dotcom_user)$/,
+  page: "https://github.com/",
+  // GitHub answers 200 signed out too, but then leaves user-login empty.
+  signedIn: (response, html) => response.status === 200 && Boolean(metaContent(html, "user-login")),
+};
+
+async function main() {
+  const { help, positionals, ...args } = options(process.argv.slice(2));
+  if (help) return showHelp();
+  const org = organization(positionals);
+  await refresh([target(org)], { ...args, open: `https://github.com/${org}` });
+}
+
+// Also lets other scripts refresh GitHub together with their own sites.
+function target(org) {
+  return { site, signIn: `https://github.com/orgs/${org}/sso`, task: `finish ${org} SSO` };
+}
+
+function organization(positionals) {
+  const [org] = positionals;
+  if (positionals.length !== 1 || !/^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$/.test(org)) {
+    throw new UsageError("Supply one ORG: a GitHub organization name such as my-company.");
+  }
+  return org;
+}
+
+function showHelp() {
+  console.log(`Usage: helium-github-refresh ORG [--ready] [--chrome-profile NAME]
+
+Refresh GitHub access in the regular Helium profile using Chrome's session.
+
+ORG is the GitHub organization whose SSO session you want to refresh, such as my-company.
+
+${optionsHelp}`);
+}
+
+function metaContent(html, name) {
+  const tag = html.match(/<meta\b[^>]*>/gi)?.find(tag => tag.includes(`name="${name}"`));
+  return tag?.match(/\bcontent="([^"]*)"/)?.[1];
+}
+
+export { site, organization, target };
+
+if (import.meta.main) runMain(main);
