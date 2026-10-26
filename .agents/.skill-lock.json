@@ -55,15 +55,6 @@
       "installedAt": "2026-04-19T21:46:00.226Z",
       "updatedAt": "2026-07-30T19:11:20.245Z"
     },
-    "edit-article": {
-      "source": "mattpocock/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "skills/personal/edit-article/SKILL.md",
-      "skillFolderHash": "19ce34c6f4afcb58788e8e525dbb80c79a45a4a0",
-      "installedAt": "2026-04-19T19:25:44.844Z",
-      "updatedAt": "2026-07-30T19:11:16.352Z"
-    },
     "fix-merge-conflicts": {
       "source": "cursor/plugins",
       "sourceType": "github",
