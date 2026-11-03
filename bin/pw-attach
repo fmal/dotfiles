@@ -20,4 +20,5 @@ playwright-cli goto "${1:-about:blank}"
 # shellcheck disable=SC2016  # literal backticks
 printf '%s\n' \
   'Attached to Helium (session default). Run `playwright-cli detach` when finished.' \
-  'Navigate with `playwright-cli goto <URL>`; `playwright-cli open` would replace this session with a fresh browser.'
+  'Navigate with `playwright-cli goto <URL>`; `playwright-cli open` would replace this session with a fresh browser.' \
+  'CDP sessions (`newCDPSession`, `newBrowserCDPSession`) fail over the extension; use Playwright page APIs or in-page JavaScript instead.'
