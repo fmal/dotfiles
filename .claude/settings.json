@@ -10,11 +10,6 @@
     "CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS": "350000"
   },
   "includeCoAuthoredBy": false,
-  "permissions": {
-    "allow": [],
-    "deny": [],
-    "defaultMode": "acceptEdits"
-  },
   "model": "opus",
   "enableAllProjectMcpServers": true,
   "statusLine": {
@@ -40,5 +35,25 @@
   "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
   "terminalProgressBarEnabled": false,
-  "voiceEnabled": false
+  "voiceEnabled": false,
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [],
+    "deny": [
+      "mcp__claude_ai_Asana",
+      "mcp__claude_ai_Atlassian_MCP",
+      "mcp__claude_ai_Atlassian_Rovo",
+      "mcp__claude_ai_Attio",
+      "mcp__claude_ai_Canva",
+      "mcp__claude_ai_ClickUp",
+      "mcp__claude_ai_Data_and_Forecasts_MCP",
+      "mcp__claude_ai_Fabric_Core_MCP_Server",
+      "mcp__claude_ai_Github",
+      "mcp__claude_ai_HubSpot",
+      "mcp__claude_ai_Mimir",
+      "mcp__claude_ai_Miro",
+      "mcp__claude_ai_Optimeering_-_Production",
+      "mcp__claude_ai_Slack"
+    ]
+  }
 }
