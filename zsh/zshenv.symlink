@@ -1,0 +1,14 @@
+# ~/.zshenv: read by every zsh, including non-interactive `zsh -c`.
+# Keep it silent and fast.
+
+# Coding agents run each command as `zsh -c`/`zsh -lc`, but the models write bash.
+# CLAUDECODE is set by Claude Code, CODEX_THREAD_ID by Codex. ZSH_EXECUTION_STRING
+# exists only under `zsh -c`, so script files and plain interactive shells are untouched.
+if [[ ( -n $CLAUDECODE || -n $CODEX_THREAD_ID ) && -n $ZSH_EXECUTION_STRING ]]; then
+  # Let unmatched globs pass through (grep --include=*.ts), make `echo ===` work,
+  # and split unquoted variables like bash
+  setopt no_nomatch no_equals sh_word_split
+
+  # GNU coreutils come first on PATH, but the models write macOS `stat -f`
+  stat() { if (( ${@[(I)-[fx]*]} )); then /usr/bin/stat "$@"; else command stat "$@"; fi }
+fi
