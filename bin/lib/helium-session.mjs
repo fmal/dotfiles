@@ -185,7 +185,7 @@ function decryptCookie(encrypted, domain, key, version) {
 async function transfer(directory, sessions) {
   console.log("🔗 Connecting to your regular Helium profile...");
   try {
-    await run([attach, "about:blank"], directory, "Helium attachment");
+    await run([attach, "--helium", "about:blank"], directory, "Helium attachment");
     for (const { site, cookies } of sessions) {
       await transferSite(directory, site, cookies);
       console.log(`✅ Verified your ${site.name} login in Helium.`);

@@ -24,4 +24,4 @@ You are a pragmatic software engineer consulting with a peer.
 
 - Assume I have a dev server running; don't start, restart, or offer to run one unless I explicitly ask.
 - Use yarn if `yarn.lock` exists, pnpm if `pnpm-lock.yaml` exists.
-- Browser automation: prefer `playwright-cli` over other browser skills for testing, UI checks and QA. For my real browser (Helium), start with `~/.dotfiles/bin/pw-attach [URL]`.
+- Browser automation: prefer `playwright-cli` over other browser skills for testing, UI checks and QA. For my real browser, start with `~/.dotfiles/bin/pw-attach [--chrome|--helium] [URL]` (no flag = default browser).

@@ -1,16 +1,39 @@
 #!/usr/bin/env bash
-# pw-attach — connect playwright-cli to the running Helium via the Playwright extension
-#  ▸ pw-attach [URL]
-# Reads the extension token from fnox so no approval dialog appears.
+# pw-attach — connect playwright-cli to your running browser via the Playwright extension
+#  ▸ pw-attach [--chrome|--helium] [URL]
+# Attaches to the macOS default browser unless a flag picks one.
+# Reads that browser's extension token from fnox so no approval dialog appears.
 
 set -euo pipefail
 
-helium=/Applications/Helium.app/Contents/MacOS/Helium
-[[ -x "$helium" ]] || { echo "pw-attach: Helium not found at $helium" >&2; exit 1; }
-export PLAYWRIGHT_MCP_EXECUTABLE_PATH="$helium"
+usage() { echo "usage: pw-attach [--chrome|--helium] [URL]" >&2; exit 2; }
 
-PLAYWRIGHT_MCP_EXTENSION_TOKEN=$(fnox get --config "$HOME/.config/fnox/config.toml" PLAYWRIGHT_MCP_EXTENSION_TOKEN)
-export PLAYWRIGHT_MCP_EXTENSION_TOKEN
+case "${1:-}" in
+  --chrome) bundle=com.google.Chrome; shift ;;
+  --helium) bundle=net.imput.helium; shift ;;
+  -*) usage ;;
+  # Default browser = the https handler in LaunchServices; no entry means the built-in default (Safari).
+  *) bundle=$(plutil -convert json -o - ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist \
+       | jq -r 'first(.LSHandlers[] | select(.LSHandlerURLScheme=="https") | .LSHandlerRoleAll)') ;;
+esac
+# The flag must come first: fail on `pw-attach URL --chrome` instead of silently using the default browser.
+if (( $# > 1 )) || [[ ${1:-} == -* ]]; then usage; fi
+
+# Only Helium needs an executable path; for Chrome, playwright-cli finds the app and the profile with the extension.
+case "$bundle" in
+  net.imput.helium)
+    name=Helium; token_key=PLAYWRIGHT_MCP_EXTENSION_TOKEN
+    export PLAYWRIGHT_MCP_EXECUTABLE_PATH=/Applications/Helium.app/Contents/MacOS/Helium
+    [[ -x $PLAYWRIGHT_MCP_EXECUTABLE_PATH ]] || { echo "pw-attach: Helium not found at $PLAYWRIGHT_MCP_EXECUTABLE_PATH" >&2; exit 1; } ;;
+  com.google.Chrome) name=Chrome; token_key=PLAYWRIGHT_MCP_EXTENSION_TOKEN_CHROME ;;
+  *) echo "pw-attach: default browser '${bundle:-com.apple.Safari}' is unsupported; the Playwright extension only works in Chromium browsers. Use --chrome or --helium." >&2; exit 1 ;;
+esac
+
+if PLAYWRIGHT_MCP_EXTENSION_TOKEN=$(fnox get --config "$HOME/.config/fnox/config.toml" "$token_key" 2>/dev/null); then
+  export PLAYWRIGHT_MCP_EXTENSION_TOKEN
+else
+  echo "pw-attach: no $token_key in fnox; $name will ask you to approve the connection" >&2
+fi
 
 # -s=default: otherwise the session is named after the channel and bare commands miss it.
 # The connect URL contains the token: keep attach output off stdout, then move off that page.
@@ -19,6 +42,7 @@ playwright-cli goto "${1:-about:blank}"
 
 # shellcheck disable=SC2016  # literal backticks
 printf '%s\n' \
-  'Attached to Helium (session default). Run `playwright-cli detach` when finished.' \
+  "Attached to $name (session default). Run \`playwright-cli detach\` when finished." \
   'Navigate with `playwright-cli goto <URL>`; `playwright-cli open` would replace this session with a fresh browser.' \
+  "To use one of the user's open tabs, ask them to drag it into the Playwright tab group, then \`playwright-cli tab-list\` and \`tab-select <index>\`." \
   'CDP sessions (`newCDPSession`, `newBrowserCDPSession`) fail over the extension; use Playwright page APIs or in-page JavaScript instead.'
