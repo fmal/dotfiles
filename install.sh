@@ -40,6 +40,9 @@ set_symlink "$DOTFILES/.config/starship.toml" "$HOME/.config/starship.toml"
 
 set_symlink "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
 
+mkdir -p "$HOME/.config/rex"
+set_symlink "$DOTFILES/.config/rex/init.lua" "$HOME/.config/rex/init.lua"
+
 set_symlink "$DOTFILES/.config/bat" "$HOME/.config/bat"
 
 # JankyBorders (brew 'borders') runs bordersrc as its startup script
