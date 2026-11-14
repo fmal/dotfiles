@@ -76,6 +76,7 @@ set_symlink "$DOTFILES/.agents/AGENTS.md" "$HOME/.gemini/AGENTS.md"
 # Symlink codex CLI conf
 mkdir -p "$HOME/.codex"
 set_symlink "$DOTFILES/.codex/config.toml" "$HOME/.codex/config.toml"
+set_symlink "$DOTFILES/.codex/hooks.json" "$HOME/.codex/hooks.json"
 set_symlink "$DOTFILES/.agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
 set_symlink "$DOTFILES/.codex/prompts" "$HOME/.codex/prompts"
 set_symlink "$DOTFILES/.codex/themes" "$HOME/.codex/themes"
