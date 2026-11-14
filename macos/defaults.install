@@ -2,7 +2,7 @@
 #
 # Set custom Mac OS defaults
 
-# Enable subpixel font rendering on non-Apple LCDs
+# Use light font smoothing (thinner text; 0 = off, 2 = default, 3 = strong)
 defaults -currentHost write -g AppleFontSmoothing -int 1
 
 # Always show scrollbars
@@ -11,12 +11,22 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Set accent color (Graphite)
+# Use dark mode
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# Set accent color (Graphite); System Settings writes both keys
 defaults write NSGlobalDomain AppleAccentColor -int -1
+defaults write NSGlobalDomain AppleAquaColorVariant -int 6
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Disable window open/close animations in AppKit apps
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+# Make animated window resizes and sheets near-instant
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
@@ -108,7 +118,7 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 defaults write com.apple.dock show-process-indicators -bool true
 
 # Icon size of Dock items
-defaults write com.apple.dock tilesize -int 48
+defaults write com.apple.dock tilesize -int 42
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
@@ -171,7 +181,6 @@ defaults write com.apple.controlcenter AutoHideMenuBarOption -int 0
 
 # Show battery percentage next to the battery menu bar icon
 defaults write com.apple.controlcenter BatteryShowPercentage -bool true
-defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # Don't show the day of week in the menu bar
 defaults write com.apple.menuextra.clock ShowDayOfWeek -bool false
@@ -186,5 +195,16 @@ defaults write com.apple.menuextra.clock ShowDate -int 2
 defaults write com.apple.WindowManager StandardHideWidgets -bool true
 defaults write com.apple.WindowManager StageManagerHideWidgets -bool true
 
+# Disable native window tiling (Raycast handles window management)
+defaults write com.apple.WindowManager EnableTilingByEdgeDrag -bool false
+defaults write com.apple.WindowManager EnableTopTilingByEdgeDrag -bool false
+defaults write com.apple.WindowManager EnableTilingOptionAccelerator -bool false
+
 # Stop wallpaper tinting to make darkmode even darker
 defaults write -g AppleReduceDesktopTinting -bool yes
+
+# Liquid Glass: 0 = clear, 1 = fully tinted (macOS 27 slider, default 0.5)
+defaults write -g NSGlassTintAmount -float 0.8
+
+# Show menu bar background instead of wallpaper behind it
+# defaults write -g SLSMenuBarUseBlurredAppearance -bool true
