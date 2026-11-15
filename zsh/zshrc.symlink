@@ -105,9 +105,10 @@ fi
 
 if command -v git-gtr &> /dev/null; then
   # Source gtr's own cached init (named after the --as function); regenerate
-  # when missing or its schema changes (match init=N to `git gtr help init`)
+  # when missing or older than the installed gtr (Cellar dir), so upgrades
+  # refresh it. rm first: gtr reuses a cache whose stamp still matches.
   _gtr_init="${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gwtr.zsh"
-  [[ -r $_gtr_init ]] && read -r _gtr_stamp < $_gtr_init
-  [[ $_gtr_stamp == *' init=6 '* ]] || git gtr init zsh --as gwtr >/dev/null
-  source $_gtr_init; unset _gtr_init _gtr_stamp
+  [[ $_gtr_init -nt ${commands[git-gtr]:A:h:h} ]] ||
+    { rm -f $_gtr_init; git gtr init zsh --as gwtr >/dev/null }
+  source $_gtr_init; unset _gtr_init
 fi
