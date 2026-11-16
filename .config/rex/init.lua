@@ -44,6 +44,25 @@ agent_action("codex_pane", "Open Codex Pane", "codex!; exit")
 rex.bind("ctrl+cmd+c", "claude_pane")
 rex.bind("ctrl+cmd+x", "codex_pane")
 
+-- Open $EDITOR in the focused pane's directory. The Rex server has no EDITOR,
+-- so an interactive zsh reads it from .zshrc. The command drops -w, because
+-- code -w replaces the last active window when given a folder. Rex kills a
+-- rex.exec.start process when the action returns, so rex.exec runs sh, which
+-- starts zsh in the background and exits. Output goes to /dev/null, since
+-- zsh -i startup warnings would otherwise raise SIGPIPE.
+rex.action{
+  name = "open_editor",
+  title = "Open Editor Here",
+  run = function(ctx)
+    local dir = focused_dir(ctx)
+    if not dir then error("pane has no working directory", 0) end
+    local cmd = [[/bin/zsh -ic '${${=EDITOR}:#(-w|--wait)} .' </dev/null >/dev/null 2>&1 &]]
+    local _, err = rex.exec({ "/bin/sh", "-c", cmd }, { cwd = dir })
+    if err then error(err, 0) end
+  end,
+}
+rex.bind("ctrl+cmd+e", "open_editor")
+
 -- Close session with confirmation: ctrl+cmd+w, then y. Escape or n cancels.
 rex.mode("close-session", { exclusive = true })
 rex.bind("ctrl+cmd+w", "client.mode.enter", { name = "close-session", once = true })
