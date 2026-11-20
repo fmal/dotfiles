@@ -71,6 +71,15 @@ function options(argv) {
   return { help: values.help, ready: values.ready, chromeProfile: profile, positionals };
 }
 
+// Checks the optional URL that Helium opens after the refresh. Without one, Helium opens nothing.
+function openUrl(positionals) {
+  const [url] = positionals;
+  if (positionals.length > 1 || (url !== undefined && !["http:", "https:"].includes(URL.parse(url)?.protocol))) {
+    throw new UsageError("Supply at most one URL, such as http://localhost:4200/.");
+  }
+  return url;
+}
+
 const optionsHelp = `Options:
   --ready                 Use a working Chrome session without a sign-in prompt.
   --chrome-profile NAME   Chrome profile directory, such as Default or 'Profile 1'.
@@ -185,13 +194,15 @@ function decryptCookie(encrypted, domain, key, version) {
 async function transfer(directory, sessions) {
   console.log("🔗 Connecting to your regular Helium profile...");
   try {
-    await run([attach, "--helium", "about:blank"], directory, "Helium attachment");
+    // Background mode keeps the working tab from replacing the tab you are looking at.
+    await run([attach, "--helium", "about:blank"], directory, "Helium attachment", { env: { PLAYWRIGHT_MCP_BACKGROUND: "1" } });
     for (const { site, cookies } of sessions) {
       await transferSite(directory, site, cookies);
       console.log(`✅ Verified your ${site.name} login in Helium.`);
     }
   } finally {
-    await run(["playwright-cli", "detach"], directory, "Helium detachment").catch(() => {});
+    // --close-tabs closes the tab that the attachment opened; a plain detach leaves it open.
+    await run(["playwright-cli", "detach", "--close-tabs"], directory, "Helium detachment").catch(() => {});
   }
 }
 
@@ -217,13 +228,50 @@ function cookieKey(cookie) {
   return JSON.stringify([cookie.domain, cookie.path, cookie.name]);
 }
 
-// Returns Helium's resulting jar so the verification request sends exactly what Helium would.
+// Helium's Playwright extension blocks the cookie APIs (Storage.setCookies), so a navigation to
+// the site's host sets the cookies through Set-Cookie headers instead. The route answers it, so
+// the request never reaches the site; every cookie host must be the page's host or a parent
+// domain of it. Returns Helium's resulting jar so the verification request sends exactly what
+// Helium would.
 function loadCookies(directory, site, cookies, clear = []) {
+  const url = new URL("/.helium-refresh", site.page).href;
+  // Expiring first lets one response clear a cookie and set it again, as the rollback does.
+  // __Host- and __Secure- cookies accept only Secure headers, so every expiry sends Secure.
+  const headers = [
+    ...clear.map(({ name, domain, path }) => setCookieHeader({ name, value: "", domain, path, expires: 0, secure: true })),
+    ...cookies.map(setCookieHeader),
+  ];
   return evaluate(directory, `async page => {
-    for (const cookie of ${JSON.stringify(clear)}) await page.context().clearCookies(cookie);
-    await page.context().addCookies(${JSON.stringify(cookies)});
+    const url = ${JSON.stringify(url)};
+    let served = false;
+    await page.route(url, route => {
+      served = true;
+      return route.fulfill({ status: 204, headers: { "set-cookie": ${JSON.stringify(headers.join("\n"))} } });
+    });
+    // A 204 applies the cookies but cancels the navigation, so goto rejects and the tab stays
+    // on about:blank. A loaded site page could be taken by a tab-grouping extension, and the
+    // Playwright extension releases a tab that leaves its group.
+    try {
+      await page.goto(url);
+    } catch (error) {
+      if (!error.message.includes("net::ERR_ABORTED")) throw error;
+    } finally {
+      await page.unroute(url);
+    }
+    if (!served) throw new Error("The cookie page was not intercepted.");
     return page.context().cookies(${JSON.stringify(site.page)});
   }`, `${site.name} cookie import`);
+}
+
+function setCookieHeader({ name, value, domain, path, expires, httpOnly, secure, sameSite }) {
+  const attributes = [`${name}=${value}`, `Path=${path}`];
+  // Chrome gives a cookie that subdomains share a leading dot; without one it stays host-only.
+  if (domain.startsWith(".")) attributes.push(`Domain=${domain.slice(1)}`);
+  if (expires !== -1) attributes.push(`Expires=${new Date(expires * 1000).toUTCString()}`);
+  if (secure) attributes.push("Secure");
+  if (httpOnly) attributes.push("HttpOnly");
+  if (sameSite) attributes.push(`SameSite=${sameSite}`);
+  return attributes.join("; ");
 }
 
 // The request runs here, not in Helium: cancelling or timing out really stops it,
@@ -274,10 +322,11 @@ async function evaluate(directory, code, stage = "Helium operation") {
   }
 }
 
-function run(command, directory, stage, options) {
+function run(command, directory, stage, { env, ...options } = {}) {
   return cancellable(signal => new Promise((resolve, reject) => {
     childProcess.execFile(command[0], command.slice(1), {
       cwd: directory,
+      env: { ...process.env, ...env },
       maxBuffer: 16 * 1024 * 1024,
       signal,
     }, (error, stdout) => (error ? reject(error) : resolve(stdout)));
@@ -330,6 +379,6 @@ function runMain(main) {
 }
 
 export {
-  RefreshError, UsageError, CancelledError, refresh, options, optionsHelp, runMain, run, decryptCookie,
-  readCookies, verifiedCookies, cookieKey, transfer, cancel,
+  RefreshError, UsageError, CancelledError, refresh, options, openUrl, optionsHelp, runMain, run, decryptCookie,
+  readCookies, verifiedCookies, cookieKey, setCookieHeader, transfer, cancel,
 };

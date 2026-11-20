@@ -42,7 +42,7 @@ playwright-cli goto "${1:-about:blank}"
 
 # shellcheck disable=SC2016  # literal backticks
 printf '%s\n' \
-  "Attached to $name (session default). Run \`playwright-cli detach\` when finished." \
+  "Attached to $name (session default). Run \`playwright-cli detach\` when finished to leave the session's tabs open, or \`playwright-cli detach --close-tabs\` to close them." \
   'Navigate with `playwright-cli goto <URL>`; `playwright-cli open` would replace this session with a fresh browser.' \
-  "To use one of the user's open tabs, ask them to drag it into the Playwright tab group, then \`playwright-cli tab-list\` and \`tab-select <index>\`." \
-  'CDP sessions (`newCDPSession`, `newBrowserCDPSession`) fail over the extension; use Playwright page APIs or in-page JavaScript instead.'
+  "To use one of the user's open tabs, ask them to drag it into the Playwright tab group, then \`playwright-cli tab-list\` and \`tab-select <index>\`. \`detach --close-tabs\` closes such tabs too." \
+  'CDP sessions (`newCDPSession`, `newBrowserCDPSession`) and browser-wide calls (`addCookies`, `clearCookies`) fail over the extension; use Playwright page APIs or in-page JavaScript instead.'

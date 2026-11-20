@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { options, optionsHelp, refresh, runMain, UsageError } from "./lib/helium-session.mjs";
+import { openUrl, options, optionsHelp, refresh, runMain, UsageError } from "./lib/helium-session.mjs";
 
 const site = {
   name: "GitHub",
@@ -14,8 +14,8 @@ const site = {
 async function main() {
   const { help, positionals, ...args } = options(process.argv.slice(2));
   if (help) return showHelp();
-  const org = organization(positionals);
-  await refresh([target(org)], { ...args, open: `https://github.com/${org}` });
+  const org = organization(positionals.slice(0, 1));
+  await refresh([target(org)], { ...args, open: openUrl(positionals.slice(1)) });
 }
 
 // Also lets other scripts refresh GitHub together with their own sites.
@@ -32,11 +32,13 @@ function organization(positionals) {
 }
 
 function showHelp() {
-  console.log(`Usage: helium-github-refresh ORG [--ready] [--chrome-profile NAME]
+  console.log(`Usage: helium-github-refresh ORG [URL] [--ready] [--chrome-profile NAME]
 
 Refresh GitHub access in the regular Helium profile using Chrome's session.
 
 ORG is the GitHub organization whose SSO session you want to refresh, such as my-company.
+URL is a page Helium opens after the refresh, such as https://github.com/my-company.
+Without it, Helium opens nothing.
 
 ${optionsHelp}`);
 }

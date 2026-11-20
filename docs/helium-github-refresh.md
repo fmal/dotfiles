@@ -1,10 +1,12 @@
 # Refresh GitHub access in Helium
 
-`helium-github-refresh` copies your GitHub session cookies from Chrome into your regular Helium profile, then opens the organization in Helium. ORG is the GitHub organization whose SSO session you want to refresh.
+`helium-github-refresh` copies your GitHub session cookies from Chrome into your regular Helium profile. ORG is the GitHub organization whose SSO session you want to refresh.
 
 ```sh
 helium-github-refresh ORG
 ```
+
+To open a page in Helium after the refresh, add its URL, for example `helium-github-refresh ORG https://github.com/ORG`. Without a URL, Helium opens nothing.
 
 1. Complete the organization's SSO in the Chrome window that opens.
 2. Return to the terminal and press Enter.

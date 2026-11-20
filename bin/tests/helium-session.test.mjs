@@ -58,6 +58,24 @@ function sitePage(signedIn) {
   return new Response(signedIn ? "signed in" : "signed out");
 }
 
+// Parses a Set-Cookie header into the cookie Chrome would store from host.
+function parseSetCookie(host, header) {
+  const [pair, ...attributes] = header.split("; ");
+  const { Domain: domain, Path: path, Expires: expires, SameSite: sameSite, ...flags } = Object.fromEntries(attributes.map(a => a.split("=")));
+  if (domain) assert(host === domain || host.endsWith(`.${domain}`), `${host} cannot set cookies for ${domain}`);
+  const separator = pair.indexOf("=");
+  return {
+    name: pair.slice(0, separator),
+    value: pair.slice(separator + 1),
+    domain: domain ? `.${domain}` : host,
+    path,
+    secure: "Secure" in flags,
+    httpOnly: "HttpOnly" in flags,
+    expires: expires ? Date.parse(expires) / 1000 : -1,
+    ...(sameSite && { sameSite }),
+  };
+}
+
 function cookie(name, value, domain = "example.test") {
   return { name, value, domain, path: "/", secure: true, httpOnly: true, expires: -1 };
 }
@@ -84,27 +102,38 @@ function browserFixture(t, { loginFailure = false, requestFailure = false, parti
       const url = new URL(raw);
       return (url.hostname === c.domain.replace(/^\./, "") || url.hostname.endsWith(c.domain)) && url.pathname.startsWith(c.path);
     })),
-    addCookies: async cookies => {
+    setStorageState: () => { throw new Error("Whole-storage replacement is forbidden"); },
+    get request() { throw new Error("Helium's request jar is forbidden: late responses would overwrite the rollback"); },
+  };
+  const routes = new Map();
+  const page = {
+    context: () => context,
+    route: async (url, handler) => { routes.set(url, handler); },
+    unroute: async url => { routes.delete(url); },
+    // Stores the routed response's cookies the way Helium does.
+    goto: async url => {
+      const handler = routes.get(url);
+      assert(handler, "Only a routed request may go out: anything else would reach the site");
+      let response;
+      await handler({ fulfill: async options => { response = options; } });
+      assert.equal(response.status, 204, "A loaded site page could be moved out of the Playwright tab group");
       imports++;
       if (imports === 2 && cancelRestore) m.cancel();
       if (imports === 2 && restoreFailure) throw new Error("synthetic-restore-failure");
-      for (const c of cookies) {
-        store.set(m.cookieKey(c), { ...c });
+      for (const header of response.headers["set-cookie"].split("\n")) {
+        const c = parseSetCookie(new URL(url).hostname, header);
+        if (c.expires !== -1 && c.expires * 1000 <= Date.now()) { store.delete(m.cookieKey(c)); continue; }
+        store.set(m.cookieKey(c), c);
         if (imports === 1 && c.name === "session") {
           if (partial) throw new Error("synthetic-sensitive-browser-error");
           // Cancelled here, Helium still stores the remaining cookies a moment later.
           if (cancelMidImport) { m.cancel(); await delay(50); }
         }
       }
+      // Like Chrome, which cancels a navigation that answers 204.
+      throw new Error(`net::ERR_ABORTED at ${url}`);
     },
-    clearCookies: async filter => {
-      assert.deepEqual(Object.keys(filter).sort(), ["domain", "name", "path"]);
-      for (const [key, c] of store) if (c.name === filter.name && c.domain === filter.domain && c.path === filter.path) store.delete(key);
-    },
-    setStorageState: () => { throw new Error("Whole-storage replacement is forbidden"); },
-    get request() { throw new Error("Helium's request jar is forbidden: late responses would overwrite the rollback"); },
   };
-  const page = { context: () => context };
   t.mock.method(globalThis, "fetch", async (url, options) => {
     requests.push(url);
     cookieHeaders.push(options.headers.cookie);
@@ -120,9 +149,12 @@ function browserFixture(t, { loginFailure = false, requestFailure = false, parti
   t.mock.method(console, "error", message => logs.push(message));
   t.mock.method(childProcess, "execFile", (command, args, options, callback) => {
     operations.push(Promise.resolve().then(async () => {
-      if (path.basename(command) === "pw-attach") return callback(null, "");
+      if (path.basename(command) === "pw-attach") {
+        assert.equal(options.env.PLAYWRIGHT_MCP_BACKGROUND, "1", "The working tab would replace the user's active tab");
+        return callback(null, "");
+      }
       assert.equal(command, "playwright-cli");
-      if (args.includes("detach")) { detachments++; return callback(null, ""); }
+      if (args.includes("detach")) { assert(args.includes("--close-tabs"), "A plain detach leaves the tab open"); detachments++; return callback(null, ""); }
       const filename = args.find(arg => arg.startsWith("--filename="));
       assert(filename, "Helium code must arrive through a file, never on argv");
       const file = filename.slice("--filename=".length);
@@ -164,6 +196,14 @@ test("parses the shared options and rejects unknown flags and unsafe profiles", 
   assert.equal(m.options(["--help"]).help, true);
   assert.throws(() => m.options(["--bogus"]), m.UsageError);
   assert.throws(() => m.options(["--chrome-profile", "../Default"]), m.UsageError);
+});
+
+test("opens nothing unless given exactly one web URL", () => {
+  assert.equal(m.openUrl([]), undefined);
+  assert.equal(m.openUrl(["http://localhost:4200/"]), "http://localhost:4200/");
+  for (const positionals of [["example.test"], ["file:///etc/hosts"], ["javascript:alert(1)"], ["https://example.test/", "https://example.test/"]]) {
+    assert.throws(() => m.openUrl(positionals), m.UsageError);
+  }
 });
 
 test("decrypts current domain-bound and legacy Chrome cookie formats", () => {
@@ -221,6 +261,17 @@ test("checks sessions without following redirects", async t => {
   });
   assert.equal((await m.verifiedCookies(database(t), key, site, { interval: 1 })).length, 2);
   assert.equal(fetch.mock.callCount(), 1);
+});
+
+test("writes cookies as Set-Cookie headers that keep their scope and expiry", () => {
+  assert.equal(
+    m.setCookieHeader({ name: "__Host-session", value: "v", domain: "example.test", path: "/", expires: 1e9, httpOnly: true, secure: true, sameSite: "Strict" }),
+    "__Host-session=v; Path=/; Expires=Sun, 09 Sep 2001 01:46:40 GMT; Secure; HttpOnly; SameSite=Strict",
+  );
+  assert.equal(
+    m.setCookieHeader({ name: "hint", value: "v", domain: ".example.test", path: "/app", expires: -1, httpOnly: false, secure: false }),
+    "hint=v; Path=/app; Domain=example.test",
+  );
 });
 
 test("successful import verifies the login and preserves unrelated cookies", async t => {
