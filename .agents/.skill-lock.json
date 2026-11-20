@@ -222,9 +222,10 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/microsoft/playwright-cli.git",
       "skillPath": "skills/playwright-cli/SKILL.md",
-      "skillFolderHash": "cc70f6e5f0cf42b82d3f72f6f1c3a4134694d518",
+      "skillFolderHash": "0cc4729ee620ed1deff6630aa439ace9c0980849",
       "installedAt": "2026-09-11T12:51:15.659Z",
-      "updatedAt": "2026-11-08T11:18:45.544Z"
+      "updatedAt": "2026-11-20T09:30:05.283Z",
+      "commit": "c872a33cec77fa03c28fa7c6d1ad99d15d04ce42"
     },
     "technical-writing": {
       "source": "cursor/plugins",
