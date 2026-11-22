@@ -263,6 +263,16 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-10-18T23:26:42.773Z",
       "updatedAt": "2026-10-18T23:26:42.773Z"
+    },
+    "rex-teams": {
+      "source": "campfireshuffle/rex-teams",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/campfireshuffle/rex-teams.git",
+      "commit": "3969e12b56dbac2b4a0905c827f072645fa43ff6",
+      "skillPath": "skills/rex-teams/SKILL.md",
+      "skillFolderHash": "eab61599afe122524a7d2614b22aaf5d18361c12",
+      "installedAt": "2026-11-22T13:57:06.801Z",
+      "updatedAt": "2026-11-22T13:57:06.801Z"
     }
   },
   "dismissed": {
@@ -274,6 +284,7 @@
     "codex",
     "cursor",
     "droid",
+    "fx",
     "gemini-cli",
     "github-copilot",
     "kilo",
