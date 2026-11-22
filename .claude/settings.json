@@ -28,7 +28,7 @@
       "mcp__claude_ai_Optimeering_-_Production",
       "mcp__claude_ai_Slack"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
   "model": "opus",
   "enableAllProjectMcpServers": true,
