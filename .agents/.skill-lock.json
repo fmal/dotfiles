@@ -146,15 +146,6 @@
       "installedAt": "2026-05-31T14:04:47.396Z",
       "updatedAt": "2026-05-31T14:04:47.396Z"
     },
-    "thermo-nuclear-code-quality-review": {
-      "source": "cursor/plugins",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/cursor/plugins.git",
-      "skillPath": "cursor-team-kit/skills/thermo-nuclear-code-quality-review/SKILL.md",
-      "skillFolderHash": "d9c8935dd560b3b6f5941247d04a1843f8c7cc35",
-      "installedAt": "2026-05-31T14:13:27.769Z",
-      "updatedAt": "2026-05-31T14:13:27.769Z"
-    },
     "vercel-composition-patterns": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
