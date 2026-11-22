@@ -1,0 +1,29 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+# Merge tracked settings into the local file. agy replaces a symlinked
+# settings.json on save, and the local file also holds state such as
+# trustedWorkspaces that the merge keeps.
+settings="$HOME/.gemini/antigravity-cli/settings.json"
+tracked="${0:A:h}/antigravity-cli/settings.json"
+tmp_home=""
+trap 'rm -f "$settings.tmp"; [[ -n "$tmp_home" ]] && rm -rf "$tmp_home"' EXIT
+
+mkdir -p "${settings:h}"
+inputs=("$tracked")
+[[ -s "$settings" ]] && inputs=("$settings" "$tracked")
+
+jq -s 'reduce .[] as $x ({}; . * $x)' "${inputs[@]}" > "$settings.tmp"
+chmod 600 "$settings.tmp"
+mv "$settings.tmp" "$settings"
+
+if command -v agy &> /dev/null; then
+  echo "Antigravity CLI is already installed: skipping install."
+  exit 0
+fi
+
+# The installer appends a PATH line to ~/.zshrc and ~/.zprofile, which zsh/
+# already covers. A throwaway HOME takes those writes instead.
+tmp_home=$(mktemp -d)
+curl -fsSL https://antigravity.google/cli/install.sh |
+  HOME=$tmp_home bash -s -- --dir "$HOME/.local/bin"

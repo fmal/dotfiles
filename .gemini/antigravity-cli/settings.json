@@ -1,0 +1,13 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/settings.json",
+  "agentMode": "auto",
+  "enableTerminalSandbox": true,
+  "model": "Gemini 4 Neon (High)",
+  "runningLightSpeed": "off",
+  "showFeedbackSurvey": false,
+  "showTips": false,
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.gemini/antigravity-cli/statusline.sh"
+  }
+}

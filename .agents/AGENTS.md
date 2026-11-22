@@ -25,4 +25,4 @@ You are a pragmatic software engineer consulting with a peer.
 - Assume I have a dev server running; don't start, restart, or offer to run one unless I explicitly ask.
 - Use yarn if `yarn.lock` exists, pnpm if `pnpm-lock.yaml` exists.
 - Browser automation: prefer `playwright-cli` over other browser skills for testing, UI checks and QA. For my real browser, start with `~/.dotfiles/bin/pw-attach [--chrome|--helium] [URL]` (no flag = default browser).
-- Start rex-teams subagents only when I ask for a tab or name another agent CLI: `command="claude --dangerously-skip-permissions"` or `command="codex --no-daemon --dangerously-bypass-approvals-and-sandbox"`, flags kept on resume.
+- Start rex-teams subagents only when I ask for a tab or name another agent CLI: `command="claude --dangerously-skip-permissions"`, `command="codex --no-daemon --dangerously-bypass-approvals-and-sandbox"` or `command="agy --dangerously-skip-permissions -i {prompt}"`, flags kept on resume.

@@ -31,6 +31,11 @@ if command -v codex &> /dev/null; then
   alias codex!="codex --dangerously-bypass-approvals-and-sandbox"
 fi
 
+# Antigravity CLI
+if command -v agy &> /dev/null; then
+  alias agy!="agy --dangerously-skip-permissions"
+fi
+
 # lazygit that cd's into the last repo you visited (via the repo switcher)
 if command -v lazygit &> /dev/null; then
   lg() {

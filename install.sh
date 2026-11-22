@@ -68,10 +68,11 @@ set_symlink "$DOTFILES/.claude/commands" "$HOME/.claude/commands"
 set_symlink "$DOTFILES/.claude/skills" "$HOME/.claude/skills"
 set_symlink "$DOTFILES/.claude/statusline.sh" "$HOME/.claude/statusline.sh"
 
-# Symlink gemini CLI conf
-mkdir -p "$HOME/.gemini"
-set_symlink "$DOTFILES/.gemini/settings.json" "$HOME/.gemini/settings.json"
+# Symlink Antigravity CLI conf
+mkdir -p "$HOME/.gemini/config" "$HOME/.gemini/antigravity-cli"
 set_symlink "$DOTFILES/.agents/AGENTS.md" "$HOME/.gemini/AGENTS.md"
+set_symlink "$DOTFILES/.gemini/config/skills" "$HOME/.gemini/config/skills"
+set_symlink "$DOTFILES/.gemini/antigravity-cli/statusline.sh" "$HOME/.gemini/antigravity-cli/statusline.sh"
 
 # Symlink codex CLI conf
 mkdir -p "$HOME/.codex"
