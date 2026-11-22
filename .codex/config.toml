@@ -33,3 +33,8 @@ hide_rate_limit_model_nudge = true
 
 [features]
 terminal_resize_reflow = true
+
+# Shared via ~/.agents/skills, but it launches `claude --bg`
+[[skills.config]]
+name = "claude-handoff"
+enabled = false
