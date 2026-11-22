@@ -6,9 +6,10 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "29ba9c12789b1c54ab76ad40e2472e646d141b85",
+      "skillFolderHash": "d75a393c9a371295c6d6be46c34938e76ef21184",
       "installedAt": "2026-02-08T19:31:25.803Z",
-      "updatedAt": "2026-11-08T11:18:44.506Z"
+      "updatedAt": "2026-11-22T13:13:34.337Z",
+      "commit": "d2dfc782ccdd79d25a9b4f0acced9321789cecb8"
     },
     "ast-grep": {
       "source": "ast-grep/agent-skill",
@@ -186,9 +187,10 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/cloudflare/skills.git",
       "skillPath": "skills/workers-best-practices/SKILL.md",
-      "skillFolderHash": "302f7f55037fe9396dfcd961d8877d020391104c",
+      "skillFolderHash": "82b367b39fd2b7fe77bd2859bd09b3cff80907c9",
       "installedAt": "2026-08-17T14:39:37.610Z",
-      "updatedAt": "2026-11-08T11:18:45.109Z"
+      "updatedAt": "2026-11-22T13:13:35.181Z",
+      "commit": "5108325ecceabc899c761e07aa617b09c02445ee"
     },
     "wrangler": {
       "source": "cloudflare/skills",
@@ -213,9 +215,10 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/cursor/plugins.git",
       "skillPath": "pstack/skills/unslop/SKILL.md",
-      "skillFolderHash": "4e572dd70e5557f490e3991c52ea58f0dcee8936",
+      "skillFolderHash": "3319d5baa095167501a128703a008446dd099d0c",
       "installedAt": "2026-08-23T23:12:41.709Z",
-      "updatedAt": "2026-10-12T13:39:15.038Z"
+      "updatedAt": "2026-11-22T13:13:34.745Z",
+      "commit": "7a583913eb1b8d1a0ee76753d1a2cf072e7b54f9"
     },
     "playwright-cli": {
       "source": "microsoft/playwright-cli",
@@ -232,9 +235,10 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/cursor/plugins.git",
       "skillPath": "pstack/skills/technical-writing/SKILL.md",
-      "skillFolderHash": "f35560fd015d95ae92eb3c7414d3a48065299dfa",
+      "skillFolderHash": "545f2339fc1812c1b8343dec8937054a0dc29155",
       "installedAt": "2026-09-27T17:17:23.674Z",
-      "updatedAt": "2026-10-12T13:39:19.809Z"
+      "updatedAt": "2026-11-22T13:13:35.075Z",
+      "commit": "7a583913eb1b8d1a0ee76753d1a2cf072e7b54f9"
     },
     "show-me": {
       "source": "humanlayer/skills",
