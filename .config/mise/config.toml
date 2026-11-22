@@ -10,6 +10,7 @@ bun = "latest"
 "npm:agent-browser" = "latest"
 "npm:cf" = { version = "latest", prerelease = true }
 "npm:opensrc" = "latest"
+lua = "5.1"
 
 [settings]
 legacy_version_file = false
