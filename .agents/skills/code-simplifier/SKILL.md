@@ -1,6 +1,6 @@
 ---
 name: code-simplifier
-description: Use when asked to "simplify", "clean up", "deslop", "refactor for clarity", or "improve readability" of code while preserving behavior.
+description: Use when asked to "clean up", "deslop", "refactor for clarity", or "improve readability" of code while preserving behavior.
 argument-hint: <file_path_or_description_of_recent_changes>
 ---
 
