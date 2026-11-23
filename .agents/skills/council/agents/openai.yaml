@@ -1,5 +1,5 @@
 interface:
   display_name: "Council"
-  short_description: "Second opinions from Claude and Codex"
+  short_description: "Second opinions from Claude, Codex, and Antigravity"
 policy:
   allow_implicit_invocation: false
