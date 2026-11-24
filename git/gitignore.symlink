@@ -21,3 +21,5 @@ fnox.local.toml
 
 # playwright-cli page snapshots
 .playwright-cli/
+
+**/.claude/.cc-writes/
