@@ -28,7 +28,7 @@ git:
       pager: diff-so-fancy
 
 # os.editPreset not needed: lazygit derives the vscode preset from
-# gitconfig's core.editor (code -w)
+# $EDITOR (code -w)
 
 disableStartupPopups: true
 # return from subprocesses (like `e`) without a "press enter" prompt
@@ -101,5 +101,5 @@ customCommands:
         key: Message
         title: Message
         initialValue: ""
-    command: "git commit --message '{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}{{.Form.Breaking}}: {{.Form.Message}}'"
+    command: 'git commit --message {{ print .Form.Type (and .Form.Scope (printf "(%s)" .Form.Scope)) .Form.Breaking ": " .Form.Message | quote }}'
     loadingText: Committing...

@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 
 vendored=$(jq -r '.skills | keys | join("|")' .agents/.skill-lock.json)
 sh_files=()
-zsh_files=(zsh/*.zsh zsh/zshrc.symlink zsh/zprofile.symlink)   # sourced, no shebang
+zsh_files=(zsh/*.zsh zsh/zshrc.symlink zsh/zprofile.symlink zsh/zshenv.symlink)   # sourced, no shebang
 
 while IFS= read -r file; do
   [[ -f $file && ! -L $file && ! $file =~ ^\.agents/skills/($vendored)/ ]] || continue
