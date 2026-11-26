@@ -39,8 +39,8 @@ export FZF_DEFAULT_OPTS="
 source <(fzf --zsh)
 
 if command -v zmx &> /dev/null; then
-  # For hosts I SSH into regularly, prefer per-session aliases over the picker
-  # below — pattern documented in ~/.ssh/config.
+  # For hosts I SSH into regularly, prefer per-session aliases in
+  # ~/.ssh/config.local over the picker below.
 
   # zmx session picker (https://zmx.sh/#session-picker)
   zmx-select() {

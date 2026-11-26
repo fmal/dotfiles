@@ -95,11 +95,6 @@
   "explorer.autoReveal": false,
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.profiles.osx": {
-    "zsh": {
-      "path": "/opt/homebrew/bin/zsh",
-    },
-  },
   "workbench.fontAliasing": "default",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontFamily": "'Dank Mono', 'Symbols Nerd Font Mono', monospace",
@@ -196,7 +191,6 @@
     "Anthropic.claude-code": 1,
   },
   "github.copilot.nextEditSuggestions.enabled": true,
-  "totalTypeScript.hideBasicTips": true,
   "chat.titleBar.openInAgentsWindow.enabled": false,
   "workbench.browser.showInTitleBar": false,
   "chat.titleBar.signIn.enabled": false,
