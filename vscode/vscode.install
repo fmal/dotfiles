@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-source helpers.sh
+source "${0:A:h:h}/helpers.sh"
 
 # Symlink settings
 
@@ -13,13 +13,15 @@ set_symlink "$DOTFILES/vscode/prompts" "$HOME/Library/Application Support/Code/U
 
 # Install extensions
 
-if [[ ! $(which code) ]]; then
+if ! command -v code &> /dev/null; then
   echo "Visual Studio Code not installed: skipping extensions install."
   exit 0
 fi
 
 echo "Installing VSCode extensions"
 
-for extension in $(cat ${DOTFILES}/vscode/extensions.txt); do
-  code --install-extension $extension 2> /dev/null
+args=()
+for extension in ${(f)"$(<$DOTFILES/vscode/extensions.txt)"}; do
+  args+=(--install-extension $extension)
 done
+code $args || echo "Warning: some VSCode extensions failed to install"

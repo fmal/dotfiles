@@ -7,6 +7,14 @@ die () {
   exit 1
 }
 
+load_brew_env () {
+  if [[ -f "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -f "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+}
+
 run_installer () {
 	installer=$1
 	echo "Running ${installer}"
@@ -25,27 +33,25 @@ set_symlink () {
 
   if [ -f "$link_file" -o -d "$link_file" -o -L "$link_file" ]; then
 
+    # Already linked: return before any "all" choice can clobber it
+    if [ "$link_file:A" = "$link_target" ]; then
+      echo "Skipped $link_file"
+      return
+    fi
+
     if [ "$overwrite_all" = "false" ] && [ "$backup_all" = "false" ] && [ "$skip_all" = "false" ]; then
+      echo "⚠️ File already exists: $link_file, what do you want to do?\n\
+      [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+      read -k action
 
-      local current_link_target
-      current_link_target="$link_file:A"
-
-      if [ "$current_link_target" = "$link_target" ]; then
-        skip=true;
-      else
-        echo "⚠️ File already exists: $link_file, what do you want to do?\n\
-        [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-        read -k action
-
-        case "$action" in
-          o ) overwrite=true;;
-          O ) overwrite_all=true;;
-          b ) backup=true;;
-          B ) backup_all=true;;
-          S ) skip_all=true;;
-          * ) skip=true;;  # s, unknown key or no tty: never clobber
-        esac
-      fi
+      case "$action" in
+        o ) overwrite=true;;
+        O ) overwrite_all=true;;
+        b ) backup=true;;
+        B ) backup_all=true;;
+        S ) skip_all=true;;
+        * ) skip=true;;  # s, unknown key or no tty: never clobber
+      esac
     fi
 
     overwrite="${overwrite:-$overwrite_all}"

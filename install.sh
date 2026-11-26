@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-source helpers.sh
+source "${0:A:h}/helpers.sh"
 
 # Ask for the administrator password upfront and keep the ticket alive until
 # the script exits; brew bundle alone can outlast the 5-minute sudo timeout
@@ -82,16 +82,20 @@ set_symlink "$DOTFILES/.agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
 set_symlink "$DOTFILES/.codex/prompts" "$HOME/.codex/prompts"
 set_symlink "$DOTFILES/.codex/themes" "$HOME/.codex/themes"
 
-# write Docker config file (don't link, because auth)
+# write Docker config file once (don't link, because auth); re-runs keep local
+# state such as the current context
 mkdir -p "$HOME/.docker"
-cat "$DOTFILES/.docker/config.json" > "$HOME/.docker/config.json"
+[[ -f $HOME/.docker/config.json ]] || cat "$DOTFILES/.docker/config.json" > "$HOME/.docker/config.json"
 
 set -e
 
-# Homebrew first, the rest in sorted order. (u) drops homebrew's duplicate from
-# the glob; (D) includes dot-dirs like .claude
-installers=($DOTFILES/homebrew/homebrew.install $DOTFILES/**/*.install(D))
-for installer (${(u)installers}) run_installer "$installer"
+# Homebrew first, the rest in sorted order; (D) includes dot-dirs like .claude
+run_installer "$DOTFILES/homebrew/homebrew.install"
+# homebrew.install's PATH changes end with its process; later installers need
+# brew's binaries (code)
+load_brew_env
+installers=($DOTFILES/**/*.install(D))
+for installer (${installers:#$DOTFILES/homebrew/homebrew.install}) run_installer "$installer"
 
 # Ghostty's terminfo lives in its app bundle, which only Ghostty's own shells
 # search. Copy it to ~/.terminfo so SSH sessions recognize TERM=xterm-ghostty.
@@ -104,5 +108,5 @@ fi
 
 # don't show last login message
 if [[ ! -f $HOME/.hushlogin ]]; then
-  touch $HOME/.hushlogin
+  touch "$HOME/.hushlogin"
 fi

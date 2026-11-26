@@ -1,19 +1,24 @@
 #!/usr/bin/env zsh
 
-source helpers.sh
+if [[ ! -d "/Applications/Sublime Text.app" ]]; then
+  echo "Sublime Text not installed: skipping preferences setup."
+  exit 0
+fi
+
+source "${0:A:h:h}/helpers.sh"
 
 ST_DIR="$HOME/Library/Application Support/Sublime Text"
 
 # Install Package Control
-
-mkdir -p "$ST_DIR/Installed Packages"
-curl -sSL "https://packagecontrol.io/Package%20Control.sublime-package" -o "$ST_DIR/Installed Packages/Package Control.sublime-package"
+PACKAGE_CONTROL="$ST_DIR/Installed Packages/Package Control.sublime-package"
+if [[ ! -f "$PACKAGE_CONTROL" ]]; then
+  mkdir -p "$ST_DIR/Installed Packages"
+  curl -fsSL "https://packagecontrol.io/Package%20Control.sublime-package" -o "$PACKAGE_CONTROL"
+fi
 
 # Symlink settings
-
 ST_USER_DIR="$ST_DIR/Packages/User"
-
-mkdir -p $ST_USER_DIR
+mkdir -p "$ST_USER_DIR"
 
 set_symlink "$DOTFILES/sublime/Package Control.sublime-settings" "$ST_USER_DIR/Package Control.sublime-settings"
 set_symlink "$DOTFILES/sublime/Preferences.sublime-settings" "$ST_USER_DIR/Preferences.sublime-settings"
